@@ -41,10 +41,4 @@ ul.posts {
 ul.posts li {
     list-style: none;
 }
-ul.cv {
-    margin: 20px auto 40px; 
-    font-size: 1.5em;
-}
-ul.cv li {
-    list-style: none;
-}
+
