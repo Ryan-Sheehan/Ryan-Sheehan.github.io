@@ -47,4 +47,6 @@ ul li {
     line-height: 1.4em;
     color: #333;
 }
-
+#image {
+    width: 100%;
+}
