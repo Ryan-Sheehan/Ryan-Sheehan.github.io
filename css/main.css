@@ -47,13 +47,4 @@ ul li {
     line-height: 1.4em;
     color: #333;
 }
-section {
-    float: left;
-    margin: 0 1.5%;
-    width: 63%;
-}
-aside {
-    float: right;
-    margin: 0 1.5%;
-    width: 30%;
-}
+
