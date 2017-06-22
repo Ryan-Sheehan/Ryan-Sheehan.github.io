@@ -51,11 +51,13 @@ section {
     float: left;
     margin: 0 1.5%;
     width: 63%;
+    height: 30px;
     background-color: black;
 }
 aside {
     float: right;
     margin: 0 1.5%;
     width: 30%;
+    height: 50px;
     background-color: black;
 }
