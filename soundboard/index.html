@@ -2,13 +2,31 @@
 layout: default
 title: soundboard
 ---
-<table>
-  <tbody>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tbody
-</table
+<div>
+  <table>
+    <tbody>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tbody>
+  </table>
+</div>
+<audio data-key="65" src="Ryan-Sheehan.github.io/sounds/Game Show Buzzer Sound Effect.mp3"></audio>
+<audio data-key="83" src="Ryan-Sheehan.github.io/sounds/Hey thats pretty good sound effect.mp3"></audio>
+<audio data-key="68" src="Ryan-Sheehan.github.io/sounds/PizzaBall.mp3"></audio>
+<audio data-key="70" src="Ryan-Sheehan.github.io/sounds/Small Crowd Booing Sound Effect.mp3"></audio>
+<audio data-key="71" src="Ryan-Sheehan.github.io/sounds/cat call whistle sound effect.mp3"></audio>
+<audio data-key="72" src="Ryan-Sheehan.github.io/sounds/The Wilhelm scream sound effect.mp3"></audio>
+
+<script type="text/javascript">
+  window.addEventListener('keydown', function(e) {
+    const audio = document.querySelector('audio[data-key="${e.keycode}"]');
+    const key = document.querySelector('.key[data-key="${e.keycode}"]');
+    if(!audio) return; //stops the function from running if the key pressed has no audio associated with it
+    audio.currentTime = 0; // rewinds to the beginning (in case audio hadn't finished by the time a new keydown event occurs)
+    audio.play();
+  }
+</script>
