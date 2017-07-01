@@ -49,18 +49,23 @@ title: soundboard
 		    </tbody>
 		  </table>
 		</div>
-	<audio data-key="65" src="MiscSnare.wav"></audio>
-	<audio data-key="83" src="Misc Sounds/Hey thats pretty good.mp3"></audio>
-	<audio data-key="68" src="Misc Sounds/PizzaBall.mp3"></audio>
-	<audio data-key="70" src="Misc Sounds/Boo.mp3"></audio>
-	<audio data-key="71" src="Misc Sounds/Cat Call.mp3"></audio>
-	<audio data-key="72" src="Misc Sounds/Wilhelm.mp3"></audio>
-	<audio data-key="74" src="Misc Sounds/Buzzer.mp3"></audio>
+	<audio preload="auto" data-key="65" src="MiscSnare.wav"></audio>
+	<audio preload="auto" data-key="83" src="Misc Sounds/Hey thats pretty good.mp3"></audio>
+	<audio preload="auto" data-key="68" src="Misc Sounds/PizzaBall.mp3"></audio>
+	<audio preload="auto" data-key="70" src="Misc Sounds/Boo.mp3"></audio>
+	<audio preload="auto" data-key="71" src="Misc Sounds/Cat Call.mp3"></audio>
+	<audio preload="auto" data-key="72" src="Misc Sounds/Wilhelm.mp3"></audio>
+	<audio preload="auto" data-key="74" src="Misc Sounds/Buzzer.mp3"></audio>
 
 
 	<script type="text/javascript">
 	
-	function playSound(e) {
+	
+		
+		
+		
+		
+		function playSound(e) {
 		//audio[data-key="${e.keyCode}"] wasn't working for some reason so this is the best I could muster
 		var audio, key;
 	    switch(e.keyCode){
