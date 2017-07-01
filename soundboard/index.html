@@ -2,31 +2,113 @@
 layout: default
 title: soundboard
 ---
-<div>
-  <table>
-    <tbody>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tbody>
-  </table>
-</div>
-<audio data-key="65" src="Ryan-Sheehan.github.io/sounds/Game Show Buzzer Sound Effect.mp3"></audio>
-<audio data-key="83" src="Ryan-Sheehan.github.io/sounds/Hey thats pretty good sound effect.mp3"></audio>
-<audio data-key="68" src="Ryan-Sheehan.github.io/sounds/PizzaBall.mp3"></audio>
-<audio data-key="70" src="Ryan-Sheehan.github.io/sounds/Small Crowd Booing Sound Effect.mp3"></audio>
-<audio data-key="71" src="Ryan-Sheehan.github.io/sounds/cat call whistle sound effect.mp3"></audio>
-<audio data-key="72" src="Ryan-Sheehan.github.io/sounds/The Wilhelm scream sound effect.mp3"></audio>
+<div class="keys">
+		  <table>
+		    <tbody>
+		      <td>
+		      	<div data-key="65" class="key">
+		      		<kbd>A</kbd>
+		      		<span class="sound"></span>
+		      	</div>
+		      </td>
+		      <td>
+		      	<div data-key="83" class="key">
+		      		<kbd>S</kbd>
+		      		<span class="sound"></span>
+		      	</div>
+		      </td>
+		      <td>
+		      	<div data-key="68" class="key">
+		      		<kbd>D</kbd>
+		      		<span class="sound"></span>
+		      	</div>
+		      </td>
+		      <td>
+		      	<div data-key="70" class="key">
+		      		<kbd>F</kbd>
+		      		<span class="sound"></span>
+		      	</div>
+		      </td>
+		      <td>
+		      	<div data-key="71" class="key">
+		      		<kbd>G</kbd>
+		      		<span class="sound"></span>
+		      	</div>
+		      </td>
+		      <td>
+		      	<div data-key="72" class="key">
+		      		<kbd>H</kbd>
+		      		<span class="sound"></span>
+		      	</div>
+		      </td>
+		      <td>
+		      	<div data-key="74" class="key">
+		      		<kbd>J</kbd>
+		      		<span class="sound"></span>
+		      </td>
+		    </tbody>
+		  </table>
+		</div>
+	<audio data-key="65" src="MiscSnare.wav"></audio>
+	<audio data-key="83" src="Misc Sounds/Hey thats pretty good.mp3"></audio>
+	<audio data-key="68" src="Misc Sounds/PizzaBall.mp3"></audio>
+	<audio data-key="70" src="Misc Sounds/Boo.mp3"></audio>
+	<audio data-key="71" src="Misc Sounds/Cat Call.mp3"></audio>
+	<audio data-key="72" src="Misc Sounds/Wilhelm.mp3"></audio>
+	<audio data-key="74" src="Misc Sounds/Buzzer.mp3"></audio>
 
-<script type="text/javascript">
-  window.addEventListener('keydown', function(e) {
-    const audio = document.querySelector('audio[data-key="${e.keycode}"]');
-    const key = document.querySelector('.key[data-key="${e.keycode}"]');
-    if(!audio) return; //stops the function from running if the key pressed has no audio associated with it
-    audio.currentTime = 0; // rewinds to the beginning (in case audio hadn't finished by the time a new keydown event occurs)
-    audio.play();
-  }
-</script>
+
+	<script type="text/javascript">
+	
+	function playSound(e) {
+		//audio[data-key="${e.keyCode}"] wasn't working for some reason so this is the best I could muster
+		var audio, key;
+	    switch(e.keyCode){
+	    	case 65:
+	    		audio = document.querySelector(`audio[data-key="65"]`);
+	    		key = document.querySelector(`.key[data-key="65"]`);
+	    	break;
+	    	case 83:
+	    		audio = document.querySelector(`audio[data-key="83"]`);
+	    		key = document.querySelector(`.key[data-key="83"]`);
+	    	break;
+	    	case 68:
+	    		audio = document.querySelector(`audio[data-key="68"]`);
+	    		key = document.querySelector(`.key[data-key="68"]`);
+	    	break;
+	    	case 70:
+	    		audio = document.querySelector(`audio[data-key="70"]`);
+	    		key = document.querySelector(`.key[data-key="70"]`);
+	    	break;
+	    	case 71:
+	    		audio = document.querySelector(`audio[data-key="71"]`);
+	    		key = document.querySelector(`.key[data-key="71"]`);
+	    	break;
+	    	case 72:
+	    		audio = document.querySelector(`audio[data-key="72"]`);
+	    		key = document.querySelector(`.key[data-key="72"]`);
+	    	break;
+	    	case 74:
+	    		audio = document.querySelector(`audio[data-key="74"]`);
+	    		key = document.querySelector(`.key[data-key="74"]`);
+	    	break;
+
+	    }
+	    console.log(audio);
+	    console.log(key);
+	    if(!audio) return; //stops the function from running if the key pressed has no audio associated with it
+	    key.classList.add('playing');
+	    audio.currentTime = 0; // rewinds to the beginning (in case audio hadn't finished by the time a new keydown event occurs)
+	    audio.play();
+	    
+	 }
+
+	  function removeTransition(e) {
+	  	if(e.propertyName !== 'transform');
+	  	this.classList.remove('playing');
+	  }
+
+	  const keys = Array.from(document.querySelectorAll('.key'));
+	  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+	  window.addEventListener('keydown', playSound);
+	</script>
