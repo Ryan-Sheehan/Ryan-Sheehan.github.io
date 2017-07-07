@@ -50,7 +50,11 @@ kbd {
 }
 
 .header-box {
-  background-color: black;
+    background-color: black;
+    background: rgba(0, 0, 0,0.4);
+    border: solid black;
+    border-radius: 3px;
+    text-align: center;
 }
 
 
