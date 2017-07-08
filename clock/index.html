@@ -5,19 +5,19 @@
 		<title>Clock</title>
 	</head>
 	<body>	
-		<nav>
+				<nav>
 			<ul>
 				<li><a href="/">Home</a></li>
 				<li><a href="/about">About</a></li>
 				<li><a href="/cv">CV</a></li>
 				<li><a href="/blog">Blog</a></li>
-				<li><a href="/soundboard">Sound Board</a></li>
+				<li><a href="/other">Other</a></li>
 			</ul>
 		</nav>
 		
 		
-		<div class="digital"></div>
 		<div class="clock">
+		<div class="digital"></div>
 		<div class="clock-face">
 			<div class="hand second-hand"></div>
 			<div class="hand minute-hand"></div>
@@ -27,22 +27,23 @@
 
 		<style>
 		html {
-		    text-align: center;
 		    background-image: url(https://i.ytimg.com/vi/le0BLAEO93g/maxresdefault.jpg);
 		    background-size: cover;
 		    background-repeat: no-repeat;
-    		    background-attachment: fixed;
+    		background-attachment: fixed;
 		    font-family:'helvetica neue';
 		    font-size: 10px;
 		    margin-top: 3.5rem;
 		}
 		body {
-			align-items: center;
+			/*align-items: center;*/
 			
 		}
-		.digital{
+		.digital {
+			position: absolute;
+			left: 33%;
+			top: 20%;
 			color: white;
-			top:80%;
 			font-size: 5rem;
 			font-family:'Helvetica', 'Arial', 'Sans-Serif';
 			font-weight: bold;
@@ -52,14 +53,13 @@
 			border: 20px solid white;
 			height: 40rem;
 			width: 40rem;
-			margin: 20px auto;
+			left: 30%;
 			padding: 2rem;
-			position: relative;
+			position: absolute;
 			box-shadow: 
 				inset 0 0 0 3px #EFEFEF,
 				inset 0 0 10px black,
 				0 0 10px rgba(0,0,0,0.2);
-
 		}
 		.clock-face {
 		    position: relative;
@@ -78,63 +78,56 @@
 		    transition: all 0.05s;
 		    transition-timing-function: cubic-bezier(0.07, 3.05, 0.58, 1);
 		}
-		nav ul, footer ul {
+		nav ul {
 	    		font-family:'Helvetica', 'Arial', 'Sans-Serif';
-	    		padding: 0px;
 	    		font-weight: bold;
+	    		position: absolute;
+	    		top: 18rem;
+	   			list-style: none;
+	   			text-align: left;
+	    		
 		}
-		ul li {
-    			font-size: 2rem;
-    			line-height: 1.4rem;
-			margin: 1rem;
+		li {
+		
 		}
 		a {
-    			font-size: 2em;
+    			font-size: 5em;
     			text-decoration: none;
     			color: white;
-			float: left;
 		}
 		a:hover {
     			text-decoration: underline;
 		}
 		</style>
 		<script>
-
 		const secondHand = document.querySelector('.second-hand');
 		const minuteHand = document.querySelector('.minute-hand');
 		const hoursHand = document.querySelector('.hour-hand');
 		const digitalClock = document.querySelector('.digital');
-
 			function setDate() {
 				const now = new Date();
-
 				var seconds = now.getSeconds();
 				var minutes = now.getMinutes();
 				var hours = now.getHours();
-
 				const secondsDegrees = ((seconds / 60) * 360) + 90;
 				const minutesDegrees = ((minutes / 60) * 360) + 90;
 				const hoursDegrees = ((hours / 60) * 360) + 90;
-
 				secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
 				minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
 				hoursHand.style.transform = `rotate(${hoursDegrees}deg)`;
-
 				checkTime(seconds);
 				checkTime(minutes);
-
 				console.log(seconds);
 				console.log(secondsDegrees);
 				digitalClock.innerHTML = hours + ":" + minutes + ":" + seconds;
 			}
-
 			function checkTime(i) {
     			if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     			return i;
 			}
-
 			setInterval(setDate, 1000);
-
 		</script>
 	</body>
 </html>
+
+
