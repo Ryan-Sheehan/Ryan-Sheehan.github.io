@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="directory.css"/>
+	</head>
+	<body>
+	<div class="containers-row container-row1">
+
+			<div class="container container1">
+
+					<div class="text text1">
+					<p><a href="/soundboard">Soundboard</a></p>
+					</div>
+			</div>
+
+			<div class="container container2">
+
+					<div class="text text2">
+					<p><a href="/Clock">Clock</a></p>
+					</div>
+
+			</div>
+
+			<div class="container container3">
+	
+					<p><a href="/Pypotipy">Pypotipy</a></p>
+					</div>
+					<div class="text text3">
+			</div>
+
+	</div>
+
+		<div class="containers-row containers-row2">
+
+			<div class="container container4">
+
+					<div class="text">
+					<p><a href="/gallery">Gallery Gallery Gallery</a></p>
+					</div>
+			</div>
+
+			</div>			
+		</div>
+
+	<script>
+		/*const containerRows = document.querySelectorAll('.containers-row');
+		console.log(containerRows);*/
+
+		const containers = Array.from(document.querySelectorAll('.container'));
+		//console.log(containers);
+		//console.log(containers[0]);
+		//console.log(containers[0].classList);
+
+		var toggleState = function (elem, one, two) {
+  			var elem = document.querySelector(elem);
+  			console.log(elem);
+  			elem.setAttribute('data-state', elem.getAttribute('data-state') === one ? two : one);
+		};
+
+		containers[0].onclick = function (e) {
+  			toggleState('.container1', 'closed', 'open');
+  			e.preventDefault();
+		};
+		containers[1].onclick = function (e) {
+  			toggleState('.container2', 'closed', 'open');
+  			e.preventDefault();
+		};
+		containers[2].onclick = function (e) {
+  			toggleState('.container3', 'closed', 'open');
+  			e.preventDefault();
+		};
+
+
+		/*for (var i = 0; i < containers.length; i++) {
+			var currentContainer = document.querySelector('.' + containers[i].classList[1]);
+			console.log(currentContainer);
+			//console.log(containers[i]);
+console.log('.' + containers[i].classList[1]);
+			currentContainer.addEventListener('click',
+				console.log('.' + containers[i].classList[1])
+				//this.toggleState('.' + containers[i].classList[1], 'closed', 'open');
+			);*/
+		
+		//containers.forEach( => i.addEventListener('click', this.classList.toggle('open')));
+		//containers.forEach(container => container.addEventListener('mouseleave', toggleOpen));
+	
+	</script>
+
+	</body>
+</html>
