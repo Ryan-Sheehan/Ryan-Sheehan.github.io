@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="/css/directory.css"/>
+		<link rel="stylesheet" type="text/css" href="directory.css"/>
 	</head>
 	<body>
 	<div class="containers-row container-row1">
@@ -91,7 +91,9 @@
   			toggleState('.container3', 'closed', 'open');
   			e.preventDefault();
 		};
-	
+
+		containers.forEach(container => container.setAttribute('data-state', 'closed'));
+
 	</script>
 
 	</body>
