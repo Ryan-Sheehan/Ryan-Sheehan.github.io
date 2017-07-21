@@ -1,54 +1,76 @@
----
-layout: soundboard
-title: soundboard
----
-<div class="keys">
-		  <table>
-		    <tbody>
-		      <td>
-		      	<div data-key="65" class="key">
-		      		<kbd>A</kbd>
-		      		<span class="sound"></span>
-		      	</div>
-		      </td>
-		      <td>
-		      	<div data-key="83" class="key">
-		      		<kbd>S</kbd>
-		      		<span class="sound"></span>
-		      	</div>
-		      </td>
-		      <td>
-		      	<div data-key="68" class="key">
-		      		<kbd>D</kbd>
-		      		<span class="sound"></span>
-		      	</div>
-		      </td>
-		      <td>
-		      	<div data-key="70" class="key">
-		      		<kbd>F</kbd>
-		      		<span class="sound"></span>
-		      	</div>
-		      </td>
-		      <td>
-		      	<div data-key="71" class="key">
-		      		<kbd>G</kbd>
-		      		<span class="sound"></span>
-		      	</div>
-		      </td>
-		      <td>
-		      	<div data-key="72" class="key">
-		      		<kbd>H</kbd>
-		      		<span class="sound"></span>
-		      	</div>
-		      </td>
-		      <td>
-		      	<div data-key="74" class="key">
-		      		<kbd>J</kbd>
-		      		<span class="sound"></span>
-		      </td>
-		    </tbody>
-		  </table>
-		</div>
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Soundboard</title>
+			<!-- link to main stylesheet -->
+			<link rel="stylesheet" type="text/css" href="/css/soundboard.css">
+		</head>
+		<body>
+			<header>
+				<nav>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/cv">CV</a></li>
+					<li><a href="/blog">Blog</a></li>
+					<li><a href="/directory">Other</a></li>
+				</ul>
+				</nav>
+			</header>
+			
+			<aside>
+			</aside>
+			
+			<section>
+				<div class="container">
+
+		<div class="keys">
+				  <table>
+				    <tbody>
+				      <td>
+					<div data-key="65" class="key">
+						<kbd>A</kbd>
+						<span class="sound"></span>
+					</div>
+				      </td>
+				      <td>
+					<div data-key="83" class="key">
+						<kbd>S</kbd>
+						<span class="sound"></span>
+					</div>
+				      </td>
+				      <td>
+					<div data-key="68" class="key">
+						<kbd>D</kbd>
+						<span class="sound"></span>
+					</div>
+				      </td>
+				      <td>
+					<div data-key="70" class="key">
+						<kbd>F</kbd>
+						<span class="sound"></span>
+					</div>
+				      </td>
+				      <td>
+					<div data-key="71" class="key">
+						<kbd>G</kbd>
+						<span class="sound"></span>
+					</div>
+				      </td>
+				      <td>
+					<div data-key="72" class="key">
+						<kbd>H</kbd>
+						<span class="sound"></span>
+					</div>
+				      </td>
+				      <td>
+					<div data-key="74" class="key">
+						<kbd>J</kbd>
+						<span class="sound"></span>
+				      </td>
+				    </tbody>
+				  </table>
+				</div>
 	<audio preload="auto" data-key="65" src="Misc Sounds/Snare.wav"></audio>
 	<audio preload="auto" data-key="83" src="Misc Sounds/Hey thats pretty good.mp3"></audio>
 	<audio preload="auto" data-key="68" src="Misc Sounds/PizzaBall.mp3"></audio>
@@ -130,3 +152,15 @@ title: soundboard
 	  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 	  window.addEventListener('keydown', playSound);
 	</script>
+
+				</div><!-- /.container -->
+			</section>
+			<footer>
+	    		<ul>
+	        		<li><a href="mailto:sheehan.w.ryan@gmail.com">email</a></li>
+	        		<li><a href="https://github.com/Ryan-Sheehan">github.com/Ryan-Sheehan</a></li>
+				</ul>
+			</footer>
+		</body>
+	</html>
+
