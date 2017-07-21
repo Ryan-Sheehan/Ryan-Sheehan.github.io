@@ -6,25 +6,23 @@
 			<link rel="stylesheet" type="text/css" href="/css/soundboard.css">
 		</head>
 		<body>
-			<header>
-				<nav>
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/about">About</a></li>
-					<li><a href="/cv">CV</a></li>
-					<li><a href="/blog">Blog</a></li>
-					<li><a href="/directory">Other</a></li>
-				</ul>
-				</nav>
-			</header>
-			
-			<aside>
-			</aside>
-			
-			<section>
-				<div class="container">
+			<div class="header-box">
+				<header>
+					<nav>
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/about">About</a></li>
+						<li><a href="/cv">CV</a></li>
+						<li><a href="/blog">Blog</a></li>
+						<li><a href="/other">Other</a></li>
+					</ul>
+					</nav>
+				</header>
+			</div>
 
-		<div class="keys">
+			<div class="container">
+
+			<div class="keys">
 				  <table>
 				    <tbody>
 				      <td>
@@ -70,7 +68,7 @@
 				      </td>
 				    </tbody>
 				  </table>
-				</div>
+			</div>
 	<audio preload="auto" data-key="65" src="Misc Sounds/Snare.wav"></audio>
 	<audio preload="auto" data-key="83" src="Misc Sounds/Hey thats pretty good.mp3"></audio>
 	<audio preload="auto" data-key="68" src="Misc Sounds/PizzaBall.mp3"></audio>
@@ -81,16 +79,11 @@
 
 
 	<script>
-	
-	
-		
-		
-		
 		
 		function playSound(e) {
 		//audio[data-key="${e.keyCode}"] wasn't working for some reason so this is the best I could muster
-		var audio, key;
-	    switch(e.keyCode){
+			var audio, key;
+	    		switch(e.keyCode){
 	    	case 65:
 	    		audio = document.querySelector(`audio[data-key="65"]`);
 	    		key = document.querySelector(`.key[data-key="65"]`);
@@ -153,8 +146,7 @@
 	  window.addEventListener('keydown', playSound);
 	</script>
 
-				</div><!-- /.container -->
-			</section>
+			</div><!-- /.container -->
 			<footer>
 	    		<ul>
 	        		<li><a href="mailto:sheehan.w.ryan@gmail.com">email</a></li>
