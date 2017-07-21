@@ -44,13 +44,8 @@
 		</div>
 
 	<script>
-		/*const containerRows = document.querySelectorAll('.containers-row');
-		console.log(containerRows);*/
 
 		const containers = Array.from(document.querySelectorAll('.container'));
-		//console.log(containers);
-		//console.log(containers[0]);
-		//console.log(containers[0].classList);
 
 		var toggleState = function (elem, one, two) {
 			var element = document.querySelector(elem);
@@ -96,20 +91,6 @@
   			toggleState('.container3', 'closed', 'open');
   			e.preventDefault();
 		};
-
-
-		/*for (var i = 0; i < containers.length; i++) {
-			var currentContainer = document.querySelector('.' + containers[i].classList[1]);
-			console.log(currentContainer);
-			//console.log(containers[i]);
-console.log('.' + containers[i].classList[1]);
-			currentContainer.addEventListener('click',
-				console.log('.' + containers[i].classList[1])
-				//this.toggleState('.' + containers[i].classList[1], 'closed', 'open');
-			);*/
-		
-		//containers.forEach( => i.addEventListener('click', this.classList.toggle('open')));
-		//containers.forEach(container => container.addEventListener('mouseleave', toggleOpen));
 	
 	</script>
 
