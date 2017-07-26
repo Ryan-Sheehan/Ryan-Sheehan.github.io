@@ -4,7 +4,7 @@ body {
     align-items: center;
 }
 nav ul, footer ul {
-    font-family:'Lato', 'Arial', 'Sans-Serif';
+    font-family: 'Archivo Black', sans-serif;
     padding: 0px;
     list-style: none;
     font-weight: bold;
