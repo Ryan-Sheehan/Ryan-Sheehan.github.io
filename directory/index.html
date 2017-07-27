@@ -2,9 +2,29 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="/css/directory.css"/>
+		<link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Archivo+Black|Bungee+Shade|Codystar|Faster+One|Kumar+One+Outline|Merriweather|Playfair+Display+SC:700|Playfair+Display:700|Shrikhand|Signika|VT323" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="directory.css"/>
+		<script src="https://use.fontawesome.com/3b1fbcb7b8.js"></script>
 	</head>
 	<body>
+	<nav>
+		<div class="nav-bar">
+			<div class="menu-dropdown-button"><div class="dropdown">
+    			<i class="fa fa-bars fa-3x" aria-hidden="true"></i>
+    				<span class="caret"></span>
+  				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				    <li><a href="#"></a></li>
+				    <li><a href="#"></a></li>
+				    <li><a href="#"></a></li>
+				    <li role="separator" class="divider"></li>
+    				<li><a href="#"></a></li>
+  				</ul>
+			</div>
+				
+			</div>
+		</div>
+	</nav>
+	<section class="main">
 	<div class="containers-row container-row1">
 
 			<div class="container container1">
@@ -31,7 +51,7 @@
 
 	</div>
 
-		<div class="containers-row containers-row2">
+		<div class="containers-row container-row2">
 
 			<div class="container container4">
 
@@ -41,7 +61,23 @@
 			</div>
 
 			</div>			
+		<div class="containers-row container-row3">
+					
+					<div class="container container5">
+
+					<div class="text">
+					<p><a href="/gallery">Videos</a></p>
+					</div>
+					</div>
+
+					<div class="container container6">
+
+					<div class="text">
+					<p><a href="/gallery">Projects</a></p>
+					</div>
+					</div>
 		</div>
+	</section>
 
 	<script>
 
@@ -63,10 +99,10 @@
 
 		containers[0].onclick = function (e) {
 			if(this.getAttribute('data-state') === 'open'){
-				try{
-  					window.location.replace("/soundboard");
+				try {
+  					window.location.replace("https://ryanwsheehan.com/soundboard/");
   				}
-  				catch(err){
+  				catch(err) {
   					alert("wrong link dummy");
   				}
 			}
@@ -77,10 +113,10 @@
   			
 		containers[1].onclick = function (e) {
 			if(this.getAttribute('data-state') === 'open'){
-				try{
-  					window.location.replace("/clock");
+				try {
+  					window.location.replace("https://ryanwsheehan.com/clock/");
   				}
-  				catch(err){
+  				catch(err) {
   					alert("wrong link dummy");
   				}
   			}
