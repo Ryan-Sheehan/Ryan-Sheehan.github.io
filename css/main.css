@@ -18,6 +18,7 @@ h1 {
     font-family: 'Archivo Black', sans-serif;
 }
 p {
+    font-family: 'Archivo Black', sans-serif;
     font-size: 1.5em;
     line-height: 1.4em;
     color: #333;
@@ -31,7 +32,6 @@ ul.posts {
     margin: 20px auto 40px; 
     font-size: 1.5em;
 }
-
 ul.posts li {
     list-style: none;
 }
