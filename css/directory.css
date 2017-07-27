@@ -12,7 +12,6 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	flex: 1;
 }
 .container {
 	height: 100%;
@@ -48,37 +47,73 @@ body {
 .container3[data-state=open] {
 	flex:5;
 }
-.container4[data-state=closed] {
+.container5[data-state=closed] {
 	flex:1;
 }
-.container4[data-state=open] {
+.container5[data-state=open] {
+	flex:5;
+}
+.container6[data-state=closed] {
+	flex:1;
+}
+.container6[data-state=open] {
 	flex:5;
 }
 .container-row1 {
-	height: 9rem;
+	height: 10rem;
+	
+}
+.container-row2 {
+}
+.container-row3 {
+	height:35rem;
 }
 
 .container1 {background-image: url(http://i.imgur.com/b9r5sEL.jpg)}
-.container2 {background-image: url(https://i.ytimg.com/vi/le0BLAEO93g/maxresdefault.jpg)}
+.container2 {
+	background-image: url(https://i.ytimg.com/vi/le0BLAEO93g/maxresdefault.jpg);
+}
 .container3 {background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkwA6M8SFoj21H5YqkHuduhXCl4YZLUiCoHFNUG7bIsOuxuKLn)}
 .container4 {background-image: url(https://rawgit.com/Ryan-Sheehan/Ryan-Sheehan.github.io/master/images/IMG_B0B520038246-1.jpeg)}
+.container5 {
+	background-position: 50% 100%;
+	background-image: url(https://rawgit.com/Ryan-Sheehan/Ryan-Sheehan.github.io/master/images/a0934010358_10.jpg)}
+.container6 {
+	background-size: cover;
+	background-image: url(https://rawgit.com/Ryan-Sheehan/Ryan-Sheehan.github.io/master/images/tumblr_oi9ho2Trmx1qk53bbo5_500.jpg)}
+
+.main {
+	margin-top: 70px;
+
+}
+
+.menu-dropdown-button {
+
+}
+.nav-bar {
+	border-bottom: 2px solid rgb(240,248,255);
+	background-color: rgba(0,0,0,0.75);
+	position: fixed;
+	overflow: hidden;
+	width: 100%;
+	height: 70px;
+}
 .container p {
 	text-transform: uppercase;
 	text-shadow:0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
-	font-size: 2em;
-}
-
-.container.open {
-	flex: 5;
 }
 
 a {
 	color: white;
-	font-family: 'Helvetica neue', 'Helvetica', 'sans-serif';
+	font-family: 'VT323', monospace;;
 	text-decoration: none;
-	font-size: 2rem;
+	font-size: 4rem;
 
 }
 a:hover {
 	text-decoration: none;
+}
+.fa {
+	color: rgb(240,248,255);
+	padding: 10px;
 }
