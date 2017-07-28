@@ -1,136 +1,228 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Archivo+Black|Bungee+Shade|Codystar|Faster+One|Kumar+One+Outline|Merriweather|Playfair+Display+SC:700|Playfair+Display:700|Shrikhand|Signika|VT323" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="/css/directory.css"/>
-		<script src="https://use.fontawesome.com/3b1fbcb7b8.js"></script>
-	</head>
-	<body>
-	<nav>
-		<div class="nav-bar">
-			<div class="menu-dropdown-button"><div class="dropdown">
-    			<i class="fa fa-bars fa-3x" aria-hidden="true"></i>
-    				<span class="caret"></span>
-  				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				    <li><a href="#"></a></li>
-				    <li><a href="#"></a></li>
-				    <li><a href="#"></a></li>
-				    <li role="separator" class="divider"></li>
-    				<li><a href="#"></a></li>
-  				</ul>
-			</div>
-				
-			</div>
-		</div>
-	</nav>
-	<section class="main">
-	<div class="containers-row container-row1">
+<html lang="en">
 
-			<div class="container container1">
+<head>
 
-					<div class="text text1">
-					<p><a href="">Soundboard</a></p>
-					</div>
-			</div>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="author" content="Ryan Sheehan">
 
-			<div class="container container2">
+    <!-- Bootstrap Core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-					<div class="text text2">
-					<p><a href="">Clock</a></p>
-					</div>
+    <!-- Custom CSS -->
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
 
-			</div>
+    <!--Custom fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Archivo+Black|Bungee+Shade|Codystar|Faster+One|Kumar+One+Outline|Merriweather|Playfair+Display+SC:700|Playfair+Display:700|Shrikhand|Signika|VT323" rel="stylesheet">
 
-			<div class="container container3">
-	
-					<p><a href="/Pypotipy">Pypotipy</a></p>
-					</div>
-					<div class="text text3">
-			</div>
+    <!--link to main stylesheet-->
+    <link rel="stylesheet" type="text/css" href="/css/directory.css"/>
 
-	</div>
+    <!--font awesome embed code-->
+    <script src="https://use.fontawesome.com/3b1fbcb7b8.js"></script>
 
-		<div class="containers-row container-row2">
+</head>
 
-			<div class="container container4">
+<body>
 
-					<div class="text">
-					<p><a href="/gallery">Gallery Gallery Gallery</a></p>
-					</div>
-			</div>
+    <div id="wrapper">
 
-			</div>			
-		<div class="containers-row container-row3">
-					
-					<div class="container container5">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">CV</a>
+                </li>
+                <li>
+                    <a href="#">Blog</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
 
-					<div class="text">
-					<p><a href="/gallery">Videos</a></p>
-					</div>
-					</div>
+        <!-- Page Content -->
 
-					<div class="container container6">
+        <div id="page-content-wrapper">
 
-					<div class="text">
-					<p><a href="/gallery">Projects</a></p>
-					</div>
-					</div>
-		</div>
-	</section>
 
-	<script>
+            <div class="nav-bar">
+                <a href="#menu-toggle" class="btn" id="menu-toggle"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
+            </div>
+   
+            <div id="main-content-wrapper" class="main-content-container">
+                <div class="container-row first-row">
 
-		const containers = Array.from(document.querySelectorAll('.container'));
+                    <div class="container soundboard-container">
 
-		var toggleState = function (elem, one, two) {
-			var element = document.querySelector(elem);
-			for(var i = 0; i < containers.length; i++){
-				var currentContainer = containers[i];
-  				if(currentContainer.getAttribute('data-state') === two && currentContainer.innerHTML !== element.innerHTML){
-  					currentContainer.setAttribute('data-state', one);
-  				}
-  			}
-  			
-  			console.log(element);
-  			element.setAttribute('data-state', element.getAttribute('data-state') === one ? two : one);
-  			
-		};
+                            <div class="container-label soundboard-label">
+                            <p><a href="">Soundboard</a></p>
+                            </div>
+                    </div>
 
-		containers[0].onclick = function (e) {
-			if(this.getAttribute('data-state') === 'open'){
-				try {
-  					window.location.replace("https://ryanwsheehan.com/soundboard/");
-  				}
-  				catch(err) {
-  					alert("wrong link dummy");
-  				}
-			}
-		
-  			toggleState('.container1', 'closed', 'open');
-  			e.preventDefault();
-  		};
-  			
-		containers[1].onclick = function (e) {
-			if(this.getAttribute('data-state') === 'open'){
-				try {
-  					window.location.replace("https://ryanwsheehan.com/clock/");
-  				}
-  				catch(err) {
-  					alert("wrong link dummy");
-  				}
-  			}
-  			toggleState('.container2', 'closed', 'open');
-  			e.preventDefault();
-		};
-		containers[2].onclick = function (e) {
-  			toggleState('.container3', 'closed', 'open');
-  			e.preventDefault();
-		};
 
-		containers.forEach(container => container.setAttribute('data-state', 'closed'));
+                    <div class="container clock-container">
 
-	</script>
+                            <div class="container-label clock-label">
+                            <p><a href="">Clock</a></p>
+                            </div>
 
-	</body>
+                    </div>
+
+                    <div class="container pypotify-container">
+                        
+                            <div class="container-label pypotify-label">
+                            <p><a href="/Pypotipy">Pypotipy</a></p>
+                            </div>
+                            
+                    </div>
+
+                </div>
+
+                <div class="container-row second-row">
+
+                    <div class="container gallery-container">
+
+                            <div class="container-label gallery-label">
+                            <p><a href="/gallery">Gallery Gallery Gallery</a></p>
+                            </div>
+
+                    </div>
+
+                </div>          
+                            
+                <div class="container-row third-row">
+                                        
+                    <div class="container videos-container">
+
+                            <div class="container-label videos-label">
+                            <p><a href="/gallery">Videos</a></p>
+                            </div>
+
+                    </div>
+
+                    <div class="container projects-container">
+
+                            <div class="container-label projects-label">
+                            <p><a href="/gallery">Projects</a></p>
+                            </div>
+
+                    </div>
+
+                </div>
+            </div>
+                        
+
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $("#main-content-wrapper").toggleClass("screen-toggle");
+    });
+
+    const containers = Array.from(document.querySelectorAll('.container'));
+
+    const containerRows = Array.from(document.querySelectorAll('.container-row'));
+
+    containers.forEach(container => container.setAttribute('data-state', 'closed'));
+
+        var toggleState = function (elem, one, two) {
+            
+            var element = document.querySelector(elem);
+            
+            for(var i = 0; i < containers.length; i++){
+                var currentContainer = containers[i];
+                if(currentContainer.getAttribute('data-state') === two && currentContainer.innerHTML !== element.innerHTML){
+                    currentContainer.setAttribute('data-state', one);
+                }
+            }
+            
+            console.log(element);
+            element.setAttribute('data-state', element.getAttribute('data-state') === one ? two : one);
+            
+        };
+
+        
+
+        /*containerRows.forEach(containerRow => containerRow.addEventListener('click', function(e) {
+            var containers = containerRow.children;
+            for(i=0;i<containers.length;i++){
+                containers[i].setAttribute('data-state','closed');
+            }
+        } ));*/
+          
+
+
+        /*container action functions:
+            -toggles flex so that container increases relative size onclick
+            -if the container is already click, transports user to link
+            */
+
+        containers[0].onclick = function (e) {
+            if(this.getAttribute('data-state') === 'open'){
+                    window.location.replace("https://ryanwsheehan.com/soundboard/");
+            }
+            toggleState('.soundboard-container', 'closed', 'open');
+            e.preventDefault();
+        };
+            
+        containers[1].onclick = function (e) {
+            if(this.getAttribute('data-state') === 'open'){
+                    window.location.replace("https://ryanwsheehan.com/clock/");
+            }
+            toggleState('.clock-container', 'closed', 'open');
+            e.preventDefault();
+        };
+        containers[2].onclick = function (e) {
+            toggleState('.pypotify-container', 'closed', 'open');
+            e.preventDefault();
+        };
+        //
+        containers[4].onclick = function (e) {
+            toggleState('.videos-container', 'closed', 'open');
+            e.preventDefault();
+        };
+        //projects container flex function
+        containers[5].onclick = function (e) {
+            toggleState('.projects-container', 'closed', 'open');
+            e.preventDefault();
+        };
+
+        //containers.forEach(container => console.log(container.getAttribute('data-state')));
+
+    </script>
+
+</body>
+
 </html>
+
