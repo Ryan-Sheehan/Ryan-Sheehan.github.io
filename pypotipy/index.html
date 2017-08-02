@@ -63,7 +63,7 @@ $(document).ready(function() {
     console.log(loginButton);
   
     loginButton.addEventListener('click', function() {
-        console.log(e);
+        console.log(event);
       login(function(accessToken) {
             getUserData(accessToken)
                 .then(function(response) {
