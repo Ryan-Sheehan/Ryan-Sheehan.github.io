@@ -146,7 +146,7 @@ $(document).ready(
     };
      playlists = callSpotify(url, params)
      setTimeout(function() {
-     console.log(playlists);
+     console.log(playlists.responseJSON.playlists.items);
      },1000);
     });
     </script>
