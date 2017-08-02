@@ -145,9 +145,8 @@ $(document).ready(
         type:'playlist',
         limit:50
     };
-     callSpotify(url, params)
-       .then(blob => blob.json())
-       .then(data => playlists.push(...data));
+     var call = callSpotify(url, params);
+      
     });
     </script>
   </body>
