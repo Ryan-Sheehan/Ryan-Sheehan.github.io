@@ -146,6 +146,8 @@ $(document).ready(
         limit:50
     };
      var call = callSpotify(url, params);
+     playlists = call.responseJSON.playlists.items;
+     console.log(playlists);
       
     });
     </script>
