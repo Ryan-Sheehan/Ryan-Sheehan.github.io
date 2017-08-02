@@ -35,6 +35,12 @@ function callSpotify(url, data) {
         data: data,
         headers: {
             'Authorization': 'Bearer ' + credentials.token
+        },
+        success: function(r) {
+            callback(true, r);
+        },
+        error: function(r) {
+            callback(false, r);
         }
     });
 }
@@ -144,9 +150,20 @@ $(document).ready(
         type:'playlist',
         limit:50
     };
-     playlists = callSpotify(url, params)
-     setTimeout(function() {
+  
+        callSpotify(url, params)
+   success: function( data ) {
+   },
+   error: function(xhr, status, error) {
+      // check status && error
+   },
+   dataType: 'text'
+});
+     playlists = callSpotify(url, params);
+     
      console.log(playlists.responseJSON.playlists.items);
+     setTimeout(function() {
+        console.log(playlists.responseJSON.playlists.items);
      },1000);
     });
     </script>
