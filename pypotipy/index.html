@@ -44,9 +44,10 @@ function performAuthDance() {
     if ('credentials' in localStorage) {
         credentials = JSON.parse(localStorage.credentials);
     }
-    if (credentials && credentials.expires > getTime()) {
+    /*if (credentials && credentials.expires > getTime()) {
         $("#search-form").show();
-    } else {
+    } */
+    else {
     // we have a token as a hash parameter in the url
     // so parse hash
         var hash = location.hash.replace(/#/g, '');
