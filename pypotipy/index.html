@@ -30,11 +30,18 @@ function callSpotify(url, data, callback) {
         headers: {
             'Authorization': 'Bearer ' + credentials.token
         },
-        function(r) {
+        success: function(r) {
             callback(true, r);
         },
         error: function(r) {
-            callback(false, r);
+            // 2XX status codes are good, but some have no
+            // response data which triggers the error handler
+            // convert it to goodness.
+            if (r.status >= 200 && r.status < 300) {
+                callback(true, r);
+            } else {
+                callback(false, r);
+            }
         }
       
     });
