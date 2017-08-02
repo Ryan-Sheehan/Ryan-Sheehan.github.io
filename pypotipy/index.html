@@ -119,7 +119,7 @@ function performAuthDance() {
                     credentials.user_id = user.id;
                     localStorage['credentials'] = JSON.stringify(credentials);
                     location.hash = '';
-                    $("#search-form").show();
+                    $("#login-form").hide();
                 },
                 function() {
                     error("Can't get user info");
@@ -138,8 +138,17 @@ $(document).ready(
                               console.log(event);
                               loginWithSpotify();
     });
-    }
-);
+      const playlists = [];
+      var url = 'https://api.spotify.com/v1/search';
+    var params = {
+        q: text,
+        type:'playlist',
+        limit:50
+    };
+     callSpotify(url, params)
+       .then(blob => blob.json())
+       .then(data => playlists.push(...data));
+    });
     </script>
   </body>
 </html>
