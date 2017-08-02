@@ -59,11 +59,8 @@ $(document).ready(function() {
         });
     }
 
-    var templateSource = document.getElementById('result-template').innerHTML,
-        template = Handlebars.compile(templateSource),
-        resultsPlaceholder = document.getElementById('result'),
-        loginButton = document.getElementById('btn-login');
-  console.log(loginButton);
+    var loginButton = document.getElementById('btn-login');
+    console.log(loginButton);
   
     loginButton.addEventListener('click', function() {
         console.log(e);
@@ -71,7 +68,7 @@ $(document).ready(function() {
             getUserData(accessToken)
                 .then(function(response) {
                     loginButton.style.display = 'none';
-                    resultsPlaceholder.innerHTML = template(response);
+                    console.log("it worked");
                 });
             });
     });
