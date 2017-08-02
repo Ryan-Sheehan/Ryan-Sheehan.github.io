@@ -23,6 +23,47 @@
   
 <script>
   
+  function error(s) {
+    info(s);
+}
+function info(s) {
+    $("#info").text(s);
+}
+function callSpotify(url, data) {
+    return $.ajax(url, {
+        dataType: 'json',
+        data: data,
+        headers: {
+            'Authorization': 'Bearer ' + credentials.token
+        }
+    });
+}
+function postSpotify(url, json, callback) {
+    $.ajax(url, {
+        type: "POST",
+        data: JSON.stringify(json),
+        dataType: 'json',
+        headers: {
+            'Authorization': 'Bearer ' + credentials.token,
+            'Content-Type': 'application/json'
+        },
+        success: function(r) {
+            callback(true, r);
+        },
+        error: function(r) {
+            // 2XX status codes are good, but some have no
+            // response data which triggers the error handler
+            // convert it to goodness.
+            if (r.status >= 200 && r.status < 300) {
+                callback(true, r);
+            } else {
+                callback(false, r);
+            }
+        }
+    });
+}
+
+  
 function loginWithSpotify() {
     var client_id = '3f10615e3e7448688686807a96be668c';
     var redirect_uri = 'http://ryanwsheehan.com/pypotipy/';
@@ -44,9 +85,12 @@ function performAuthDance() {
     if ('credentials' in localStorage) {
         credentials = JSON.parse(localStorage.credentials);
     }
-    /*if (credentials && credentials.expires > getTime()) {
+    else {
+        credentials = null;
+    }
+    if (credentials && credentials.expires > getTime()) {
         $("#search-form").show();
-    } */
+    }
     else {
     // we have a token as a hash parameter in the url
     // so parse hash
