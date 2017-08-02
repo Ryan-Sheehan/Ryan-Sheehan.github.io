@@ -63,9 +63,10 @@
         template = Handlebars.compile(templateSource),
         resultsPlaceholder = document.getElementById('result'),
         loginButton = document.getElementById('btn-login');
-    
+  
     loginButton.addEventListener('click', function() {
-        login(function(accessToken) {
+        console.log(e);
+      login(function(accessToken) {
             getUserData(accessToken)
                 .then(function(response) {
                     loginButton.style.display = 'none';
