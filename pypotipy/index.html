@@ -36,12 +36,6 @@ function callSpotify(url, data) {
         headers: {
             'Authorization': 'Bearer ' + credentials.token
         },
-        success: function(r) {
-            callback(true, r);
-        },
-        error: function(r) {
-            callback(false, r);
-        }
     });
 }
 function postSpotify(url, json, callback) {
@@ -151,7 +145,7 @@ $(document).ready(
         limit:50
     };
 
-     playlists = callSpotify(url, params);
+     playlists = postSpotify(url, params, callback);
      
      console.log(playlists.responseJSON.playlists.items);
      setTimeout(function() {
