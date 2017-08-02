@@ -138,14 +138,13 @@ $(document).ready(
                               console.log(event);
                               loginWithSpotify();
     });
-      const playlists = [];
       var url = 'https://api.spotify.com/v1/search';
     var params = {
         q: 'arbitrary',
         type:'playlist',
         limit:50
     };
-     playlists = callSpotify(url, params).responseJSON.playlists.items;;
+     playlists = callSpotify(url, params)
      console.log(playlists);
       
     });
