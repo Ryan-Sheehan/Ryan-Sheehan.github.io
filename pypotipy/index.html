@@ -150,15 +150,7 @@ $(document).ready(
         type:'playlist',
         limit:50
     };
-  
-        callSpotify(url, params)
-   success: function( data ) {
-   },
-   error: function(xhr, status, error) {
-      // check status && error
-   },
-   dataType: 'text'
-});
+
      playlists = callSpotify(url, params);
      
      console.log(playlists.responseJSON.playlists.items);
