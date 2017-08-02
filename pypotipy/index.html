@@ -145,8 +145,9 @@ $(document).ready(
         limit:50
     };
      playlists = callSpotify(url, params)
+     setTimeout(function() {
      console.log(playlists);
-      
+     },1000);
     });
     </script>
   </body>
