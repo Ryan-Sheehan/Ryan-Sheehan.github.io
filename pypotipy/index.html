@@ -23,43 +23,20 @@
   
 <script>
   
-  function error(s) {
-    info(s);
-}
-function info(s) {
-    $("#info").text(s);
-}
-function callSpotify(url, data) {
+function callSpotify(url, data, callback) {
     return $.ajax(url, {
         dataType: 'json',
         data: data,
         headers: {
             'Authorization': 'Bearer ' + credentials.token
         },
-    });
-}
-function postSpotify(url, json, callback) {
-    $.ajax(url, {
-        type: "POST",
-        data: JSON.stringify(json),
-        dataType: 'json',
-        headers: {
-            'Authorization': 'Bearer ' + credentials.token,
-            'Content-Type': 'application/json'
-        },
-        success: function(r) {
+        function(r) {
             callback(true, r);
         },
         error: function(r) {
-            // 2XX status codes are good, but some have no
-            // response data which triggers the error handler
-            // convert it to goodness.
-            if (r.status >= 200 && r.status < 300) {
-                callback(true, r);
-            } else {
-                callback(false, r);
-            }
+            callback(false, r);
         }
+      
     });
 }
 
@@ -77,6 +54,7 @@ function loginWithSpotify() {
         '&redirect_uri=' + encodeURIComponent(redirect_uri);
     document.location = url;
 }
+  
 function getTime() {
     return Math.round(new Date().getTime() / 1000);
 }
@@ -145,7 +123,9 @@ $(document).ready(
         limit:50
     };
 
-     playlists = callSpotify(url, params);
+     playlists = callSpotify(url, params, function() {
+       console.log(playlists.responseJSON.playlists.items);
+     });
      
      setTimeout(function() {
         console.log(playlists.responseJSON.playlists.items);
