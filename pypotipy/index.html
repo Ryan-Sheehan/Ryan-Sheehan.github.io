@@ -145,9 +145,8 @@ $(document).ready(
         limit:50
     };
 
-     playlists = postSpotify(url, params, callback);
+     playlists = callSpotify(url, params);
      
-     console.log(playlists.responseJSON.playlists.items);
      setTimeout(function() {
         console.log(playlists.responseJSON.playlists.items);
      },1000);
