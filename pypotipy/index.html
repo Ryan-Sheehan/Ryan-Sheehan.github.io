@@ -15,11 +15,61 @@
 <script src="/vendor/jquery/jquery.min.js"></script>
   
 <script>
+function performAuthDance() {
+    // if we already have a token and it hasn't expired, use it,
+    if ('credentials' in localStorage) {
+        credentials = JSON.parse(localStorage.credentials);
+    }
+    if (credentials && credentials.expires > getTime()) {
+        $("#search-form").show();
+    } else {
+    // we have a token as a hash parameter in the url
+    // so parse hash
+        var hash = location.hash.replace(/#/g, '');
+        var all = hash.split('&');
+        var args = {};
+        all.forEach(function(keyvalue) {
+            var idx = keyvalue.indexOf('=');
+            var key = keyvalue.substring(0, idx);
+            var val = keyvalue.substring(idx + 1);
+            args[key] = val;
+        });
+        if (typeof(args['access_token']) != 'undefined') {
+            var g_access_token = args['access_token'];
+            var expiresAt = getTime() + 3600;
+            if (typeof(args['expires_in']) != 'undefined') {
+                var expires = parseInt(args['expires_in']);
+                expiresAt = expires + getTime();
+            }
+            credentials = {
+                token:g_access_token,
+                expires:expiresAt
+            }
+            callSpotify('https://api.spotify.com/v1/me').then(
+                function(user) {
+                    credentials.user_id = user.id;
+                    localStorage['credentials'] = JSON.stringify(credentials);
+                    location.hash = '';
+                    $("#search-form").show();
+                },
+                function() {
+                    error("Can't get user info");
+                }
+            );
+        } else {
+    // otherwise, got to spotify to get auth
+            $("#login-form").show();
+        }
+    }
+}
+  
 $(document).ready(function() {
+    
+    performAuthDance();
     
     function login(callback) {
         var CLIENT_ID = '3f10615e3e7448688686807a96be668c';
-        var REDIRECT_URI = 'http://ryanwsheehan.com/spotify-oauth-jsfiddle-proxy/';
+        var REDIRECT_URI = 'http://ryanwsheehan.com/pypotipy/';
         function getLoginURL(scopes) {
             return 'https://accounts.spotify.com/authorize?client_id=' + CLIENT_ID +
               '&redirect_uri=' + encodeURIComponent(REDIRECT_URI) +
@@ -37,6 +87,7 @@ $(document).ready(function() {
             top = (screen.height / 2) - (height / 2);
     
         window.addEventListener("message", function(event) {
+            console.log(event);
             var hash = JSON.parse(event.data);
             if (hash.type == 'access_token') {
                 callback(hash.access_token);
@@ -63,12 +114,11 @@ $(document).ready(function() {
     console.log(loginButton);
   
     loginButton.addEventListener('click', function() {
-        console.log(event);
+      console.log(event);
       login(function(accessToken) {
             getUserData(accessToken)
                 .then(function(response) {
                     loginButton.style.display = 'none';
-                    console.log("it worked");
                 });
             });
     });
