@@ -8,7 +8,14 @@
 </head>
 <body>
 <div class="container">
-    <button class="btn btn-primary" id="btn-login">Login</button>
+  
+    <div class='intro-form' id='login-form'>
+            <p> To get started, login with your Spotify credentials.</p>
+            <p>
+              <a class="btn btn-primary btn-lg" id='login-button' role="button">Login with Spotify</a>
+            </p>
+    </div>
+  
     <div id="result"></div>
 </div>
 
@@ -16,10 +23,22 @@
   
 <script>
   
+function loginWithSpotify() {
+    var client_id = '3f10615e3e7448688686807a96be668c';
+    var redirect_uri = 'http://ryanwsheehan.com/pypotipy/';
+    var scopes = 'playlist-modify-public';
+    if (document.location.hostname == 'localhost') {
+        redirect_uri = 'http://localhost:8000/index.html';
+    }
+    var url = 'https://accounts.spotify.com/authorize?client_id=' + client_id +
+        '&response_type=token' +
+        '&scope=' + encodeURIComponent(scopes) +
+        '&redirect_uri=' + encodeURIComponent(redirect_uri);
+    document.location = url;
+}
 function getTime() {
     return Math.round(new Date().getTime() / 1000);
 }
-  
 function performAuthDance() {
     // if we already have a token and it hasn't expired, use it,
     if ('credentials' in localStorage) {
@@ -67,67 +86,11 @@ function performAuthDance() {
         }
     }
 }
-  
-$(document).ready(function() {
-    
-    performAuthDance();
-    
-    function login(callback) {
-        var CLIENT_ID = '3f10615e3e7448688686807a96be668c';
-        var REDIRECT_URI = 'http://ryanwsheehan.com/pypotipy/';
-        function getLoginURL(scopes) {
-            return 'https://accounts.spotify.com/authorize?client_id=' + CLIENT_ID +
-              '&redirect_uri=' + encodeURIComponent(REDIRECT_URI) +
-              '&scope=' + encodeURIComponent(scopes.join(' ')) +
-              '&response_type=token';
-        }
-        
-        var url = getLoginURL([
-            'user-read-email'
-        ]);
-        
-        var width = 450,
-            height = 730,
-            left = (screen.width / 2) - (width / 2),
-            top = (screen.height / 2) - (height / 2);
-    
-        window.addEventListener("message", function(event) {
-            console.log(event);
-            var hash = JSON.parse(event.data);
-            if (hash.type == 'access_token') {
-                callback(hash.access_token);
-            }
-        }, false);
-        
-        var w = window.open(url,
-                            'Spotify',
-                            'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=' + width + ', height=' + height + ', top=' + top + ', left=' + left
-                           );
-        
+$(document).ready(
+    function() {
+        performAuthDance();
     }
-
-    function getUserData(accessToken) {
-        return $.ajax({
-            url: 'https://api.spotify.com/v1/me',
-            headers: {
-               'Authorization': 'Bearer ' + accessToken
-            }
-        });
-    }
-
-    var loginButton = document.getElementById('btn-login');
-    console.log(loginButton);
-  
-    loginButton.addEventListener('click', function() {
-      console.log(event);
-      login(function(accessToken) {
-            getUserData(accessToken)
-                .then(function(response) {
-                    loginButton.style.display = 'none';
-                });
-            });
-    });
-  });
+);
     </script>
   </body>
 </html>
