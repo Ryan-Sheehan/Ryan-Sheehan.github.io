@@ -130,10 +130,14 @@ $(document).ready(
         type:'playlist',
         limit:50
     };
-
-     playlists = callSpotify(url, params, function() {
-       console.log(playlists.responseJSON.playlists.items);
-     });
+      
+        
+     playlists = callSpotify(url, params, function(ok, data) {
+        if (ok) {
+            console.log(playlists.responseJSON.playlists.items);
+        } else {
+            error("Trouble saving to the playlist");
+        });
      
      /*setTimeout(function() {
         console.log(playlists.responseJSON.playlists.items);
