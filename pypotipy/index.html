@@ -24,7 +24,7 @@
   
 <script>
   
-function callSpotify(url, data, callback) {
+function callSpotify(url, data) {
     return $.ajax(url, {
         dataType: 'json',
         data: data,
@@ -32,19 +32,8 @@ function callSpotify(url, data, callback) {
             'Authorization': 'Bearer ' + credentials.token
         },
         success: function(r) {
-            callback(true, r);
-        },
-        error: function(r) {
-            // 2XX status codes are good, but some have no
-            // response data which triggers the error handler
-            // convert it to goodness.
-            if (r.status >= 200 && r.status < 300) {
-                callback(true, r);
-            } else {
-                callback(false, r);
-            }
+          console.log(r);
         }
-      
     });
 }
 
