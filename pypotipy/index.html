@@ -30,9 +30,6 @@ function callSpotify(url, data) {
         data: data,
         headers: {
             'Authorization': 'Bearer ' + credentials.token
-        },
-        success: function(r) {
-          console.log(r);
         }
     });
 }
@@ -121,13 +118,9 @@ $(document).ready(
     };
       
         
-     playlists = callSpotify(url, params, function(ok, data) {
-        if (ok) {
+     playlists = callSpotify(url, params).done(function() {
             console.log(playlists.responseJSON.playlists.items);
-        } else {
-            error("Trouble saving to the playlist");
-        }
-        });
+     });
      
      /*setTimeout(function() {
         console.log(playlists.responseJSON.playlists.items);
