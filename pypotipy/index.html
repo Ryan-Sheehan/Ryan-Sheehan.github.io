@@ -130,7 +130,7 @@ $(document).ready(
         };
       
         mySongsData = callSpotify(mySongsUrl, mySongsParams).done(function() {
-            mySongs = mySongsData;
+            mySongs = mySongsData.responseJSON.items;
             console.log(mySongs);
         });
      
