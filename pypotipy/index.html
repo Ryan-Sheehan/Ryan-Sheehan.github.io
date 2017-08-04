@@ -119,20 +119,32 @@ $(document).ready(
         limit:50
         };
       
-        playlistData = callSpotify(playlistUrl, playlistParams).done(function() {
+        var playlistData = callSpotify(playlistUrl, playlistParams).done(function() {
             playlists = playlistData.responseJSON.playlists.items;
             console.log(playlists);
         });
       
         var mySongsUrl = 'https://api.spotify.com/v1/me/tracks';
         var mySongsParams = {
-        limit:50
+        limit:50,
+        offset:0
         };
       
-        mySongsData = callSpotify(mySongsUrl, mySongsParams).done(function() {
-            mySongs = mySongsData.responseJSON.items;
-            console.log(mySongs);
-        });
+        var loopCount = 0;
+        var songsleft = true;
+        var mySongs = [];
+        while(songsLeft){
+            mySongsData = callSpotify(mySongsUrl, mySongsParams).done(function() {
+                  loopCount++;
+                  currentSubsetOfSongs = mySongsData.responseJSON.items 
+                  mySongs.push.(currentSubsetOfSongs);
+                  if(currentSubsetOfSongs.length < mySongsParams.limit){
+                    songsleft = false;
+                  }
+                  console.log("Loop " + loopCount + ": " + mySongs);
+                  
+            });
+        }
      
     });
     </script>
