@@ -141,7 +141,7 @@ $(document).ready(
         }).done(function() {
                   //console.log(mySongsData.responseJSON.items);
                   var currentSubsetOfSongs = mySongsData.responseJSON.items;
-                  currentSubsetOfSongs.forEach(song => console.log(index + ": " + song.track.name));
+                  currentSubsetOfSongs.forEach(song => console.log('%d: ' + song.track.name));
                   currentSubsetOfSongs.forEach(song => mySongs.push(song));
                   
                   if(currentSubsetOfSongs.length < mySongsParams.limit){
