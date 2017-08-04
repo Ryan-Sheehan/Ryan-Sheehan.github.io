@@ -121,7 +121,7 @@ $(document).ready(
       
         var playlistData = callSpotify(playlistUrl, playlistParams).done(function() {
             playlists.push(playlistData.responseJSON.playlists.items);
-            console.log(playlists);
+            //console.log(playlists);
         });
       
         var mySongsUrl = 'https://api.spotify.com/v1/me/tracks';
@@ -137,21 +137,19 @@ $(document).ready(
             //loopCount++;
             mySongsData = callSpotify(mySongsUrl, mySongsParams).done(function() {
                   //console.log(mySongsData.responseJSON.items);
-                  var currentSubsetOfSongs = mySongsData.responseJSON.items;
-                  currentSubsetOfSongs.forEach(song => console.log(song.track.name));
-                  if(currentSubsetOfSongs.length < mySongsParams.limit){
-                    songsLeftInLib = false;
-                  }
+                  
               
                  
             });
 
-      mySongsParams.offset = 50;
+              mySongsParams.offset = 25;
     
                   mySongsData = callSpotify(mySongsUrl, mySongsParams).done(function() {
            
-                  currentSubsetOfSongs = mySongsData.responseJSON.items; 
-                  mySongs.push(currentSubsetOfSongs);
+                  var currentSubsetOfSongs = mySongsData.responseJSON.items;
+                  currentSubsetOfSongs.forEach(song => console.log(song.track.name));
+                  currentSubsetOfSongs.forEach(song => mySongs.push(song);
+                  
                   if(currentSubsetOfSongs.length < mySongsParams.limit){
                     songsLeftInLib = false;
                   }
