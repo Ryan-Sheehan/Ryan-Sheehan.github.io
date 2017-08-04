@@ -152,7 +152,7 @@ $(document).ready(
                   mySongsData = callSpotify(mySongsUrl, {
         limit:50,
         offset:100
-        };).done(function() {
+        }).done(function() {
            
                   var currentSubsetOfSongs = mySongsData.responseJSON.items;
                   currentSubsetOfSongs.forEach(song => console.log("2: " + song.track.name));
