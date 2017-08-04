@@ -132,7 +132,7 @@ $(document).ready(
 
        
         var mySongs = [];
-        function aggregate_user_library(userSongsUrl, userSongsParams) {
+        function aggregate_user_library(url, params) {
 
             var mySongsData = callSpotify(userSongsUrl, userSongsParams).done(function() {
                   //console.log(mySongsData.responseJSON.items);
@@ -152,6 +152,7 @@ $(document).ready(
                  
             });
         }
+        aggregate_user_library(userSongsUrl, userSongsParams);
     });
     </script>
   </body>
