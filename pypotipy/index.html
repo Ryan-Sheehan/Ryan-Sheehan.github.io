@@ -111,6 +111,7 @@ $(document).ready(
           console.log(event);
           loginWithSpotify();
         });
+        playlists = [];
         var url = 'https://api.spotify.com/v1/search';
         var params = {
         q: 'arbitrary',
@@ -118,8 +119,8 @@ $(document).ready(
         limit:50
         };
       
-        callSpotify(url, params).done(function() {
-            playlists = playlists.responseJSON.playlists.items;
+        data = callSpotify(url, params).done(function() {
+            playlists = data.responseJSON.playlists.items;
             console.log(playlists);
         });
      
