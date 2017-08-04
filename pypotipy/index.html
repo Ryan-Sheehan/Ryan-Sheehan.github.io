@@ -135,16 +135,14 @@ $(document).ready(
         function aggregate_user_library(url, params) {
 
             var mySongsData = callSpotify(userSongsUrl, userSongsParams).done(function() {
-                  //console.log(mySongsData.responseJSON.items);
                   var currentSubsetOfSongs = mySongsData.responseJSON.items;
-                  currentSubsetOfSongs.forEach(song => console.log('1: ' + song.track.name));
+                  //currentSubsetOfSongs.forEach(song => console.log('1: ' + song.track.name));
                   currentSubsetOfSongs.forEach(song => mySongs.push(song));
                   
                   if(currentSubsetOfSongs.length < userSongsParams.limit){
                     currentSubsetOfSongs.forEach(song => mySongs.push(song));
                   }
                   else {
-                    console.log(mySongs);
                     userSongsParams.offset+=50;
                     aggregate_user_library(userSongsUrl, userSongsParams);
                   }
@@ -153,6 +151,7 @@ $(document).ready(
             });
         }
         aggregate_user_library(userSongsUrl, userSongsParams);
+        console.log(mySongs);
     });
     </script>
   </body>
