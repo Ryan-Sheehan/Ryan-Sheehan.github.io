@@ -131,16 +131,16 @@ $(document).ready(
         };
 
        
-        var mySongs = [];
+        var userSongs = [];
         function aggregate_user_library(url, params) {
 
-            var mySongsData = callSpotify(userSongsUrl, userSongsParams).done(function() {
-                  var currentSubsetOfSongs = mySongsData.responseJSON.items;
+            var userSongsData = callSpotify(userSongsUrl, userSongsParams).done(function() {
+                  var currentSubsetOfSongs = userSongsData.responseJSON.items;
                   //currentSubsetOfSongs.forEach(song => console.log('1: ' + song.track.name));
-                  currentSubsetOfSongs.forEach(song => mySongs.push(song));
+                  currentSubsetOfSongs.forEach(song => userSongs.push(song));
                   
                   if(currentSubsetOfSongs.length < userSongsParams.limit){
-                    currentSubsetOfSongs.forEach(song => mySongs.push(song));
+                    currentSubsetOfSongs.forEach(song => userSongs.push(song));
                   }
                   else {
                     userSongsParams.offset+=50;
@@ -151,13 +151,9 @@ $(document).ready(
             });
         }
         aggregate_user_library(userSongsUrl, userSongsParams);
-        console.log(mySongs);
-        const result = document.querySelector('.result');
-        var resultText = 'You have ';
-        resultText += mySongs.length;
-        resultText += ' saved';
-      
-        result.innerHTML =  resultText;
+        console.log(userSongs);
+        var $result = $('div.result').html('userSongs.length');
+    
     });
     </script>
   </body>
