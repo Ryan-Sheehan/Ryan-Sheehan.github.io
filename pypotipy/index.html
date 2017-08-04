@@ -120,7 +120,7 @@ $(document).ready(
         };
       
         var playlistData = callSpotify(playlistUrl, playlistParams).done(function() {
-            playlists = playlistData.responseJSON.playlists.items;
+            playlists.push(playlistData.responseJSON.playlists.items);
             console.log(playlists);
         });
       
