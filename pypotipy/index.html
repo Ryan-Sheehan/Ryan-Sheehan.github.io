@@ -47,6 +47,7 @@ function loginWithSpotify() {
         '&scope=' + encodeURIComponent(scopes) +
         '&redirect_uri=' + encodeURIComponent(redirect_uri);
     document.location = url;
+    console.log(url);
 }
   
 function getTime() {
@@ -56,6 +57,7 @@ function performAuthDance() {
     // if we already have a token and it hasn't expired, use it,
     if ('credentials' in localStorage) {
         credentials = JSON.parse(localStorage.credentials);
+        console.log(credentials);
     }
     else {
         credentials = null;
