@@ -39,7 +39,7 @@ function callSpotify(url, data) {
 function loginWithSpotify() {
     var client_id = '3f10615e3e7448688686807a96be668c';
     var redirect_uri = 'http://ryanwsheehan.com/pypotipy/';
-    var scopes = '';
+    var scopes = 'user-library-read playlist-modify-public';
     if (document.location.hostname == 'localhost') {
         redirect_uri = 'http://localhost:8000/index.html';
     }
@@ -132,7 +132,7 @@ $(document).ready(
         };
       
         mySongsData = callSpotify(mySongsUrl, mySongsParams).done(function() {
-            mySongs = mySongsData.responseJSON;
+            mySongs = mySongsData;
             console.log(mySongs);
         });
      
