@@ -129,28 +129,9 @@ $(document).ready(
         limit:50,
         offset:0
         };
-      
-        function aggregate_user_library(mySongsUrl, mySongsParams) {
-        var current = 0;
-        //check to make sure there are more requests to make
-        if (current < ajaxes.length) {
 
-            //make the AJAX request with the given data from the `ajaxes` array of objects
-            $.ajax({
-                url      : ajaxes[current].url,
-                dataType : ajaxes[current].dataType,
-                success  : function (serverResponse) {
-                    ...
-                    //increment the `current` counter and recursively call this function again
-                    current++;
-                    do_ajax();
-                }
-            });
-        }
-    }
-      
-        var loopCount = 0;
-        var songsLeftInLib = true;
+        //check to make sure there are more requests to make
+       
         var mySongs = [];
         //while(songsLeftInLib){
             //loopCount++;
@@ -170,30 +151,6 @@ $(document).ready(
               
                  
             });
-
-    
-                 /* mySongsData = callSpotify(mySongsUrl, {
-        limit:3,
-        offset:100
-        }).done(function() {
-           
-                  var currentSubsetOfSongs = mySongsData.responseJSON.items;
-                  currentSubsetOfSongs.forEach(song => console.log("2: " + song.track.name));
-                  currentSubsetOfSongs.forEach(song => mySongs.push(song));
-                  
-                  if(currentSubsetOfSongs.length < mySongsParams.limit){
-                    songsLeftInLib = false;
-                  }
-              
-                 
-            });*/
-
-            //console.log("Loop " + loopCount + ": " + mySongs);
-            // if(loopCount > 2){
-            //    break;
-           // }
-                  
-       // }
      
     });
     </script>
