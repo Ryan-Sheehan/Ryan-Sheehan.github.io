@@ -105,26 +105,24 @@ function performAuthDance() {
 }
 $(document).ready(
     function() {
+      
         performAuthDance();
         $('#login-button').click(function() {
-                              console.log(event);
-                              loginWithSpotify();
-    });
-      var url = 'https://api.spotify.com/v1/search';
-    var params = {
+          console.log(event);
+          loginWithSpotify();
+        });
+        var url = 'https://api.spotify.com/v1/search';
+        var params = {
         q: 'arbitrary',
         type:'playlist',
         limit:50
-    };
+        };
       
-        
-     playlists = callSpotify(url, params).done(function() {
-            console.log(playlists.responseJSON.playlists.items);
-     });
+        callSpotify(url, params).done(function() {
+            playlists = playlists.responseJSON.playlists.items;
+            console.log(playlists);
+        });
      
-     /*setTimeout(function() {
-        console.log(playlists.responseJSON.playlists.items);
-     },1000);*/
     });
     </script>
   </body>
