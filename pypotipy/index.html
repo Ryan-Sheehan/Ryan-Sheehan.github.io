@@ -130,26 +130,46 @@ $(document).ready(
         offset:0
         };
       
+        function aggregate_user_library(mySongsUrl, mySongsParams) {
+        var current = 0;
+        //check to make sure there are more requests to make
+        if (current < ajaxes.length) {
+
+            //make the AJAX request with the given data from the `ajaxes` array of objects
+            $.ajax({
+                url      : ajaxes[current].url,
+                dataType : ajaxes[current].dataType,
+                success  : function (serverResponse) {
+                    ...
+                    //increment the `current` counter and recursively call this function again
+                    current++;
+                    do_ajax();
+                }
+            });
+        }
+    }
+      
         var loopCount = 0;
         var songsLeftInLib = true;
         var mySongs = [];
         //while(songsLeftInLib){
             //loopCount++;
-            mySongsData = callSpotify(mySongsUrl, {
-        limit:50,
-        offset:0
-        }).done(function() {
+            var mySongsData = callSpotify(mySongsUrl, mySongsParams).done(function() {
                   //console.log(mySongsData.responseJSON.items);
                   var currentSubsetOfSongs = mySongsData.responseJSON.items;
                   currentSubsetOfSongs.forEach(song => console.log('1: ' + song.track.name));
                   currentSubsetOfSongs.forEach(song => mySongs.push(song));
                   
                   if(currentSubsetOfSongs.length < mySongsParams.limit){
-                    songsLeftInLib = false;
+                    currentSubsetOfSongs.forEach(song => mySongs.push(song));
+                  }
+                  else {
+                    mySongsParams.offset+=50;
+                    callSpotify(mySongsUrl, mySongsParams);
                   }
               
                  
-            })
+            });
 
     
                  /* mySongsData = callSpotify(mySongsUrl, {
