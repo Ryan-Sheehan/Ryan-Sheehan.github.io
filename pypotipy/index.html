@@ -129,16 +129,16 @@ $(document).ready(
         limit:50,
         offset:0
         };
-        console.log(mySongsParams.offset);
+      
         var loopCount = 0;
         var songsLeftInLib = true;
         var mySongs = [];
         //while(songsLeftInLib){
             //loopCount++;
             mySongsData = callSpotify(mySongsUrl, mySongsParams).done(function() {
+                  console.log(mySongsData.responseJSON.items);
                   currentSubsetOfSongs = mySongsData.responseJSON.items;
                   currentSubsetOfSongs.forEach(song => mySong.push(song));
-                  console.log(mySongs);
                   if(currentSubsetOfSongs.length < mySongsParams.limit){
                     songsLeftInLib = false;
                   }
@@ -147,7 +147,7 @@ $(document).ready(
             });
 
       mySongsParams.offset = 50;
-      console.log(mySongsParams.offset);
+    
                   mySongsData = callSpotify(mySongsUrl, mySongsParams).done(function() {
            
                   currentSubsetOfSongs = mySongsData.responseJSON.items; 
