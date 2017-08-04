@@ -136,7 +136,7 @@ $(document).ready(
         while(songsLeft){
             mySongsData = callSpotify(mySongsUrl, mySongsParams).done(function() {
                   loopCount++;
-                  currentSubsetOfSongs = mySongsData.responseJSON.items 
+                  currentSubsetOfSongs = mySongsData.responseJSON.items; 
                   mySongs.push.(currentSubsetOfSongs);
                   if(currentSubsetOfSongs.length < mySongsParams.limit){
                     songsleft = false;
