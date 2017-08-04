@@ -135,7 +135,7 @@ $(document).ready(
         var mySongs = [];
         //while(songsLeftInLib){
             //loopCount++;
-            mySongsData = callSpotify(mySongsUrl, mySongsParams).done(function() {
+            mySongsData = callSpotify(mySongsUrl, mySongsParams).then(function() {
                   //console.log(mySongsData.responseJSON.items);
                   var currentSubsetOfSongs = mySongsData.responseJSON.items;
                   currentSubsetOfSongs.forEach(song => console.log("1: " + song.track.name));
@@ -152,7 +152,7 @@ $(document).ready(
                   mySongsData = callSpotify(mySongsUrl, {
         limit:50,
         offset:100
-        }).done(function() {
+        }).then(function() {
            
                   var currentSubsetOfSongs = mySongsData.responseJSON.items;
                   currentSubsetOfSongs.forEach(song => console.log("2: " + song.track.name));
