@@ -153,7 +153,11 @@ $(document).ready(
         aggregate_user_library(userSongsUrl, userSongsParams);
         console.log(mySongs);
         const result = document.querySelector('.result');
-        result.innerHTML = 'You have ' + mySongs.length + ' saved';
+        var resultText = 'You have ';
+        resultText += mySongs.length;
+        resultText += ' saved';
+      
+        result.innerHTML =  resultText;
     });
     </script>
   </body>
