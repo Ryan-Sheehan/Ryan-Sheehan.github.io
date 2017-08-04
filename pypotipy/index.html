@@ -145,6 +145,7 @@ $(document).ready(
                     currentSubsetOfSongs.forEach(song => mySongs.push(song));
                   }
                   else {
+                    console.log(mySongs);
                     mySongsParams.offset+=50;
                     callSpotify(mySongsUrl, mySongsParams);
                   }
