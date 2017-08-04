@@ -124,35 +124,34 @@ $(document).ready(
             //console.log(playlists);
         });
       
-        var mySongsUrl = 'https://api.spotify.com/v1/me/tracks';
-        var mySongsParams = {
+        var userSongsUrl = 'https://api.spotify.com/v1/me/tracks';
+        var userSongsParams = {
         limit:50,
         offset:0
         };
 
-        //check to make sure there are more requests to make
        
         var mySongs = [];
-        //while(songsLeftInLib){
-            //loopCount++;
-            var mySongsData = callSpotify(mySongsUrl, mySongsParams).done(function() {
+        function aggregate_user_library(userSongsUrl, userSongsParams) {
+
+            var mySongsData = callSpotify(userSongsUrl, userSongsParams).done(function() {
                   //console.log(mySongsData.responseJSON.items);
                   var currentSubsetOfSongs = mySongsData.responseJSON.items;
                   currentSubsetOfSongs.forEach(song => console.log('1: ' + song.track.name));
                   currentSubsetOfSongs.forEach(song => mySongs.push(song));
                   
-                  if(currentSubsetOfSongs.length < mySongsParams.limit){
+                  if(currentSubsetOfSongs.length < userSongsParams.limit){
                     currentSubsetOfSongs.forEach(song => mySongs.push(song));
                   }
                   else {
                     console.log(mySongs);
-                    mySongsParams.offset+=50;
-                    callSpotify(mySongsUrl, mySongsParams);
+                    userSongsParams.offset+=50;
+                    aggregate_user_library(userSongsUrl, userSongsParams);
                   }
               
                  
             });
-     
+        }
     });
     </script>
   </body>
