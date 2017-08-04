@@ -44,7 +44,7 @@ function loginWithSpotify() {
     }
     var url = 'https://accounts.spotify.com/authorize?client_id=' + client_id +
         '&response_type=token' +
-        '&scope=' + encodeURIComponent('user-library-read') +
+        '&scope=' + encodeURIComponent('user-library-read playlist-modify-public') +
         '&redirect_uri=' + encodeURIComponent(redirect_uri);
     document.location = url;
 }
