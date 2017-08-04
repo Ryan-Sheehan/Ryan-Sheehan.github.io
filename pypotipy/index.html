@@ -145,6 +145,18 @@ $(document).ready(
               
                  
             });
+      console.log(mySongs);
+      mySongsParams.offset = 50;
+                  mySongsData = callSpotify(mySongsUrl, mySongsParams).done(function() {
+           
+                  currentSubsetOfSongs = mySongsData.responseJSON.items; 
+                  mySongs.push(currentSubsetOfSongs);
+                  if(currentSubsetOfSongs.length < mySongsParams.limit){
+                    songsLeftInLib = false;
+                  }
+              
+                 
+            });
             console.log(mySongs);
             //console.log("Loop " + loopCount + ": " + mySongs);
             // if(loopCount > 2){
