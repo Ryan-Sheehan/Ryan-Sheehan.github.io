@@ -38,7 +38,7 @@ function callSpotify(url, data) {
 function loginWithSpotify() {
     var client_id = '3f10615e3e7448688686807a96be668c';
     var redirect_uri = 'http://ryanwsheehan.com/pypotipy/';
-    var scopes = 'user-library-read';
+    var scopes = '';
     if (document.location.hostname == 'localhost') {
         redirect_uri = 'http://localhost:8000/index.html';
     }
