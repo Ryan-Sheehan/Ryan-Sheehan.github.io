@@ -98,7 +98,7 @@ function performAuthDance() {
                 }
             );
         } else {
-    // otherwise, got to spotify to get auth
+        // otherwise, got to spotify to get auth
             $("#login-form").show();
         }
     }
@@ -152,6 +152,8 @@ $(document).ready(
         }
         aggregate_user_library(userSongsUrl, userSongsParams);
         console.log(mySongs);
+        const result = document.querySelector('.result');
+        result.innerHTML('You have " + mySongs.length + " saved");
     });
     </script>
   </body>
