@@ -150,9 +150,8 @@ $(document).ready(
                  
             });
         }
-        aggregate_user_library(userSongsUrl, userSongsParams);
+        aggregate_user_library(userSongsUrl, userSongsParams).done(function(){$('#result').html(userSongs.length);});
         console.log(userSongs);
-        var $result = $('#result').html(userSongs.length);
     
     });
     </script>
