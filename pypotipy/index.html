@@ -138,7 +138,7 @@ $(document).ready(
             mySongsData = callSpotify(mySongsUrl, mySongsParams).done(function() {
                   //console.log(mySongsData.responseJSON.items);
                   var currentSubsetOfSongs = mySongsData.responseJSON.items;
-                  currentSubsetOfSongs.forEach(song => console.log(song.track.name));
+                  currentSubsetOfSongs.forEach(song => console.log("2: " + song.track.name));
                   currentSubsetOfSongs.forEach(song => mySongs.push(song));
                   
                   if(currentSubsetOfSongs.length < mySongsParams.limit){
@@ -148,12 +148,14 @@ $(document).ready(
                  
             });
 
-              mySongsParams.offset = 25;
     
-                  mySongsData = callSpotify(mySongsUrl, mySongsParams).done(function() {
+                  mySongsData = callSpotify(mySongsUrl, {
+        limit:50,
+        offset:100
+        };).done(function() {
            
                   var currentSubsetOfSongs = mySongsData.responseJSON.items;
-                  currentSubsetOfSongs.forEach(song => console.log(song.track.name));
+                  currentSubsetOfSongs.forEach(song => console.log("2: " + song.track.name));
                   currentSubsetOfSongs.forEach(song => mySongs.push(song));
                   
                   if(currentSubsetOfSongs.length < mySongsParams.limit){
