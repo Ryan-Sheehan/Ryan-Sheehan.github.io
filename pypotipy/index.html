@@ -131,15 +131,15 @@ $(document).ready(
         };
       
         var loopCount = 0;
-        var songsleft = true;
+        var songsLeftInLib = true;
         var mySongs = [];
-        while(songsLeft){
+        while(songsLeftInLib){
             mySongsData = callSpotify(mySongsUrl, mySongsParams).done(function() {
                   loopCount++;
                   currentSubsetOfSongs = mySongsData.responseJSON.items; 
                   mySongs.push(currentSubsetOfSongs);
                   if(currentSubsetOfSongs.length < mySongsParams.limit){
-                    songsleft = false;
+                    songsLeftInLib = false;
                   }
                   console.log("Loop " + loopCount + ": " + mySongs);
                   
