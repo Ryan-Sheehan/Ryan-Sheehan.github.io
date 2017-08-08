@@ -2,7 +2,8 @@
 <head>
   <title>Pypotipy</title>
   
-  <!-- Bootstrap -->
+  <!-- Bootstrap Core CSS -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   
   
@@ -38,17 +39,29 @@
   </div>
 
 
-    
-    <div class="login-form-container hidden">
-  
-    <div class="intro-form" id="login-form">
-            <p class="intro-instructions" style="font-family: 'Montserrat', sans-serif;"> To get started, login with your Spotify credentials.</p>
-            <p>
-              <a class="btn btn-primary btn-lg" id='login-button' role="button">Login with Spotify</a>
-            </p>
-    </div>
-  
-    <div id="result"></div>
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-2"></div>
+        
+        
+          <div class="col-md-8">
+            <div class="login-form-container hidden">
+
+              <div class="intro-form" id="login-form">
+                      <p class="intro-instructions" style="font-family: 'Montserrat', sans-serif;"> To get started, login with your Spotify credentials.</p>
+                      <p>
+                        <a class="btn btn-primary btn-lg" id='login-button' role="button">Login with Spotify</a>
+                      </p>
+              </div>
+
+              <div id="result"></div>
+              </div>
+          </div>
+        
+        
+          <div class="col-md-2"></div>
+              
+      </div>
     </div>
 
 <script src="/vendor/jquery/jquery.min.js"></script>
