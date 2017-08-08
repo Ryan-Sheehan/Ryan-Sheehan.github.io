@@ -132,9 +132,10 @@ function performAuthDance() {
     }
 }
 $(document).ready(
-    $('div.hidden').fadeIn(1000).removeClass('hidden');
+    
   
     function() {
+        $('div.hidden').fadeIn(1000).removeClass('hidden');
       
         performAuthDance();
         $('#login-button').click(function() {
