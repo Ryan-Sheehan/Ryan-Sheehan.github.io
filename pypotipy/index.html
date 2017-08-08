@@ -156,7 +156,7 @@ $(document).ready(
       
         performAuthDance();
         $('#login-button').click(function() {
-          console.log(event);
+          $('.login-form-container').addClass('hidden');
           loginWithSpotify();
         });
         playlists = [];
