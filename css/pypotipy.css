@@ -1,8 +1,10 @@
 body {
     background-image: url();
+    background-size: cover;
+    background-position: center;
 }
 .hidden {
-	display: none;
+    display: none;
 }
 .login-form-container {
     margin: auto;
