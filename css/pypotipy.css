@@ -2,7 +2,6 @@
 	display: none;
 }
 .login-form-container {
-	display: inline-block;
-	width: 30%;
-	padding-left: 35%;
+	display: inherit;
+	left: auto;
 }
