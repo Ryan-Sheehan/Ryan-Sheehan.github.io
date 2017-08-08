@@ -54,7 +54,7 @@
                       </p>
               </div>
 
-              <div id="result"></div>
+              <div id="result-form" style="width: 10%; height:10%; background-color:white;"></div>
               </div>
           </div>
         
@@ -101,12 +101,13 @@ function performAuthDance() {
     // if we already have a token and it hasn't expired, use it,
     if ('credentials' in localStorage) {
         credentials = JSON.parse(localStorage.credentials);
+        $('.login-form-container').addClass('.hidden');
     }
     else {
         credentials = null;
     }
     if (credentials && credentials.expires > getTime()) {
-        //$("#search-form").show();
+        $("#result-form").show();
     }
     else {
     // we have a token as a hash parameter in the url
