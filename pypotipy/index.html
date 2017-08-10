@@ -68,14 +68,6 @@
 <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
   
 <script>
-"use strict";
-  
-function error(s) {
-    info(s);
-}
-function info(s) {
-    $("#info").text(s);
-}
   
 function callSpotify(url, data) {
     return $.ajax(url, {
@@ -86,7 +78,7 @@ function callSpotify(url, data) {
         }
     });
 }
-
+  
 function loginWithSpotify() {
     var client_id = '3f10615e3e7448688686807a96be668c';
     var redirect_uri = 'http://ryanwsheehan.com/pypotipy/';
@@ -104,11 +96,11 @@ function loginWithSpotify() {
 function getTime() {
     return Math.round(new Date().getTime() / 1000);
 }
-  
 function performAuthDance() {
     // if we already have a token and it hasn't expired, use it,
     if ('credentials' in localStorage) {
         credentials = JSON.parse(localStorage.credentials);
+        $('.login-form-container').addClass('.hidden');
     }
     else {
         credentials = null;
@@ -156,13 +148,24 @@ function performAuthDance() {
         }
     }
 }
-  
 $(document).ready(function() {
         $('div.hidden').fadeIn(1000).removeClass('hidden');
       
         performAuthDance();
         $('#login-button').click(function() {
           loginWithSpotify();
+        });
+        playlists = [];
+        var playlistUrl = 'https://api.spotify.com/v1/search';
+        var playlistParams = {
+        q: 'arbitrary',
+        type:'playlist',
+        limit:50
+        };
+      
+        var playlistData = callSpotify(playlistUrl, playlistParams).done(function() {
+            playlists.push(playlistData.responseJSON.playlists.items);
+            //console.log(playlists);
         });
       
         var userSongsUrl = 'https://api.spotify.com/v1/me/tracks';
@@ -173,7 +176,6 @@ $(document).ready(function() {
        
         var userSongs = [];
         function aggregate_user_library(url, params) {
-
             var userSongsData = callSpotify(userSongsUrl, userSongsParams).done(function() {
                   var currentSubsetOfSongs = userSongsData.responseJSON.items;
                   //currentSubsetOfSongs.forEach(song => console.log('1: ' + song.track.name));
@@ -195,13 +197,5 @@ $(document).ready(function() {
     
     });
     </script>
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-3675615-45', 'auto');
-  ga('send', 'pageview');
-</script>
   </body>
 </html>
