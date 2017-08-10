@@ -22,8 +22,16 @@ table {
 table, th, td {
     border: 1px solid white;
 }
+.label, .data {
+    background-color: rgba(1,1,1,0.8);
+    
+}
+
 p {
     font-family: 'Montserrat', sans-serif;
     color: white;
+}
+p.cell {
+    padding: 15%;
 }
 
