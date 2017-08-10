@@ -22,12 +22,12 @@ table {
 table, th, td {
     border: 1px solid white;
 }
-.label, .data {
+/*.label, .data {
     height:100%;
     width:100%;
     background-color: rgba(1,1,1,0.8);
     
-}
+}*/
 
 p {
     font-family: 'Montserrat', sans-serif;
