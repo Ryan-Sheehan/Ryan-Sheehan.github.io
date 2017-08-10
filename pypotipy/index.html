@@ -67,9 +67,10 @@
                     <tbody>
                       <tr>
                         <td class"user-song-count-label">
-                          <p class="cell">Total # songs in library</p>
+                          <p class="cell">User song count</p>
                         </td>
                         <td class="user-song-count-number">
+                          <p class="cell">Number</p>
                         </td>
                       </tr>
                     </tbody>
@@ -95,7 +96,6 @@ function error(s) {
 function info(s) {
     $("#info").text(s);
 }
-
 function initApp() {
   $(".intro-form").hide();
   $(".results").hide();
@@ -219,7 +219,7 @@ $(document).ready(function() {
         aggregate_user_library(userSongsUrl, userSongsParams);//.done(function(){$('#result').html(userSongs.length);});
         console.log(userSongs);
   
-        $('.user-song-count-number').html('<p class="cell">${userSongs}</p>');
+        $(".user-song-count-number").html('<p class="cell">${userSongs}</p>');
     
     });
     </script>
@@ -233,3 +233,5 @@ $(document).ready(function() {
 </script>
   </body>
 </html>
+Contact GitHub API Training Shop Blog About
+
