@@ -107,18 +107,14 @@ function getTime() {
 function performAuthDance() {
     // if we already have a token and it hasn't expired, use it,
     if ('credentials' in localStorage) {
-        credentials = JSON.parse(localStorage.credentials);
-        console.log('A');
-        $('#login-form').hide();
-  
-       
+        credentials = JSON.parse(localStorage.credentials);  
     }
     else {
         credentials = null;
     }
     if (credentials && credentials.expires > getTime()) {
         console.log('B');
-        $('#login-form').show();
+        $('.intro-form.hidden').fadeIn(1000).show();
     }
     else {
     // we have a token as a hash parameter in the url
@@ -149,7 +145,7 @@ function performAuthDance() {
                     localStorage['credentials'] = JSON.stringify(credentials);
                     location.hash = '';
                     console.log('C');
-                    $('#login-form').hide();
+                    $('.results').show();
                   
                     
                 },
@@ -160,14 +156,14 @@ function performAuthDance() {
         } else {
         // otherwise, go to spotify to get auth
         consoles.log('D');
-        $('#login-form').show();
+        $('.intro-form.hidden').fadeIn(1000).show();
         }
     }
 }
 $(document).ready(function() {
  
   
-        //$('div.hidden').fadeIn(1000).removeClass('hidden');
+        
       
         performAuthDance();
         $('#login-button').click(function() {
