@@ -34,6 +34,6 @@ p {
     color: white;
 }
 p.cell {
-    padding: 15%;
+    padding: 10% 15% 10% 15%;
 }
 
