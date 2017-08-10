@@ -214,11 +214,11 @@ $(document).ready(function() {
                   }     
             });
         }
-        aggregate_user_library(userSongsUrl, userSongsParams);//.done(function(){$('#result').html(userSongs.length);});
-        console.log(userSongs);
-  
-  
-        setTimeout(function(){$(".user-song-count-number").append($('<p class="cell">').text(userSongs.length))},1000);
+        aggregate_user_library(userSongsUrl, userSongsParams).done(function(){
+            $(".user-song-count-number").append($('<p class="cell">').text(userSongs.length)
+           console.log(userSongs);
+        });
+      
     
     });
     </script>
