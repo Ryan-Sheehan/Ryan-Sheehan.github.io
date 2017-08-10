@@ -65,9 +65,9 @@
           <div class="results-display">
                   <table>
                     <tbody>
-                      <tr>
-                        <td class"user-song-count-label">
-                          <p class="cell">Total # of songs saved</p>
+                      <tr class="user-song-count">
+                        <td class"-label">
+                          
                         </td>
                         <td class="user-song-count-number"></td>
                       </tr>
@@ -192,6 +192,29 @@ $(document).ready(function() {
         initApp();
         performAuthDance();
   
+        function putInCell(content) {
+          var td = $('<td>');
+          return td.append(content);
+        }
+  
+        function synthesize_data(data) {
+          //total number of songs saved
+          var songCount = $(".user-song-count");
+          songCount.append(putInCell($('<p class="cell">Total # of songs saved</p>')));
+          songCount.append(putInCell($('<p class="cell">').text(data.length)));
+
+          console.log(data);
+          
+          //percentage of explicit songs in library
+          
+          
+          //avg popularity of music saved
+          
+          
+          //
+        }
+
+  
       
         var userSongsUrl = 'https://api.spotify.com/v1/me/tracks';
         var userSongsParams = {
@@ -208,8 +231,7 @@ $(document).ready(function() {
                   
                   if(currentSubsetOfSongs.length < userSongsParams.limit){
                     currentSubsetOfSongs.forEach(song => userSongs.push(song));
-                    $(".user-song-count-number").append($('<p class="cell">').text(userSongs.length));
-                    console.log(userSongs);
+                    synthesize_data(userSongs);
                   }
                   else {
                     userSongsParams.offset+=50;
