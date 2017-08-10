@@ -76,6 +76,11 @@ function error(s) {
 function info(s) {
     $("#info").text(s);
 }
+
+function initApp() {
+  $(".intro-form").hide();
+  $(".results").hide();
+}
   
 function callSpotify(url, data) {
     return $.ajax(url, {
@@ -114,7 +119,7 @@ function performAuthDance() {
     }
     if (credentials && credentials.expires > getTime()) {
         console.log('B');
-        $('.intro-form.hidden').fadeIn(1000).show();
+        $('#login-form').show();
     }
     else {
     // we have a token as a hash parameter in the url
@@ -156,7 +161,7 @@ function performAuthDance() {
         } else {
         // otherwise, go to spotify to get auth
         consoles.log('D');
-        $('.intro-form.hidden').fadeIn(1000).show();
+        $('#login-form').show();
         }
     }
 }
