@@ -200,7 +200,7 @@ $(document).ready(function() {
         };
        
         var userSongs = [];
-        var libraryDataLoaded = false;
+
         function aggregate_user_library(url, params) {
             var userSongsData = callSpotify(userSongsUrl, userSongsParams).done(function() {
                   var currentSubsetOfSongs = userSongsData.responseJSON.items;
@@ -208,7 +208,8 @@ $(document).ready(function() {
                   
                   if(currentSubsetOfSongs.length < userSongsParams.limit){
                     currentSubsetOfSongs.forEach(song => userSongs.push(song));
-                    libraryDataLoaded = true;
+                    $(".user-song-count-number").append($('<p class="cell">').text(userSongs.length));
+                    console.log(userSongs);
                   }
                   else {
                     userSongsParams.offset+=50;
@@ -218,11 +219,7 @@ $(document).ready(function() {
         }
         aggregate_user_library(userSongsUrl, userSongsParams);;//.done(function(){
           
-      if(libraryDataLoaded){
-         $(".user-song-count-number").append($('<p class="cell">').text(userSongs.length));
-         console.log(userSongs);
-      }
-    
+      
     });
     </script>
   <script>
