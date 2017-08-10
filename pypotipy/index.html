@@ -112,7 +112,8 @@ function performAuthDance() {
     if ('credentials' in localStorage) {
         credentials = JSON.parse(localStorage.credentials);
         $('#login-form').hide();
-        loggedIn = true;
+  
+        $("body").css("background-image", "url(https://rawgit.com/Ryan-Sheehan/Ryan-Sheehan.github.io/master/pypotipy/images/tumblr_osft0n81Ax1r3yu63o1_1280.jpg)");
     }
     else {
         credentials = null;
@@ -149,7 +150,7 @@ function performAuthDance() {
                     localStorage['credentials'] = JSON.stringify(credentials);
                     location.hash = '';
                     $("#login-form").hide();
-                    loggedIn = true;
+                    $("body").css("background-image", "url(https://rawgit.com/Ryan-Sheehan/Ryan-Sheehan.github.io/master/pypotipy/images/tumblr_osft0n81Ax1r3yu63o1_1280.jpg)");
                 },
                 function() {
                     error("Can't get user info");
@@ -162,11 +163,7 @@ function performAuthDance() {
     }
 }
 $(document).ready(function() {
-  
-        if(loggedIn){
-          $("body").css("background-image", "url(https://rawgit.com/Ryan-Sheehan/Ryan-Sheehan.github.io/master/pypotipy/images/tumblr_osft0n81Ax1r3yu63o1_1280.jpg)");
-        }
-
+ 
   
         //$('div.hidden').fadeIn(1000).removeClass('hidden');
       
