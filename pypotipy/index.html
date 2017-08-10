@@ -216,10 +216,9 @@ $(document).ready(function() {
         }
         aggregate_user_library(userSongsUrl, userSongsParams);//.done(function(){$('#result').html(userSongs.length);});
         console.log(userSongs);
-        userSongs.forEach(song => console.log(song.track.name));
   
   
-   $(".user-song-count-number").append($('<p class="cell">').text(Array.from(userSongs).length));
+        setTimeout($(".user-song-count-number").append($('<p class="cell">').text(userSongs.length)),0);
     
     });
     </script>
