@@ -217,14 +217,8 @@ $(document).ready(function() {
         aggregate_user_library(userSongsUrl, userSongsParams);//.done(function(){$('#result').html(userSongs.length);});
         console.log(userSongs);
   
-        function addData(label, value) {
-
-          var cell = $('<p class="cell">').text(value);
-          label.append(value);
-
-    }
   
-        addData($(".user-song-count-number"), userSongs.length);
+   $(".user-song-count-number").append($('<p class="cell">').text(userSongs[3].track));
     
     });
     </script>
