@@ -80,6 +80,9 @@ function info(s) {
 function initApp() {
   $(".intro-form").hide();
   $(".results").hide();
+  $('#login-button').click(function() {
+      loginWithSpotify();
+   });
 }
   
 function callSpotify(url, data) {
@@ -169,11 +172,9 @@ $(document).ready(function() {
  
   
         
-      
+        initApp();
         performAuthDance();
-        $('#login-button').click(function() {
-          loginWithSpotify();
-        });
+  
       
         var userSongsUrl = 'https://api.spotify.com/v1/me/tracks';
         var userSongsParams = {
