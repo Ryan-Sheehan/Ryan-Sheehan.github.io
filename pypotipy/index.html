@@ -108,6 +108,7 @@ function performAuthDance() {
     // if we already have a token and it hasn't expired, use it,
     if ('credentials' in localStorage) {
         credentials = JSON.parse(localStorage.credentials);
+        console.log('A');
         $('#login-form').hide();
   
        
@@ -116,6 +117,7 @@ function performAuthDance() {
         credentials = null;
     }
     if (credentials && credentials.expires > getTime()) {
+        console.log('B');
         $('#login-form').show();
     }
     else {
@@ -146,7 +148,9 @@ function performAuthDance() {
                     credentials.user_id = user.id;
                     localStorage['credentials'] = JSON.stringify(credentials);
                     location.hash = '';
+                    console.log('C');
                     $('#login-form').hide();
+                  
                     
                 },
                 function() {
@@ -155,6 +159,7 @@ function performAuthDance() {
             );
         } else {
         // otherwise, go to spotify to get auth
+        consoles.log('D');
         $('#login-form').show();
         }
     }
