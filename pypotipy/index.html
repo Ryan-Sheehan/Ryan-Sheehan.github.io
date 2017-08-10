@@ -171,18 +171,6 @@ $(document).ready(function() {
         $('#login-button').click(function() {
           loginWithSpotify();
         });
-        playlists = [];
-        var playlistUrl = 'https://api.spotify.com/v1/search';
-        var playlistParams = {
-        q: 'arbitrary',
-        type:'playlist',
-        limit:50
-        };
-      
-        var playlistData = callSpotify(playlistUrl, playlistParams).done(function() {
-            playlists.push(playlistData.responseJSON.playlists.items);
-            //console.log(playlists);
-        });
       
         var userSongsUrl = 'https://api.spotify.com/v1/me/tracks';
         var userSongsParams = {
@@ -194,7 +182,6 @@ $(document).ready(function() {
         function aggregate_user_library(url, params) {
             var userSongsData = callSpotify(userSongsUrl, userSongsParams).done(function() {
                   var currentSubsetOfSongs = userSongsData.responseJSON.items;
-                  //currentSubsetOfSongs.forEach(song => console.log('1: ' + song.track.name));
                   currentSubsetOfSongs.forEach(song => userSongs.push(song));
                   
                   if(currentSubsetOfSongs.length < userSongsParams.limit){
@@ -203,9 +190,7 @@ $(document).ready(function() {
                   else {
                     userSongsParams.offset+=50;
                     aggregate_user_library(userSongsUrl, userSongsParams);
-                  }
-              
-                 
+                  }     
             });
         }
         aggregate_user_library(userSongsUrl, userSongsParams);//.done(function(){$('#result').html(userSongs.length);});
