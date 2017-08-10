@@ -89,6 +89,7 @@
 <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
   
 <script>
+  var credentials;
   
 function error(s) {
     info(s);
@@ -134,7 +135,7 @@ function getTime() {
 function performAuthDance() {
     // if we already have a token and it hasn't expired, use it,
     if ('credentials' in localStorage) {
-        var credentials = JSON.parse(localStorage.credentials);  
+        credentials = JSON.parse(localStorage.credentials);  
     }
     else {
         credentials = null;
