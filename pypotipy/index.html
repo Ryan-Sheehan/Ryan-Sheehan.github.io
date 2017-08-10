@@ -141,7 +141,6 @@ function performAuthDance() {
         credentials = null;
     }
     if (credentials && credentials.expires > getTime()) {
-        console.log(credentials);
         $('.results').show();
     }
     else {
@@ -220,7 +219,14 @@ $(document).ready(function() {
         aggregate_user_library(userSongsUrl, userSongsParams);//.done(function(){$('#result').html(userSongs.length);});
         console.log(userSongs);
   
-        $(".user-song-count-number").html('<p class="cell">${userSongs}</p>');
+        function addData(label, value) {
+
+          var cell = $("<p>").text(value);
+          label.append(value);
+
+    }
+  
+        addData($(".user-song-count-number"), userSongs.length);
     
     });
     </script>
@@ -234,5 +240,4 @@ $(document).ready(function() {
 </script>
   </body>
 </html>
-Contact GitHub API Training Shop Blog About
 
