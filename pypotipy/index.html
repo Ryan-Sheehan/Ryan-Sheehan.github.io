@@ -42,7 +42,7 @@
 <div class="container-fluid">
   <div class="row">
      <div class="col-md-8">
-        <div class="login-form-container hidden">
+     
           
               <div class="intro-form" id="login-form">
                       <p class="intro-instructions" style="font-family: 'Montserrat', sans-serif;"> To get started, login with your Spotify credentials.</p>
@@ -51,15 +51,17 @@
                       </p>
               </div>
 
-        </div> 
+   
       </div>    
    </div>
 </div>
   
 <div class="container-fluid work">
+  <div id='info' class="h1 text-center"></div>
+  
    <div class="row">
       <div class="col-md-8">
-          <div class="result-form hidden" style="height:20px;width:20px;background-color:white"></div>
+          <div class="results hidden" style="height:20px;width:20px;background-color:white"></div>
       </div>
    </div>
 </div>
@@ -68,6 +70,13 @@
 <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
   
 <script>
+  
+function error(s) {
+    info(s);
+}
+function info(s) {
+    $("#info").text(s);
+}
   
 function callSpotify(url, data) {
     return $.ajax(url, {
@@ -100,13 +109,13 @@ function performAuthDance() {
     // if we already have a token and it hasn't expired, use it,
     if ('credentials' in localStorage) {
         credentials = JSON.parse(localStorage.credentials);
-        $('.login-form-container').hide();
+        $('#login-form').hide();
     }
     else {
         credentials = null;
     }
     if (credentials && credentials.expires > getTime()) {
-        $(".login-form").removeClass('.hidden');
+        $("#login-form").show();
     }
     else {
     // we have a token as a hash parameter in the url
@@ -144,7 +153,7 @@ function performAuthDance() {
             );
         } else {
         // otherwise, got to spotify to get auth
-            $(".login-form").removeClass('.hidden');
+            $("#login-form").removeClass('.hidden');
         }
     }
 }
