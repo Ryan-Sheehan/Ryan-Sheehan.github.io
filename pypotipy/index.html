@@ -134,13 +134,13 @@ function getTime() {
 function performAuthDance() {
     // if we already have a token and it hasn't expired, use it,
     if ('credentials' in localStorage) {
-        credentials = JSON.parse(localStorage.credentials);  
+        var credentials = JSON.parse(localStorage.credentials);  
     }
     else {
         credentials = null;
     }
     if (credentials && credentials.expires > getTime()) {
-        console.log('B');
+        console.log(credentials);
         $('.results').show();
     }
     else {
