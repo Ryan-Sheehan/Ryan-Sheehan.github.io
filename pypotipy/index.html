@@ -41,7 +41,6 @@
 
     <div class="container-fluid">
       <div class="row">
-          <div class="col-md-2"></div>
         
         
           <div class="col-md-8">
@@ -54,13 +53,19 @@
                       </p>
               </div>
 
-              <div id="result-form" style="width: 10%; height:10%; background-color:white;"></div>
               </div>
+            
+            
+            
           </div>
-        
-        
-          <div class="col-md-2"></div>
               
+      </div>
+      <div class="container-fluid work">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="result-form hidden" style="height:20px;width:20px;background-color:white"></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -100,13 +105,13 @@ function performAuthDance() {
     // if we already have a token and it hasn't expired, use it,
     if ('credentials' in localStorage) {
         credentials = JSON.parse(localStorage.credentials);
-        $('.login-form-container').addClass('.hidden');
+        $('.login-form-container').hide();
     }
     else {
         credentials = null;
     }
     if (credentials && credentials.expires > getTime()) {
-        $("#result-form").show();
+        $(".login-form").removeClass('.hidden');
     }
     else {
     // we have a token as a hash parameter in the url
@@ -144,7 +149,7 @@ function performAuthDance() {
             );
         } else {
         // otherwise, got to spotify to get auth
-            $("#login-form").show();
+            $(".login-form").removeClass('.hidden');
         }
     }
 }
