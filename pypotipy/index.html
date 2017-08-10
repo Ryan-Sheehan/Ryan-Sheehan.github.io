@@ -71,6 +71,8 @@
   
 <script>
   
+var loggedIn = false;
+  
 function error(s) {
     info(s);
 }
@@ -110,6 +112,7 @@ function performAuthDance() {
     if ('credentials' in localStorage) {
         credentials = JSON.parse(localStorage.credentials);
         $('#login-form').hide();
+        loggedIn = true;
     }
     else {
         credentials = null;
@@ -146,19 +149,28 @@ function performAuthDance() {
                     localStorage['credentials'] = JSON.stringify(credentials);
                     location.hash = '';
                     $("#login-form").hide();
+                    loggedIn = true;
                 },
                 function() {
                     error("Can't get user info");
                 }
             );
         } else {
-        // otherwise, got to spotify to get auth
-            $("#login-form").removeClass('.hidden');
+        // otherwise, go to spotify to get auth
+        $("#login-form").show();
         }
     }
 }
 $(document).ready(function() {
-        $('div.hidden').fadeIn(1000).removeClass('hidden');
+  
+        if(loggedIn){
+          $("body").css(background-image: url());
+        }
+        else{
+          $("body").css(background-image: url());
+        }
+  
+        //$('div.hidden').fadeIn(1000).removeClass('hidden');
       
         performAuthDance();
         $('#login-button').click(function() {
