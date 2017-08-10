@@ -69,9 +69,7 @@
                         <td class"user-song-count-label">
                           <p class="cell">User song count</p>
                         </td>
-                        <td class="user-song-count-number">
-                          <p class="cell">Number</p>
-                        </td>
+                        <td class="user-song-count-number"></td>
                       </tr>
                     </tbody>
                   </table>
@@ -221,7 +219,7 @@ $(document).ready(function() {
   
         function addData(label, value) {
 
-          var cell = $("<p>").text(value);
+          var cell = $('<p class="cell">').text(value);
           label.append(value);
 
     }
