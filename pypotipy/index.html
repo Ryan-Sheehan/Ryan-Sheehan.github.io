@@ -219,7 +219,7 @@ $(document).ready(function() {
         userSongs.forEach(song => console.log(song.track.name));
   
   
-   $(".user-song-count-number").append($('<p class="cell">').text(userSongs.length));
+   $(".user-song-count-number").append($('<p class="cell">').text(Array.from(userSongs).length));
     
     });
     </script>
