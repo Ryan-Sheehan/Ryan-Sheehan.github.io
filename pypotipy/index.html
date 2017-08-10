@@ -218,7 +218,7 @@ $(document).ready(function() {
         console.log(userSongs);
   
   
-        setTimeout($(".user-song-count-number").append($('<p class="cell">').text(userSongs.length)),0);
+        setTimeout(function(){$(".user-song-count-number").append($('<p class="cell">').text(userSongs.length))},0);
     
     });
     </script>
