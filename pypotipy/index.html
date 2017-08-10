@@ -197,8 +197,8 @@ $(document).ready(function() {
         function synthesize_data(data) {
           //total number of songs saved
           var songCount = $(".user-song-count");
-          songCount.append(putInCell($('<p class="cell">Total # of songs saved</p>')));
-          songCount.append(putInCell($('<p class="cell">').text(data.length)));
+          songCount.append(putInCell($('<p class="cell">Total # of songs saved</p>'))).fadeIn(1000);
+          songCount.append(putInCell($('<p class="cell">').text(data.length))).fadeIn(1000);
 
           console.log(data);
           
