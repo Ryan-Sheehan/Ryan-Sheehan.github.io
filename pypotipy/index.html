@@ -70,8 +70,6 @@
   
 <script>
   
-var loggedIn = false;
-  
 function error(s) {
     info(s);
 }
@@ -118,7 +116,7 @@ function performAuthDance() {
         credentials = null;
     }
     if (credentials && credentials.expires > getTime()) {
-        $("#login-form").show();
+        $('#login-form').show();
     }
     else {
     // we have a token as a hash parameter in the url
@@ -148,7 +146,7 @@ function performAuthDance() {
                     credentials.user_id = user.id;
                     localStorage['credentials'] = JSON.stringify(credentials);
                     location.hash = '';
-                    $("#login-form").hide();
+                    $('#login-form').hide();
                     
                 },
                 function() {
@@ -157,7 +155,7 @@ function performAuthDance() {
             );
         } else {
         // otherwise, go to spotify to get auth
-        $("#login-form").show();
+        $('#login-form').show();
         }
     }
 }
