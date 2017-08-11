@@ -170,10 +170,10 @@ function getTime() {
             for(var i = 0; i < artists.length; i++){
              console.log(artists[i].name);
              var currentArtist = artists[i].name;
-             if (!obj[artists[i].name) {
-              obj[artists[i]] = 0;
+             if (!obj[currentArtist]) {
+              obj[currentArtist] = 0;
              }
-             obj[artists[i]]++;
+             obj[currentArtist]++;
              return obj;
           }
           }, {});
