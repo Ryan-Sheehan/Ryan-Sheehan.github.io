@@ -163,12 +163,11 @@ function getTime() {
           //avg popularity of music saved
           
           
-          //
+          //bubble chart of artists in user library
           
           const numSongsByArtist = data.reduce(function(obj, item) {
           var artists = item.track.artists;
             for(var i = 0; i < artists.length; i++){
-             console.log(artists[i].name);
              var currentArtist = artists[i].name;
              if (!obj[currentArtist]) {
               obj[currentArtist] = 0;
@@ -177,7 +176,29 @@ function getTime() {
              return obj;
           }
           }, {});
-          console.log(numSongsByArtist);
+          
+          // bubble_graph.js
+          var chart = bubbleChart(); // instantiate the chart
+ 
+          // update settings
+          chart.width(850).height(850).minRadius(7).maxRadius(55).forceApart(-170); 
+
+          // example of chaining
+          chart.columnForColors("Sex").columnForRadius("numSongsByArtist[artist]");
+          chart.customColors(["M","F"],["#70b7f0","#e76486"]).showTitleOnCircle(true);
+          chart.title('Artists in your library').columnForTitle("Name");
+          chart.unitName("Artists");
+
+          $('<div class="chart" id="bubble-chart"><svg></svg></div>').hide().appendTo('.results-display').fadeIn(2000);
+            // load the data and render the chart 
+            d3.select("#bubble-chart")
+              .data(numSongsByArtist)
+  	          .call(chart);
+          
+          
+
+          
+
           
         }
   
