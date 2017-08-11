@@ -132,68 +132,8 @@ function loginWithSpotify() {
 function getTime() {
     return Math.round(new Date().getTime() / 1000);
 }
-function performAuthDance() {
-    // if we already have a token and it hasn't expired, use it,
-    if ('credentials' in localStorage) {
-        credentials = JSON.parse(localStorage.credentials);  
-    }
-    else {
-        credentials = null;
-    }
-    if (credentials && credentials.expires > getTime()) {
-        $('.results').show();
-    }
-    else {
-    // we have a token as a hash parameter in the url
-    // so parse hash
-        var hash = location.hash.replace(/#/g, '');
-        var all = hash.split('&');
-        var args = {};
-        all.forEach(function(keyvalue) {
-            var idx = keyvalue.indexOf('=');
-            var key = keyvalue.substring(0, idx);
-            var val = keyvalue.substring(idx + 1);
-            args[key] = val;
-        });
-        if (typeof(args['access_token']) != 'undefined') {
-            var g_access_token = args['access_token'];
-            var expiresAt = getTime() + 3600;
-            if (typeof(args['expires_in']) != 'undefined') {
-                var expires = parseInt(args['expires_in']);
-                expiresAt = expires + getTime();
-            }
-            credentials = {
-                token:g_access_token,
-                expires:expiresAt
-            }
-            callSpotify('https://api.spotify.com/v1/me').then(
-                function(user) {
-                    credentials.user_id = user.id;
-                    localStorage['credentials'] = JSON.stringify(credentials);
-                    location.hash = '';
-                    console.log('C');
-                    $('.results').show();
-                  
-                    
-                },
-                function() {
-                    error("Can't get user info");
-                }
-            );
-        } else {
-        // otherwise, go to spotify to get auth
-        console.log('D');
-        $('#login-form').show();
-        }
-    }
-}
-$(document).ready(function() {
- 
   
-        
-        initApp();
-        performAuthDance();
-        
+  
   
         function putInCell(content) {
           var td = $('<td>');
@@ -240,8 +180,77 @@ $(document).ready(function() {
                     aggregate_user_library(userSongsUrl, userSongsParams);
                   }     
             });
+        }  
+  
+  
+  
+function performAuthDance() {
+    // if we already have a token and it hasn't expired, use it,
+    if ('credentials' in localStorage) {
+        credentials = JSON.parse(localStorage.credentials);  
+    }
+    else {
+        credentials = null;
+    }
+    if (credentials && credentials.expires > getTime()) {
+        $('.results').show();
+    }
+    else {
+    // we have a token as a hash parameter in the url
+    // so parse hash
+        var hash = location.hash.replace(/#/g, '');
+        var all = hash.split('&');
+        var args = {};
+        all.forEach(function(keyvalue) {
+            var idx = keyvalue.indexOf('=');
+            var key = keyvalue.substring(0, idx);
+            var val = keyvalue.substring(idx + 1);
+            args[key] = val;
+        });
+        if (typeof(args['access_token']) != 'undefined') {
+            var g_access_token = args['access_token'];
+            var expiresAt = getTime() + 3600;
+            if (typeof(args['expires_in']) != 'undefined') {
+                var expires = parseInt(args['expires_in']);
+                expiresAt = expires + getTime();
+            }
+            credentials = {
+                token:g_access_token,
+                expires:expiresAt
+            }
+            callSpotify('https://api.spotify.com/v1/me').then(
+                function(user) {
+                    credentials.user_id = user.id;
+                    localStorage['credentials'] = JSON.stringify(credentials);
+                    location.hash = '';
+                    console.log('C');
+                     
+                    $('.results').show();
+                    aggregate_user_library(userSongsUrl, userSongsParams);
+                  
+                    
+                },
+                function() {
+                    error("Can't get user info");
+                }
+            );
+        } else {
+        // otherwise, go to spotify to get auth
+        console.log('D');
+        $('#login-form').show();
         }
-        aggregate_user_library(userSongsUrl, userSongsParams);//.done(function(){
+    }
+}
+$(document).ready(function() {
+ 
+  
+        
+        initApp();
+        performAuthDance();
+        
+  
+
+       //.done(function(){
           
       
     });
