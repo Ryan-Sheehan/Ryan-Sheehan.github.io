@@ -192,7 +192,9 @@ function getTime() {
           console.log(Object.values(numSongsByArtist)[0]);
           var userArtistData = [];
           for(var i = 0; i < numSongsByArtist.length; i++){
-            var current ={"artist":Object.keys(numSongsByArtist)[i],"event_name":Object.values(numSongsByArtist)[i]};
+            var currentArtist = Object.keys(numSongsByArtist)[i];
+            var currentArtistTracks = Object.values(numSongsByArtist)[i];
+            var current ={"artist":currentArtist,"event_name":currentArtistTracks};
             userArtistData.push(current);
           }
           console.log(userArtistData);
