@@ -179,11 +179,11 @@ function bubbleChart() {
 			});
 		}
 
-		svg.append('text')
+		/*svg.append('text')
 			.attr('x',width/2).attr('y',marginTop)
 			.attr("text-anchor", "middle")
 			.attr("font-size","1.8em")
-			.text(title);
+			.text(title);*/
 	}
 
 
