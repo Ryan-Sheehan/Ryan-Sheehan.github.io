@@ -135,7 +135,7 @@ function getTime() {
         }
   
         function synthesize_data(data) {
-          $('#loading').hide();
+          
           //total number of songs saved
           var songCount = $(".user-song-count");
           putInCell($('<p class="cell">Total # of songs saved</p>')).hide().appendTo(songCount).fadeIn(1000);
@@ -167,6 +167,7 @@ function getTime() {
                   
                   if(currentSubsetOfSongs.length < userSongsParams.limit){
                     currentSubsetOfSongs.forEach(song => userSongs.push(song));
+                    $('#loading').hide();
                     synthesize_data(userSongs);
                   }
                   else {
