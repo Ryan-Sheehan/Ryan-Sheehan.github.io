@@ -1,5 +1,10 @@
 #loading {
-    position: absolute; width: 100%; height: 100%; background: url('https://rawgit.com/Ryan-Sheehan/Ryan-Sheehan.github.io/master/pypotipy/loading/Blocks.gif') no-repeat center center;
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   background: url('https://rawgit.com/Ryan-Sheehan/Ryan-Sheehan.github.io/master/pypotipy/loading/Blocks.gif');/* no-repeat center center;*/
 }
 body {
     background-image: url(https://rawgit.com/Ryan-Sheehan/Ryan-Sheehan.github.io/master/pypotipy/images/tumblr_osft0n81Ax1r3yu63o1_1280.jpg);
