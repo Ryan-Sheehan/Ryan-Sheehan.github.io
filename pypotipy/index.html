@@ -86,9 +86,16 @@
 
 </div>
 
+<!-- Jquery Library -->
 <script src="/vendor/jquery/jquery.min.js"></script>
+  
+<!-- Bootstrap Core JS -->
 <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
   
+<!-- Bubble Chart JS -->
+<script src="/vendor/bubble-chart/bubble_chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js"></script>
+
 <script>
   
 function error(s) {
@@ -178,7 +185,11 @@ function getTime() {
           }, {});
           
           // bubble_graph.js
-          var chart = bubbleChart(); // instantiate the chart
+          
+          var chart = bubbleChart().width(600).height(400);
+          d3.select('#chart').data(data).call(chart);
+          
+          /*var chart = bubbleChart(); // instantiate the chart
  
           // update settings
           chart.width(850).height(850).minRadius(7).maxRadius(55).forceApart(-170); 
@@ -194,7 +205,7 @@ function getTime() {
             d3.select("#bubble-chart")
               .data(numSongsByArtist)
   	          .call(chart);
-          
+          */
           
 
           
