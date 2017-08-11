@@ -114,6 +114,7 @@ footer {
 }
 
 footer span.copyright {
+    color: #222;
     text-transform: uppercase;
     text-transform: none;
     font-family: 'Archivo Black','Helvetica Neue','Helvetica','Arial',sans-serif;
