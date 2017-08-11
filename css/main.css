@@ -1,6 +1,15 @@
 body {
 
 }
+nav ul, footer ul {		
+    font-family: 'Archivo Black', sans-serif;		
+    padding: 0px;		
+    list-style: none;		
+    font-weight: bold;		
+}		
+nav ul li, footer ul li {		
+    display: inline;				
+}
 h1 {
     font-size: 3em;
     font-family: 'Archivo Black', sans-serif;
