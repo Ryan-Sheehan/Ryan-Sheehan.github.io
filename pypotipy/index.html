@@ -154,8 +154,7 @@ function getTime() {
           }
           console.log(numExplicit);
           
-    
-          var percentExplicit = ((numExplicit / data.length) * 100).toFixed(2);
+          var percentExplicit = ((numExplicit / data.length) * 100).toFixed(2).toString().append('%');
           putInCell($('<p class="cell">').text(percentExplicit)).hide().appendTo(songCount).fadeIn(1500);
           
           //avg popularity of music saved
