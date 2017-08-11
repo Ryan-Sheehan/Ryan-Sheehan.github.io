@@ -1,92 +1,18 @@
 body {
-    font-family: 'Archivo Black','Helvetica Neue','Helvetica','Arial',sans-serif;
+    margin: 60px auto;
+    width: 70%;
+    align-items: center;
 }
-.navbar-default {
-  background-color: white;
-  border-color: rgba(34, 34, 34, 0.05);
-  font-family: 'Archivo Black', sans-serif;
-  -webkit-transition: all 0.35s;
-  -moz-transition: all 0.35s;
-  transition: all 0.35s;
+nav ul, footer ul {
+    font-family: 'Archivo Black', sans-serif;
+    padding: 0px;
+    list-style: none;
+    font-weight: bold;
 }
-.navbar-default .navbar-header .navbar-brand {
-  color: #222;
-  font-family: 'Archivo Black','Helvetica Neue','Helvetica','Arial',sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
+nav ul li, footer ul li {
+    display: inline;
+    margin-right: 20px;
 }
-.navbar-default .navbar-header .navbar-brand:hover,
-.navbar-default .navbar-header .navbar-brand:focus {
-  color: #ffcb04;
-}
-.navbar-default .navbar-header .navbar-toggle {
-  font-weight: 700;
-  font-size: 12px;
-  color: #222222;
-  text-transform: uppercase;
-}
-.navbar-default .nav > li > a,
-.navbar-default .nav > li > a:focus {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 13px;
-  color: #222222;
-}
-.navbar-default .nav > li > a:hover,
-.navbar-default .nav > li > a:focus:hover {
-  color: #ffcb04;
-}
-.navbar-default .nav > li.active > a,
-.navbar-default .nav > li.active > a:focus {
-  color: #ffcb04 !important;
-  background-color: transparent;
-}
-.navbar-default .nav > li.active > a:hover,
-.navbar-default .nav > li.active > a:focus:hover {
-  background-color: transparent;
-}
-@media (min-width: 768px) {
-  .navbar-default {
-    background-color: transparent;
-    border-color: rgba(255, 255, 255, 0.3);
-  }
-  .navbar-default .navbar-header .navbar-brand {
-    color: rgba(255, 255, 255, 0.7);
-  }
-  .navbar-default .navbar-header .navbar-brand:hover,
-  .navbar-default .navbar-header .navbar-brand:focus {
-    color: white;
-  }
-  .navbar-default .nav > li > a,
-  .navbar-default .nav > li > a:focus {
-    color: rgba(255, 255, 255, 0.7);
-  }
-  .navbar-default .nav > li > a:hover,
-  .navbar-default .nav > li > a:focus:hover {
-    color: white;
-  }
-  .navbar-default.affix {
-    background-color: white;
-    border-color: rgba(34, 34, 34, 0.05);
-  }
-  .navbar-default.affix .navbar-header .navbar-brand {
-    color: #222;
-    font-size: 14px;
-  }
-  .navbar-default.affix .navbar-header .navbar-brand:hover,
-  .navbar-default.affix .navbar-header .navbar-brand:focus {
-    color: #ffcb04;
-  }
-  .navbar-default.affix .nav > li > a,
-  .navbar-default.affix .nav > li > a:focus {
-    color: #222222;
-  }
-  .navbar-default.affix .nav > li > a:hover,
-  .navbar-default.affix .nav > li > a:focus:hover {
-    color: #ffcb04;
-  }
-}
-
 h1 {
     font-size: 3em;
     font-family: 'Archivo Black', sans-serif;
@@ -97,42 +23,59 @@ p {
     line-height: 1.4em;
     color: #333;
 }
+footer {
+    border-top: 1px solid #d5d5d5;
+    font-size: .8em;
+}
 
-nav ul, footer ul {		
-   font-family: 'Archivo Black', sans-serif;		     
-    padding: 0px;		
-    list-style: none;		
-    font-weight: bold;		
-  }		  
- nav ul li, footer ul li {		 
-     display: inline;		
-     margin-right: 20px;
+ul.posts { 
+    font-family: 'Archivo Black', sans-serif;
+    margin: 20px auto 40px; 
+    font-size: 1.5em;
+}
+ul.posts li {
+    list-style: none;
+}
+ul.header li {
+    font-family: 'Archivo Black', sans-serif;
+    list-style: none;
+    font-size: 1.5em;
+    line-height: 1.4em;
+    color: #333;
+}
+#image {
+    width: 100%;
+}
+a {
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+  color: #ffcb04;
+    text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #222;
 }
 footer {
     padding: 25px 0;
     text-align: center;
 }
-
 footer span.copyright {
-    color: #222;
     text-transform: uppercase;
     text-transform: none;
-    font-family: 'Archivo Black','Helvetica Neue','Helvetica','Arial',sans-serif;
     line-height: 40px;
 }
-
 footer ul.quicklinks {
     margin-bottom: 0;
     text-transform: uppercase;
     text-transform: none;
-    font-family: 'Montserrat','Helvetica Neue','Helvetica','Arial','sans-serif';
     line-height: 40px;
 }
-
 ul.social-buttons {
     margin-bottom: 0;
+    padding: 0px 3px;x
 }
-
 ul.social-buttons li a {
     display: block;
     width: 40px;
@@ -147,7 +90,6 @@ ul.social-buttons li a {
     -moz-transition: all .3s;
     transition: all .3s;
 }
-
 ul.social-buttons li a:hover,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:active {
