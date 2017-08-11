@@ -43,6 +43,9 @@ ul.header li {
 section.main-page-content {
     margin-top: 50px;
 }
+.blurb {
+    padding: 5%;
+}
 #image {
     width: 100%;
 }
