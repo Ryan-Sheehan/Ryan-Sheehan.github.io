@@ -42,7 +42,8 @@
   <div class="row">
      <div class="col-md-2"></div>
      <div class="col-xs-12 col-md-8">
-     
+       
+              <!-- Login form in the case of no auth token -->
               <div class="intro-form" id="login-form">
                       <p class="intro-instructions"> To get started, login with your Spotify credentials.</p>
                       <p>
@@ -62,6 +63,11 @@
      <div class="col-md-2"></div>
      
       <div class="col-xs-12 col-md-8">
+        
+          <!-- Loading Animation -->
+          <div id="loading"></div>
+        
+          <!-- Table to display user data -->
           <div class="results-display">
                   <table>
                     <tbody>
@@ -195,6 +201,7 @@ $(document).ready(function() {
         }
   
         function synthesize_data(data) {
+          $('#loading').hide();
           //total number of songs saved
           var songCount = $(".user-song-count");
           putInCell($('<p class="cell">Total # of songs saved</p>')).hide().appendTo(songCount).fadeIn(1000);
