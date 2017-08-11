@@ -142,9 +142,11 @@ function getTime() {
           putInCell($('<p class="cell">').text(data.length)).hide().appendTo(songCount).fadeIn(1000);
           console.log(data);
           
-          //percentage of explicit songs in library
-          var perentExplicit = $(".user-pecentage-explicit");
-          putInCell($('<p class="cell">Pecentage of saved songs that are explicit</p>')).hide().appendTo(songCount).fadeIn(1500);
+          //percentage of explicit songs in library 
+          //(timeout function for cascade effect)
+          setTimeout(function() {
+          var percentExplicit = $(".user-pecentage-explicit");
+          putInCell($('<p class="cell">Pecentage of saved songs that are explicit</p>')).hide().appendTo(percentExplicit).fadeIn(1500);
           var numExplicit = 0;
           for(var i = 0; i < data.length; i++){
             if(data[i].track.explicit){
@@ -155,7 +157,9 @@ function getTime() {
           console.log(numExplicit);
           
           var percentExplicit = ((numExplicit / data.length) * 100).toFixed(2).toString().concat('%');
-          putInCell($('<p class="cell">').text(percentExplicit)).hide().appendTo(perentExplicit).fadeIn(1500);
+          putInCell($('<p class="cell">').text(percentExplicit)).hide().appendTo(percentExplicit).fadeIn(1500);
+            
+          },500);
           
           //avg popularity of music saved
           
