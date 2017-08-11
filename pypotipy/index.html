@@ -192,6 +192,7 @@ $(document).ready(function() {
   
         
         initApp();
+        performAuthDance();
         
   
         function putInCell(content) {
@@ -240,7 +241,7 @@ $(document).ready(function() {
                   }     
             });
         }
-        performAuthDance().then(aggregate_user_library(userSongsUrl, userSongsParams));//.done(function(){
+        aggregate_user_library(userSongsUrl, userSongsParams);//.done(function(){
           
       
     });
