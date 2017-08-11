@@ -166,12 +166,12 @@ function getTime() {
           //
           
           const numSongsByArtist = data.reduce(function(obj, item) {
-          console.log(item.track.artists);
-            for(var i = 0; i < item.track.artists; i++){
-             if (!obj[item.track.artists[i]]) {
-              obj[item.track.artists[i]] = 0;
+          var artists = item.track.artists;
+            for(var i = 0; i < artists.length; i++){
+             if (!obj[artists[i]]) {
+              obj[artists[i]] = 0;
              }
-             obj[item.track.artists[i]]++;
+             obj[artists[i]]++;
              return obj;
           }
           }, {});
