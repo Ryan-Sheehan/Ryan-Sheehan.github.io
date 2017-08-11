@@ -97,13 +97,7 @@ function error(s) {
 function info(s) {
     $("#info").text(s);
 }
-function initApp() {
-  $(".intro-form").hide();
-  $(".results").hide();
-  $('#login-button').click(function() {
-      loginWithSpotify();
-   });
-}
+
   
 function callSpotify(url, data) {
     return $.ajax(url, {
@@ -194,6 +188,7 @@ function performAuthDance() {
     }
     if (credentials && credentials.expires > getTime()) {
         $('.results').show();
+        aggregate_user_library(userSongsUrl, userSongsParams);
     }
     else {
     // we have a token as a hash parameter in the url
@@ -241,6 +236,15 @@ function performAuthDance() {
         }
     }
 }
+  
+function initApp() {
+  $(".intro-form").hide();
+  $(".results").hide();
+  $('#login-button').click(function() {
+      loginWithSpotify();
+   });
+}
+  
 $(document).ready(function() {
  
   
