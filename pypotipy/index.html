@@ -191,6 +191,9 @@ function getTime() {
           console.log(Object.keys(numSongsByArtist)[0]);
           console.log(Object.values(numSongsByArtist)[0]);
           var userArtistData = [];
+          for(var i = 0; i < numSongsByArtist.length; i++){
+            userArtistData.append(new {Artist: Object.keys(numSongsByArtist)[i], Plays: Object.values(numSongsByArtist)[i]});
+          }
           //numSongsByArtist.forEach(artist => userArtistData.append(new {numSongsByArtist.key(), numSongsByArtist.value()}
             
           
