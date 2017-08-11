@@ -168,8 +168,9 @@ function getTime() {
           const numSongsByArtist = data.reduce(function(obj, item) {
           var artists = item.track.artists;
             for(var i = 0; i < artists.length; i++){
-             console.log(artists[i]);
-             if (!obj[artists[i]]) {
+             console.log(artists[i].name);
+             var currentArtist = artists[i].name;
+             if (!obj[artists[i].name) {
               obj[artists[i]] = 0;
              }
              obj[artists[i]]++;
