@@ -91,59 +91,6 @@
   
 <script>
   
-/* write in an explanation of your code here afterwards 
-  */
-  
-var userSongsUrl = 'https://api.spotify.com/v1/me/tracks';
-var userSongsParams = {
-     limit:50,
-     offset:0
- };
- var userSongs = [];
-
-function putInCell(content) {
-          var td = $('<td>');
-          return td.append(content);
-}
-  
-function synthesize_data(data) {
-          $('#loading').hide();
-          //total number of songs saved
-          var songCount = $(".user-song-count");
-          putInCell($('<p class="cell">Total # of songs saved</p>')).hide().appendTo(songCount).fadeIn(1000);
-          putInCell($('<p class="cell">').text(data.length)).hide().appendTo(songCount).fadeIn(1000);
-
-          console.log(data);
-          
-          //percentage of explicit songs in library
-          
-          
-          //avg popularity of music saved
-          
-          
-          //
-}
-  
-function aggregate_user_library(url, params) {
-            $('#loading').show();
-            var userSongsData = callSpotify(userSongsUrl, userSongsParams).done(function() {
-                  var currentSubsetOfSongs = userSongsData.responseJSON.items;
-                  currentSubsetOfSongs.forEach(song => userSongs.push(song));
-                  
-                  if(currentSubsetOfSongs.length < userSongsParams.limit){
-                    currentSubsetOfSongs.forEach(song => userSongs.push(song));
-                    synthesize_data(userSongs);
-                  }
-                  else {
-                    userSongsParams.offset+=50;
-                    aggregate_user_library(userSongsUrl, userSongsParams);
-                  }     
-            });
-}
-
-/* Auth code flow / ajax call process based heavily off of plamere's playlist miner. 
-   */
-  
 function error(s) {
     info(s);
 }
@@ -225,7 +172,6 @@ function performAuthDance() {
                     localStorage['credentials'] = JSON.stringify(credentials);
                     location.hash = '';
                     console.log('C');
-                    aggregate_user_library(userSongsUrl, userSongsParams);
                     $('.results').show();
                   
                     
@@ -241,15 +187,63 @@ function performAuthDance() {
         }
     }
 }
+$(document).ready(function() {
+ 
   
-
-  
-$(document).ready(function() {        
+        
         initApp();
-        performAuthDance();
-});
+        
   
+        function putInCell(content) {
+          var td = $('<td>');
+          return td.append(content);
+        }
   
+        function synthesize_data(data) {
+          $('#loading').hide();
+          //total number of songs saved
+          var songCount = $(".user-song-count");
+          putInCell($('<p class="cell">Total # of songs saved</p>')).hide().appendTo(songCount).fadeIn(1000);
+          putInCell($('<p class="cell">').text(data.length)).hide().appendTo(songCount).fadeIn(1000);
+          console.log(data);
+          
+          //percentage of explicit songs in library
+          
+          
+          //avg popularity of music saved
+          
+          
+          //
+        }
+  
+      
+        var userSongsUrl = 'https://api.spotify.com/v1/me/tracks';
+        var userSongsParams = {
+        limit:50,
+        offset:0
+        };
+       
+        var userSongs = [];
+        function aggregate_user_library(url, params) {
+            $('#loading').show();
+            var userSongsData = callSpotify(userSongsUrl, userSongsParams).done(function() {
+                  var currentSubsetOfSongs = userSongsData.responseJSON.items;
+                  currentSubsetOfSongs.forEach(song => userSongs.push(song));
+                  
+                  if(currentSubsetOfSongs.length < userSongsParams.limit){
+                    currentSubsetOfSongs.forEach(song => userSongs.push(song));
+                    synthesize_data(userSongs);
+                  }
+                  else {
+                    userSongsParams.offset+=50;
+                    aggregate_user_library(userSongsUrl, userSongsParams);
+                  }     
+            });
+        }
+        performAuthDance().then(aggregate_user_library(userSongsUrl, userSongsParams));//.done(function(){
+          
+      
+    });
     </script>
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
