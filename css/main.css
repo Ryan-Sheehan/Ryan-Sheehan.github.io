@@ -1,7 +1,7 @@
 body {
 
 }
-nav ul, footer ul {
+/*nav ul, footer ul {
     font-family: 'Archivo Black', sans-serif;
     padding: 0px;
     list-style: none;
@@ -10,7 +10,7 @@ nav ul, footer ul {
 nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
-}
+}*/
 h1 {
     font-size: 3em;
     font-family: 'Archivo Black', sans-serif;
