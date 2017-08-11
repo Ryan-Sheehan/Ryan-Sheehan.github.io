@@ -99,6 +99,7 @@ function info(s) {
     $("#info").text(s);
 }
 function initApp() {
+  $('#loading').hide();
   $(".intro-form").hide();
   $(".results").hide();
   $('#login-button').click(function() {
@@ -229,6 +230,7 @@ $(document).ready(function() {
         var userSongs = [];
 
         function aggregate_user_library(url, params) {
+            $('#loading').show();
             var userSongsData = callSpotify(userSongsUrl, userSongsParams).done(function() {
                   var currentSubsetOfSongs = userSongsData.responseJSON.items;
                   currentSubsetOfSongs.forEach(song => userSongs.push(song));
