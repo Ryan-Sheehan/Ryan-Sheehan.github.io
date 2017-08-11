@@ -146,9 +146,9 @@ function getTime() {
           var perentExplicit = $(".user-pecentage-explicit");
           putInCell($('<p class="cell">Pecentage of saved songs that are explicit</p>')).hide().appendTo(songCount).fadeIn(1000);
           var numExplicit = 0;
-          data.forEach(song => if(song.track.explicit) {
+          data.forEach(song => function() {if(song.track.explicit) {
               numExplicit++;
-            });
+            }});
           
     
           var percentExplicit = (numExplicit / data.length) * 100;
