@@ -76,6 +76,7 @@
                       <tr class="user-avg-popularity"></tr>
                     </tbody>
                   </table>
+              <div class="chart" id="chart"><svg></svg></div>
             </div>
 
       </div>
@@ -91,6 +92,9 @@
   
 <!-- Bootstrap Core JS -->
 <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- D3 plugin -->  
+<script src="https://d3js.org/d3.v4.min.js"></script>
   
 <!-- Bubble Chart JS -->
 <script src="/vendor/bubble-chart/bubble_chart.js"></script>
@@ -187,7 +191,7 @@ function getTime() {
           // bubble_graph.js
           
           var chart = bubbleChart().width(600).height(400);
-          d3.select('#chart').data(data).call(chart);
+          d3.select('#chart').data(numSongsByArtist).call(chart);
           
           /*var chart = bubbleChart(); // instantiate the chart
  
