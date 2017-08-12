@@ -197,6 +197,7 @@ function getTime() {
                 var genresInLibrary = [];
                 ids.forEach(function(id){
                   var url = 'https://api.spotify.com/v1/artists/' + id;
+                  setTimeout(function(){
                   var blob = callSpotify(url).done(function(){
                           var genres = blob.responseJSON.genres;
                           console.log(genres);
@@ -206,6 +207,7 @@ function getTime() {
                             }
                           });
                           });
+                  },200);
                 });
             }
             console.log(aggregate_genres(artistIDs));
