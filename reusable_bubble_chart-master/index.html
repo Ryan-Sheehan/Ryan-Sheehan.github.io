@@ -441,7 +441,7 @@ var chart = bubbleChart(); // instantiate the chart
   chart.width(850).height(850).minRadius(1).maxRadius(20).forceApart(-170);
     
     d3.select("#chart")
-  	.data(processData(numSongsByArtist)).filter(function(d) { return !d.children; }))
+  	.data(processData(numSongsByArtist)).filter(function(d) { return !d.children; })
   	.call(chart);
 
 
