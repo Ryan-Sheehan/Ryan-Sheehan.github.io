@@ -203,9 +203,9 @@ function getTime() {
                             if(genresInLibrary.indexOf(genre) === -1){
                               genresInLibrary.push(genre);
                             }
-                          })
                           });
-                })
+                          });
+                });
             }
             console.log(aggregate_genres(artistIDs));
       
@@ -235,7 +235,7 @@ function getTime() {
             }
             return {children: newDataSet};
           }
-          console.log(processData(numSongsByArtist).children);
+
   
             
           
