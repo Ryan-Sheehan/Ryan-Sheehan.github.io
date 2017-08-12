@@ -446,6 +446,7 @@ var svg = d3.select("body")
 
     //bubbles needs very specific format, convert data to this.
     var nodes = bubble.nodes(processData(numSongsByArtist)).filter(function(d) { return !d.children; });
+    console.log(nodes);
 
     //setup the chart
     var bubbles = svg.append("g")
@@ -456,7 +457,7 @@ var svg = d3.select("body")
 
     //create the bubbles
     bubbles.append("circle")
-        .attr("r", function(d){ console.log(d.r); })
+        .attr("r", function(d){ console.log(d); })
         .attr("cx", function(d){ console.log(d.x); })
         .attr("cy", function(d){ console.log(d.y); })
         .style("fill", function(d) { return color(d.value); });
