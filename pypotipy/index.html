@@ -201,7 +201,7 @@ function getTime() {
                   var blob = callSpotify(url).done(function(){
                           var genres = blob.responseJSON.genres;
                           
-                          genres.forEach(genre => console.log(genre));
+                          genres.forEach(function(genre){console.log(genre)});
                           console.log(genresInLibrary);
                            
                           });
