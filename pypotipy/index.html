@@ -199,10 +199,10 @@ function getTime() {
                   var url = 'https://api.spotify.com/v1/artists/' + id;
                   setTimeout(function(){
                   var blob = callSpotify(url).done(function(){
-                          var genres = blob.responseJSON.genres;
-                          console.log(genres);
-                          genres.forEach(function(genre){console.log(genre)});
-                          console.log(genresInLibrary);
+                          
+                          console.log(blob.responseJSON.genres);
+                          blob.responseJSON.genres.forEach(function(genre){console.log(genre)});
+                   
                            
                           });
                   },5000);
