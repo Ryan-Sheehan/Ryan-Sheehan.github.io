@@ -190,12 +190,15 @@ function getTime() {
           console.table(numSongsByArtist);
           console.log(Object.keys(numSongsByArtist)[0]);
           console.log(Object.values(numSongsByArtist)[0]);
-          var userArtistData = [];
+          var userArtistData = {};
           for(var i = 0; i < numSongsByArtist.length; i++){
             var currentArtist = Object.keys(numSongsByArtist)[i];
             var currentArtistTracks = Object.values(numSongsByArtist)[i];
-            var current ={"artist":currentArtist,"event_name":currentArtistTracks};
-            console.log(current);
+            var current = {
+                  "artist":currentArtist,
+                 "artistSongCount":currentArtistTracks
+                };
+            console.log(JSON.stringify(current));
             userArtistData.push(current);
           }
           console.log(userArtistData);
