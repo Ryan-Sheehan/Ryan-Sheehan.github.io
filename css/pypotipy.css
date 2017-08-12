@@ -10,18 +10,16 @@ body {
     background-image: url(https://rawgit.com/Ryan-Sheehan/Ryan-Sheehan.github.io/master/pypotipy/images/tumblr_osft0n81Ax1r3yu63o1_1280.jpg);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 .hidden {
     display: none;
 }
-.intro-form, .results-display {
+.intro-form, .results-display, .bubble-chart {
     margin: auto;
     width: 50%;
     padding: 10px;
     align-items: center;
-}
-.btn-primary {
-
 }
 table {
     border-collapse: collapse;
@@ -30,13 +28,6 @@ table {
 table, th, td {
     border: 1px solid white;
 }
-/*.label, .data {
-    height:100%;
-    width:100%;
-    background-color: rgba(1,1,1,0.8);
-    
-}*/
-
 p {
     font-family: 'Montserrat', sans-serif;
     color: white;
