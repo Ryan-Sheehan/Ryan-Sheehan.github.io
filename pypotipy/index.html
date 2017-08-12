@@ -195,6 +195,7 @@ function getTime() {
             var currentArtist = Object.keys(numSongsByArtist)[i];
             var currentArtistTracks = Object.values(numSongsByArtist)[i];
             var current ={"artist":currentArtist,"event_name":currentArtistTracks};
+            console.log(current);
             userArtistData.push(current);
           }
           console.log(userArtistData);
