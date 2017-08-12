@@ -190,12 +190,12 @@ function getTime() {
           console.log(numSongsByArtist);
           
           var artists = Object.keys(numSongsByArtist);
-          artists.map(function (obj, artist) {
+          artists.map(function (obj, i) {
           
-                    var currentArtistName = artist.name;
-                    var currentArtistId = artist.id;
-                    console.log(artist);
-                    console.log(artist.id);
+                    var currentArtistName = artists[i].name;
+                    var currentArtistId = artists[i].id;
+                    console.log(artists[i]);
+                    console.log(currentArtistId);
                     /*var url = 'https://api.spotify.com/v1/artists/' + '1tqhsYv8yBBdwANFNzHtcr';
                     var blob = callSpotify(url).done(function(){
                       console.log(blob.responseJSON.genres);
