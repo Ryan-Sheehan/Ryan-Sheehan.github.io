@@ -192,23 +192,23 @@ function getTime() {
           
           var artistIDs = Object.values(artist_id_dictionary);
           
+          var genresInLibrary = [];
           function aggregate_genres(ids){
-            
-                var genresInLibrary = [];
-                ids.forEach(function(id){
-                  var url = 'https://api.spotify.com/v1/artists/' + id;
-                  setTimeout(function(){
+                
+                  
+                  var url = 'https://api.spotify.com/v1/artists/' + ids[0];
+     
                   var blob = callSpotify(url).done(function(){
+                          var genres = blob.responseJSON.genres;
+                          genres.forEach(genre => genresInLibrary.push(genre));
                           
-                          console.log(blob.responseJSON.genres);
-                          blob.responseJSON.genres.forEach(function(genre){
-                            genresInLibrary.push(genre);
-                          });
-                   
-                           
-                          });
-                  },7500);
-                });
+                          if(ids.length === 0){
+                            return;
+                          }
+                          else{
+                            console.log(ids);
+                            aggregate_genres(ids.splice(1,ids.length-1);
+                          }
                 
             }
 
