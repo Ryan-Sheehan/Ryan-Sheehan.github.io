@@ -208,15 +208,24 @@ function getTime() {
                           
                      
                      
-                            console.log(genresInLibrary);
+                       
                         setTimeout(function(){
                             aggregate_genres(ids.splice(1,ids.length-1));
-                        },20);
+                        },50);
                           
                   });
             }
 
-            aggregate_genres(artistIDs);
+            var genres_cumulative = aggregate_genres(artistIDs);
+               const genre_count = genres_cumulative.reduce(function(obj, item) {
+                  if (!obj[item]) {
+                    obj[item] = 0;
+                  }
+                  obj[item]++;
+                  return obj;
+                }, {});
+          
+          console.log(genre_count);
       
           
 
