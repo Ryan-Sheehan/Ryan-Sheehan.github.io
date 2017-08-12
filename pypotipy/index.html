@@ -212,7 +212,7 @@ function getTime() {
             }
             return {children: newDataSet};
           }
-          console.log(processData(numSongsByArtist));
+          console.log(processData(numSongsByArtist).children);
           //numSongsByArtist.forEach(artist => userArtistData.append(new {numSongsByArtist.key(), numSongsByArtist.value()}
             
           
@@ -220,7 +220,7 @@ function getTime() {
           // bubble_graph.js
           
           var chart = bubbleChart().width(600).height(400);
-          d3.select('#chart').data(processData(numSongsByArtist)).call(chart);
+          d3.select('#chart').data(processData(numSongsByArtist).children).call(chart);
           
           
  
