@@ -174,7 +174,7 @@ function getTime() {
           //avg popularity of music saved
           
           
-          //bubble chart of artists in user library
+          //returns a dictionary object that shows the number of songs a user has saved from each artist
           
           const numSongsByArtist = data.reduce(function(obj, item) {
           var artists = item.track.artists;
@@ -187,21 +187,36 @@ function getTime() {
              return obj;
           }
           }, {});
-          console.log(numSongsByArtist);
-          //console.log(Object.keys(numSongsByArtist)[0]);
-          //console.log(Object.values(numSongsByArtist)[0]);
-          /*var userArtistData = {};
-          for(var i = 0; i < numSongsByArtist.length; i++){
-            var currentArtist = Object.keys(numSongsByArtist)[i];
-            var currentArtistTracks = Object.values(numSongsByArtist)[i];
-            var current = {
-                  "artist":currentArtist,
-                 "artistSongCount":currentArtistTracks
-                };
-            console.log(JSON.stringify(current));
-            userArtistData.push(current);
-          }*/
           
+          
+          var artists = Object.keys(numSongsByArtist);
+          artists.map(function (obj, artist) {
+                async(function() {
+                var currentArtistName = artist.name;
+                var currentArtistId = artist.id;
+                var url = 'https://api.spotify.com/v1/artists/' + currentArtistId;
+                var blob = callSpotify(url).done(function(){
+                    obj[currentArtistName] = blob.genres;
+                    }
+                return obj;
+                });
+              }, {});
+          
+
+                  
+             
+          }
+   
+          console.log(numSongsByArtist);
+          
+          
+          for (var i .....) {
+  
+}
+
+          /*processes the data by finding the genre each artist is from and then 
+             formatting it so that it may be usable by bubble_map.js/d3
+             */
             function processData(data) {
             var obj = data;
 
@@ -213,30 +228,11 @@ function getTime() {
             return {children: newDataSet};
           }
           console.log(processData(numSongsByArtist).children);
-          //numSongsByArtist.forEach(artist => userArtistData.append(new {numSongsByArtist.key(), numSongsByArtist.value()}
+  
             
           
           
-          /*var chart = bubbleChart().width(600).height(400);
-          d3.select('#chart').data(processData(numSongsByArtist).children).call(chart);
-          
-          
- 
-          // update settings
-          chart.width(850).height(850).minRadius(1).maxRadius(18).forceApart(-170); 
 
-          // example of chaining
-          chart.columnForColors("Sex").columnForRadius("numSongsByArtist[artist]");
-          chart.customColors(["M","F"],["#70b7f0","#e76486"]).showTitleOnCircle(true);
-          chart.title('Artists in your library').columnForTitle("Name");
-          chart.unitName("Artists");
-
-          $('<div class="chart" id="bubble-chart"><svg></svg></div>').hide().appendTo('.results-display').fadeIn(2000);
-            // load the data and render the chart 
-            d3.select("#bubble-chart")
-              .data(numSongsByArtist)
-  	          .call(chart);
-          */
           
 
           
