@@ -199,6 +199,7 @@ function getTime() {
                   var url = 'https://api.spotify.com/v1/artists/' + id;
                   var blob = callSpotify(url).done(function(){
                           var genres = blob.responseJSON.genres;
+                          console.log(genres);
                           genres.forEach(genre => function(){
                             if(genresInLibrary.indexOf(genre) === -1){
                               genresInLibrary.push(genre);
