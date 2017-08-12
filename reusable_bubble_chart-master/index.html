@@ -7,13 +7,34 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js"></script>
 <script src="bubble_chart.js"></script>
 <script>
-    d3.csv('medium_january.csv', function(error, data) {
-      if (error) {
-          console.error('Error getting or parsing the data.');
-          throw error;
-      }
-      console.log(data);
+
+        var json = https://github.com/Ryan-Sheehan/Ryan-Sheehan.github.io/blob/master/reusable_bubble_chart-master/mysongs.json;
+        
+        const numSongsByArtist = json.items.reduce(function(obj, item) {
+          var artists = item.track.artists;
+            for(var i = 0; i < artists.length; i++){
+             var currentArtist = artists[i].name;
+             if (!obj[currentArtist]) {
+              obj[currentArtist] = 0;
+             }
+             obj[currentArtist]++;
+             return obj;
+          }
+          }, {});
+    
+    
+    
+    function processData(data) {
+            var obj = data;
+            var newDataSet = [];
+            for(var prop in obj) {
+              newDataSet.push({name: prop, className: prop.toLowerCase(), size: obj[prop]});
+            }
+            return {children: newDataSet};
+          }
+    
+      console.log(processData(numSongsByArtist));
       var chart = bubbleChart().width(400).height(300);
-      d3.select('#chart').data(data).call(chart);
-    });
+      d3.select('#chart').data(processData(numSongsByArtist).children).call(chart);
+   
 </script>
