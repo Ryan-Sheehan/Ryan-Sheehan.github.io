@@ -1466,7 +1466,6 @@
             return {children: newDataSet};
           }
 
-      console.log(data);
       var chart = bubbleChart().width(600).height(400);
       d3.select('#chart').data(processData(numSongsByArtist)).call(chart);
 
