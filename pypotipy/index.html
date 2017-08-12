@@ -215,13 +215,13 @@ function getTime() {
                
                 var url = 'https://api.spotify.com/v1/artists/' + ids[0];
      
-                var blob = callSpotify(url).done(function(){
+                var blob = callSpotify(url).complete(function(){
                           var genres = blob.responseJSON.genres;
                           genres.forEach(genre => genresInLibrary.push(genre));
                        
                         setTimeout(function(){
                             aggregate_genres(ids.splice(1,ids.length-1));
-                        },25);
+                        },0);
                           
                   }).fail(counter(genresInLibrary));
             }
