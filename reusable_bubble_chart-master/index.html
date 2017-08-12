@@ -422,7 +422,7 @@
             return {children: newDataSet};
           }
     
-     var responseScale = d3.scale.linear()
+     var responseScale = d3.scaleLinear()
     .domain(d3.extent(processData(numSongsByArtist).children, function(d){
         return d.size;
     }))
