@@ -200,10 +200,11 @@ function getTime() {
                   setTimeout(function(){
                   var blob = callSpotify(url).done(function(){
                           var genres = blob.responseJSON.genres;
-                          console.log(genres);
+                          
                           genres.forEach(genre => function(){
                             if(genresInLibrary.indexOf(genre) === -1){
                               genresInLibrary.push(genre);
+                              console.log(genresInLibrary);
                             }
                           });
                           });
@@ -211,8 +212,7 @@ function getTime() {
                 });
                 
             }
-          var yo = aggregate_genres(artistIDs);
-          setTimeout(function(){console.log(yo)},10000);
+
             
       
           
