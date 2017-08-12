@@ -196,7 +196,16 @@ function getTime() {
           function aggregate_genres(ids){
               
                 if(ids.length === 0){
-                    return;
+                    
+                  const genre_count = genresInLibrary.reduce(function(obj, item) {
+                  if (!obj[item]) {
+                    obj[item] = 0;
+                  }
+                  obj[item]++;
+                  return obj;
+                }, {});
+                  
+                  return genre_count;
                 }
                
                 var url = 'https://api.spotify.com/v1/artists/' + ids[0];
@@ -207,21 +216,13 @@ function getTime() {
                        
                         setTimeout(function(){
                             aggregate_genres(ids.splice(1,ids.length-1));
-                        },50);
+                        },200);
                           
                   });
             }
-
-           aggregate_genres(artistIDs);
-               const genre_count = genresInLibrary.reduce(function(obj, item) {
-                  if (!obj[item]) {
-                    obj[item] = 0;
-                  }
-                  obj[item]++;
-                  return obj;
-                }, {});
+               
           
-          console.log(genre_count);
+          console.log(aggregate_genres(artistIDs));
       
           
 
