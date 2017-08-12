@@ -234,7 +234,7 @@ function getTime() {
           function bubble_chart(){
             var somethin = processData(counter(genresInLibrary)).children;
             console.log(somethin);
-            var chart = bubbleChart().width(500).height(500).forceApart(-30);
+            var chart = bubbleChart().width(400).height(400).forceApart(-20);
             chart.columnForColors("name").columnForRadius("size");
             d3.select('#chart').data(somethin).call(chart);
           }
