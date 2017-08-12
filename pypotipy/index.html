@@ -201,12 +201,9 @@ function getTime() {
                   var blob = callSpotify(url).done(function(){
                           var genres = blob.responseJSON.genres;
                           
-                          genres.forEach(genre => function(){
-                            if(genresInLibrary.indexOf(genre) === -1){
-                              genresInLibrary.push(genre);
-                              console.log(genresInLibrary);
-                            }
-                          });
+                          genres.forEach(genre => genresInLibrary.push(genre));
+                          console.log(genresInLibrary);
+                           
                           });
                   },5000);
                 });
