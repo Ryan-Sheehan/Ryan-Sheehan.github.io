@@ -191,7 +191,7 @@ function getTime() {
           
           var artists = Object.keys(numSongsByArtist);
           artists.map(function (obj, artist) {
-                async(function() {
+          
                     var currentArtistName = artist.name;
                     var currentArtistId = artist.id;
                     var url = 'https://api.spotify.com/v1/artists/' + currentArtistId;
@@ -199,7 +199,7 @@ function getTime() {
                         obj[currentArtistName] = blob.genres;
                     });
                     return obj;
-                });
+     
               }, {});
           
 
