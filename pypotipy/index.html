@@ -192,6 +192,17 @@ function getTime() {
           
           var artistIDs = Object.values(artist_id_dictionary);
           
+          function processData(data) {
+            var obj = data;
+
+            var newDataSet = [];
+
+            for(var prop in obj) {
+              newDataSet.push({name: prop, className: prop.toLowerCase(), size: obj[prop]});
+            }
+            return {children: newDataSet};
+          }
+          
           
           function counter(data){
                const genre_count = data.reduce(function(obj, item) {
@@ -206,11 +217,25 @@ function getTime() {
                   return genre_count;
                 }
           
+          
+         
+          
+          
+          
           var genresInLibrary = [];
+          
+          function bubble_chart(){
+            var somethin = processData(counter(genresInLibrary)).children;
+            var chart = bubbleChart().width(400).height(400);
+            chart.columnForColors("name").columnForRadius("size");
+            d3.select('#chart').data(somethin).call(chart);
+          }
+          
+          
           function aggregate_genres(ids){
               
                 if(ids.length === 0){
-                    counter(genresInLibrary);
+                    bubble_chart();
                 }
                
                 var url = 'https://api.spotify.com/v1/artists/' + ids[0];
@@ -223,10 +248,11 @@ function getTime() {
                             aggregate_genres(ids.splice(1,ids.length-1));
                         },50);
                           
-                  }).fail(counter(genresInLibrary));
+                  }).fail(bubble_chart);
             }
-               
-          var yo = aggregate_genres(artistIDs);
+               aggregate_genres(artistIDs);
+          
+           
           
       
           
@@ -245,19 +271,10 @@ function getTime() {
           /*processes the data by finding the genre each artist is from and then 
              formatting it so that it may be usable by bubble_map.js/d3
              */
-            function processData(data) {
-            var obj = data;
-
-            var newDataSet = [];
-
-            for(var prop in obj) {
-              newDataSet.push({name: prop, className: prop.toLowerCase(), size: obj[prop]});
-            }
-            return {children: newDataSet};
-          }
+ 
 
   
-            
+    
           
         }
 
