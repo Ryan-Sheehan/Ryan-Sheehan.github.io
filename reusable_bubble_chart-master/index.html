@@ -457,9 +457,9 @@ var svg = d3.select("body")
 
     //create the bubbles
     bubbles.append("circle")
-        .attr("r", function(d){ console.log(d); })
-        .attr("cx", function(d){ console.log(d.x); })
-        .attr("cy", function(d){ console.log(d.y); })
+        .attr("r", function(d){ console.log(d.depth); })
+        .attr("cx", function(d){ console.log(Math.rand(10)); })
+        .attr("cy", function(d){ console.log(Math.rand(10)); })
         .style("fill", function(d) { return color(d.value); });
 
     //format the text for each bubble
