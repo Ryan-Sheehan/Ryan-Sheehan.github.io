@@ -3547,6 +3547,7 @@
       console.log(processData(numSongsByArtist).children);
       var chart = bubbleChart().width(400).height(300);
 
+        chart.columnForRadius("size");
       d3.select('#chart').data(processData(numSongsByArtist).children).call(chart);
    
 </script>
