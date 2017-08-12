@@ -433,8 +433,7 @@
 
 
     //bubbles needs very specific format, convert data to this.
-    var nodes = bubble.nodes(processData(numSongsByArtist)).filter(function(d) { return !d.children; });
-    console.log(nodes);
+
 
 var chart = bubbleChart(); // instantiate the chart
   
@@ -442,7 +441,7 @@ var chart = bubbleChart(); // instantiate the chart
   chart.width(850).height(850).minRadius(1).maxRadius(20).forceApart(-170);
     
     d3.select("#chart")
-  	.data(nodes)
+  	.data(processData(numSongsByArtist)).filter(function(d) { return !d.children; }))
   	.call(chart);
 
 
