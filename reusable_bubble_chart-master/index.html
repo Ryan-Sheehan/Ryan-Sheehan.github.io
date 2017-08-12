@@ -420,6 +420,12 @@
             return {children: newDataSet};
           }
     
+     var responseScale = d3.scale.linear()
+    .domain(d3.extent(processData(numSongsByArtist).children, function(d){
+        return d.size;
+    }))
+    .range([2, 15])
+    
       var chart = bubbleChart().width(600).height(400);
       d3.select('#chart').data(processData(numSongsByArtist).children).call(chart);
 
