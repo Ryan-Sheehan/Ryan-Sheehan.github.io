@@ -194,6 +194,10 @@ function getTime() {
           
           var genresInLibrary = [];
           function aggregate_genres(ids){
+              
+                if(ids.length === 0){
+                    return;
+                }
                 
                   
                   var url = 'https://api.spotify.com/v1/artists/' + ids[0];
@@ -202,13 +206,13 @@ function getTime() {
                           var genres = blob.responseJSON.genres;
                           genres.forEach(genre => genresInLibrary.push(genre));
                           
-                          if(ids.length === 0){
-                            return;
-                          }
-                          else{
+                     
+                     
                             console.log(genresInLibrary);
+                        setTimeout(function(){
                             aggregate_genres(ids.splice(1,ids.length-1));
-                          }
+                        },100);
+                          
                   });
             }
 
