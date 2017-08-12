@@ -1445,7 +1445,7 @@
   "total" : 1023
 }
 
-          const numSongsByArtist = json.reduce(function(obj, item) {
+          const numSongsByArtist = json.items.reduce(function(obj, item) {
           var artists = item.track.artists;
             for(var i = 0; i < artists.length; i++){
              var currentArtist = artists[i].name;
