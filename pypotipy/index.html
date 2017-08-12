@@ -187,9 +187,9 @@ function getTime() {
              return obj;
           }
           }, {});
-          console.log(numSongsByArtist);
-          console.log(Object.keys(numSongsByArtist)[0]);
-          console.log(Object.values(numSongsByArtist)[0]);
+          //console.log(numSongsByArtist);
+          //console.log(Object.keys(numSongsByArtist)[0]);
+          //console.log(Object.values(numSongsByArtist)[0]);
           var userArtistData = {};
           for(var i = 0; i < numSongsByArtist.length; i++){
             var currentArtist = Object.keys(numSongsByArtist)[i];
@@ -202,6 +202,18 @@ function getTime() {
             userArtistData.push(current);
           }
           console.log(userArtistData);
+          
+            function processData(data) {
+            var obj = data;
+
+            var newDataSet = [];
+
+            for(var prop in obj) {
+              newDataSet.push({name: prop, className: prop.toLowerCase(), size: obj[prop]});
+            }
+            return {children: newDataSet};
+          }
+          console.log(processData(userArtistData));
           //numSongsByArtist.forEach(artist => userArtistData.append(new {numSongsByArtist.key(), numSongsByArtist.value()}
             
           
