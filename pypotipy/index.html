@@ -174,36 +174,41 @@ function getTime() {
           //avg popularity of music saved
           
           
-          //returns a dictionary object that shows the number of songs a user has saved from each artist
+          //returns a dictionary object that removes repeat artists and shows maps each artist to their id
           
-          const numSongsByArtist = data.reduce(function(obj, item) {
+          const artist_id_dictionary = data.reduce(function(obj, item) {
           var artists = item.track.artists;
             for(var i = 0; i < artists.length; i++){
              var currentArtist = artists[i].name;
+             var currentArtistId = artists[i].id;
              if (!obj[currentArtist]) {
-              obj[currentArtist] = 0;
+              
+              obj[currentArtist] = currentArtistId;
              }
-             obj[currentArtist]++;
              return obj;
           }
           }, {});
-          console.log(numSongsByArtist);
+          console.log(artist_id_dictionary);
           
-          var artists = Object.keys(numSongsByArtist);
-          artists.map(function (obj, i) {
+          var artistIDs = Object.values(artist_id_dictionary);
           
-                    var currentArtistName = artists[i].name;
-                    var currentArtistId = artists[i].id;
-                    console.log(artists[i]);
-                    console.log(currentArtistId);
-                    /*var url = 'https://api.spotify.com/v1/artists/' + '1tqhsYv8yBBdwANFNzHtcr';
-                    var blob = callSpotify(url).done(function(){
-                      console.log(blob.responseJSON.genres);
-                        obj[currentArtistName] = blob.responseJSON.genres;
-                    });*/
-                    return obj;
-     
-              }, {});
+          function aggregate_genres(ids){
+            
+                var genresInLibrary = [];
+                ids.forEach(function(id){
+                  var url = 'https://api.spotify.com/v1/artists/' + id;
+                  var blob = callSpotify(url).done(function(){
+                          var genres = blob.responseJSON.genres;
+                          genres.forEach(genre => function(){
+                            if(genresInLibrary.indexOf(genre) === -1){
+                              genresInLibrary.push(genre);
+                            }
+                          }
+                          });
+                }
+            }
+            console.log(aggregate_genres(artistIDs));
+      
           
 
                   
