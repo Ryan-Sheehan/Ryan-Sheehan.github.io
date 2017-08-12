@@ -200,7 +200,7 @@ function getTime() {
                   setTimeout(function(){
                   var blob = callSpotify(url).done(function(){
                           var genres = blob.responseJSON.genres;
-                          
+                          console.log(genres);
                           genres.forEach(function(genre){console.log(genre)});
                           console.log(genresInLibrary);
                            
