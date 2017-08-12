@@ -192,13 +192,13 @@ function getTime() {
           var artists = Object.keys(numSongsByArtist);
           artists.map(function (obj, artist) {
                 async(function() {
-                var currentArtistName = artist.name;
-                var currentArtistId = artist.id;
-                var url = 'https://api.spotify.com/v1/artists/' + currentArtistId;
-                var blob = callSpotify(url).done(function(){
-                    obj[currentArtistName] = blob.genres;
-                    }
-                return obj;
+                    var currentArtistName = artist.name;
+                    var currentArtistId = artist.id;
+                    var url = 'https://api.spotify.com/v1/artists/' + currentArtistId;
+                    var blob = callSpotify(url).done(function(){
+                        obj[currentArtistName] = blob.genres;
+                    });
+                    return obj;
                 });
               }, {});
           
