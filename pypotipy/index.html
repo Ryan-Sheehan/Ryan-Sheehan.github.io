@@ -220,13 +220,13 @@ function getTime() {
           // bubble_graph.js
           
           var chart = bubbleChart().width(600).height(400);
-          d3.select('#chart').data(numSongsByArtist).call(chart);
+          d3.select('#chart').data(processData(numSongsByArtist)).call(chart);
           
-          /*var chart = bubbleChart(); // instantiate the chart
+          
  
           // update settings
-          chart.width(850).height(850).minRadius(7).maxRadius(55).forceApart(-170); 
-
+          chart.width(850).height(850).minRadius(1).maxRadius(18).forceApart(-170); 
+/*
           // example of chaining
           chart.columnForColors("Sex").columnForRadius("numSongsByArtist[artist]");
           chart.customColors(["M","F"],["#70b7f0","#e76486"]).showTitleOnCircle(true);
