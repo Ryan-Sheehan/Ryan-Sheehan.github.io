@@ -192,12 +192,9 @@ function getTime() {
           
           var artistIDs = Object.values(artist_id_dictionary);
           
-          var genresInLibrary = [];
-          function aggregate_genres(ids){
-              
-                if(ids.length === 0){
-                    
-                  const genre_count = genresInLibrary.reduce(function(obj, item) {
+          
+          function counter(data){
+               const genre_count = data.reduce(function(obj, item) {
                   if (!obj[item]) {
                     obj[item] = 0;
                   }
@@ -207,6 +204,13 @@ function getTime() {
                   console.log(genre_count);
                   
                   return genre_count;
+                }
+          
+          var genresInLibrary = [];
+          function aggregate_genres(ids){
+              
+                if(ids.length === 0){
+                    counter(genresInLibrary);
                 }
                
                 var url = 'https://api.spotify.com/v1/artists/' + ids[0];
@@ -219,7 +223,7 @@ function getTime() {
                             aggregate_genres(ids.splice(1,ids.length-1));
                         },25);
                           
-                  });
+                  }).fail(counter(genresInLibrary);
             }
                
           var yo = aggregate_genres(artistIDs);
