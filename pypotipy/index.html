@@ -216,32 +216,6 @@ function getTime() {
           //numSongsByArtist.forEach(artist => userArtistData.append(new {numSongsByArtist.key(), numSongsByArtist.value()}
             
           
-          var diameter = 600;
-
-	var svg = d3.select('#chart').append('svg')
-					.attr('width', diameter)
-					.attr('height', diameter);
-
-	var bubble = d3.layout.pack()
-				.size([diameter, diameter])
-				.value(function(d) {return d.size;})
-         // .sort(function(a, b) {
-				// 	return -(a.value - b.value)
-				// }) 
-				.padding(3);
-  
-  // generate data with calculated layout values
-  var nodes = bubble.nodes(processData(numSongsByArtist))
-						.filter(function(d) { return !d.children; }); // filter out the outer bubble
- 
-  var vis = svg.selectAll('circle')
-					.data(nodes);
-  
-  vis.enter().append('circle')
-			.attr('transform', function(d) { return 'translate(' + d.x + ',' + d.y + ')'; })
-			.attr('r', function(d) { return d.r; })
-			.attr('class', function(d) { return d.className; });
-          // bubble_graph.js
           
           /*var chart = bubbleChart().width(600).height(400);
           d3.select('#chart').data(processData(numSongsByArtist).children).call(chart);
