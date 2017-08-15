@@ -145,99 +145,89 @@ function getTime() {
     return Math.round(new Date().getTime() / 1000);
 }
   
+function putInCell(content) {
+    var td = $('<td>');
+    return td.append(content);
+}
   
-  
-        function putInCell(content) {
-          var td = $('<td>');
-          return td.append(content);
-        }
-  
-        function synthesize_data(data) {
+function synthesize_data(data) {
           
-          //total number of songs saved
-          var userSongCount = $(".user-song-count");
-          putInCell($('<p class="cell">Total # of songs saved</p>')).hide().appendTo(userSongCount).fadeIn(1000);
-          putInCell($('<p class="cell">').text(data.length)).hide().appendTo(userSongCount).fadeIn(1000);
-          console.log(data);
+    //total number of songs saved
+    var userSongCount = $(".user-song-count");
+    putInCell($('<p class="cell">Total # of songs saved</p>')).hide().appendTo(userSongCount).fadeIn(1000);
+    putInCell($('<p class="cell">').text(data.length)).hide().appendTo(userSongCount).fadeIn(1000);
+    console.log(data);
           
-          //percentage of explicit songs in library 
+    //percentage of explicit songs in library 
 
-          var userPercentExplicit = $(".user-pecentage-explicit");
-          putInCell($('<p class="cell">Pecentage of saved songs that are explicit</p>')).hide().appendTo(userPercentExplicit).fadeIn(1500);
-          var numExplicit = 0;
-          for(var i = 0; i < data.length; i++){
-            if(data[i].track.explicit){
-              console.log(data[i].track.explicit);
-              numExplicit++;
-            }
-          }
-          console.log(numExplicit);
+    var userPercentExplicit = $(".user-pecentage-explicit");
+    putInCell($('<p class="cell">Pecentage of saved songs that are explicit</p>')).hide().appendTo(userPercentExplicit).fadeIn(1500);
+    var numExplicit = 0;
+    for(var i = 0; i < data.length; i++){
+      if(data[i].track.explicit){
+        console.log(data[i].track.explicit);
+        numExplicit++;
+      }
+    }
+    console.log(numExplicit);
           
-          var percentExplicit = ((numExplicit / data.length) * 100).toFixed(2).toString().concat('%');
-          putInCell($('<p class="cell">').text(percentExplicit)).hide().appendTo(userPercentExplicit).fadeIn(1500);
+    var percentExplicit = ((numExplicit / data.length) * 100).toFixed(2).toString().concat('%');
+    putInCell($('<p class="cell">').text(percentExplicit)).hide().appendTo(userPercentExplicit).fadeIn(1500);
             
 
           
-          //avg popularity of music saved
+    //avg popularity of music saved
           
           
-          //returns a dictionary object that removes repeat artists and shows maps each artist to their id
+    //returns a dictionary object that removes repeat artists and shows maps each artist to their id
           
-          const artist_id_dictionary = data.reduce(function(obj, item) {
-          var artists = item.track.artists;
-            for(var i = 0; i < artists.length; i++){
-             var currentArtist = artists[i].name;
-             var currentArtistId = artists[i].id;
-             if (!obj[currentArtist]) {
-              
+    const artist_id_dictionary = data.reduce(function(obj, item) {
+      var artists = item.track.artists;
+      for(var i = 0; i < artists.length; i++){
+        var currentArtist = artists[i].name;
+        var currentArtistId = artists[i].id;
+        if (!obj[currentArtist]) {
               obj[currentArtist] = currentArtistId;
-             }
+        }
+        return obj;
+       }
+     }, {});
+     console.log(artist_id_dictionary);
+          
+     var artistIDs = Object.values(artist_id_dictionary);
+          
+     function processData(data) {
+       var obj = data;
+       var newDataSet = [];
+       for(var prop in obj) {
+          newDataSet.push({name: prop, className: prop.toLowerCase(), size: obj[prop]});
+       }
+       return {children: newDataSet};
+      }
+          
+      function counter(data){
+        const genre_count = data.reduce(function(obj, item) {
+          if (!obj[item]) {
+             obj[item] = 0;
+          }
+          obj[item]++;
              return obj;
-          }
           }, {});
-          console.log(artist_id_dictionary);
+          console.log(genre_count);
+          return genre_count;
+       }
+                
+       var genresInLibrary = [];
           
-          var artistIDs = Object.values(artist_id_dictionary);
-          
-          function processData(data) {
-            var obj = data;
-
-            var newDataSet = [];
-
-            for(var prop in obj) {
-              newDataSet.push({name: prop, className: prop.toLowerCase(), size: obj[prop]});
-            }
-            return {children: newDataSet};
-          }
-          
-          
-          function counter(data){
-               const genre_count = data.reduce(function(obj, item) {
-                  if (!obj[item]) {
-                    obj[item] = 0;
-                  }
-                  obj[item]++;
-                  return obj;
-                }, {});
-                  console.log(genre_count);
-                  
-                  return genre_count;
-                }
-          
-          
-         
-          
-          
-          
-          var genresInLibrary = [];
-          
-          function bubble_chart(){
-            var somethin = processData(counter(genresInLibrary)).children;
-            console.log(somethin);
-            var chart = bubbleChart().width(500).height(500).forceApart(-20);
-            chart.columnForColors("name").columnForRadius("size");
-            d3.select('#chart').data(somethin).call(chart);
-          }
+       function bubble_chart(){
+          var processedData = processData(counter(genresInLibrary)).children;
+          console.log(processedData);
+          var chart = bubbleChart().width(500).height(500).forceApart(-20);
+          chart.columnForColors("name").columnForRadius("size");
+          d3.select('#chart').data(processedData).call(chart);
+          const bubblechart = document.querySelecter('#chart');
+          console.dir(bubblechart);
+       }
           
           
           function aggregate_genres(ids){
@@ -248,33 +238,18 @@ function getTime() {
                
                 var url = 'https://api.spotify.com/v1/artists/' + ids[0];
      
-                var blob = callSpotify(url).done(function(){
+                var blob = callSpotify(url)
+                    .done(function(){
                           var genres = blob.responseJSON.genres;
                           genres.forEach(genre => genresInLibrary.push(genre));
-                       
-                        setTimeout(function(){
+                          setTimeout(function(){
                             aggregate_genres(ids.splice(1,ids.length-1));
-                        },50);
-                          
-                  }).fail(bubble_chart);
+                          },50)})
+                
+                    .fail(bubble_chart);
             }
-               aggregate_genres(artistIDs);
+            aggregate_genres(artistIDs);
           
-           
-          
-      
-          
-
-                  
-             
-          
-   
-
-          
-          
-
-  
-
 
           /*processes the data by finding the genre each artist is from and then 
              formatting it so that it may be usable by bubble_map.js/d3
@@ -376,7 +351,6 @@ function performAuthDance() {
             );
         } else {
         // otherwise, go to spotify to get auth
-        console.log('D');
         $('#login-form').show();
         }
     }
@@ -387,23 +361,17 @@ function initApp() {
   $(".results").hide();
   $('#login-button').click(function() {
       loginWithSpotify();
-   });
+  });
 }
   
 $(document).ready(function() {
  
-  
-        
         initApp();
         performAuthDance();
         
+});
   
-
-       //.done(function(){
-          
-      
-    });
-    </script>
+  </script>
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
