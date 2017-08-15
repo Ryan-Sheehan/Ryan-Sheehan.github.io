@@ -22,12 +22,13 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <span class="icon-bar"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
+        <span class="icon-bar"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
+        <span class="icon-bar"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
       </button>
       <a class="navbar-brand" href="/">
         <span class="navbar-logo">Spotify</span>
+        <span class="navbar-title">Pypotipy</span>
       </a>
     </div>
     <div class="navbar-collapse collapse" style="height: 1px;">
@@ -39,21 +40,15 @@
 
 
 <div class="container-fluid">
-  <div class="row">
-     <div class="col-md-2"></div>
-     <div class="col-xs-12 col-md-8">
-       
+
               <!-- Login form in the case of no auth token -->
-              <div class="intro-form" id="login-form">
-                      <p class="intro-instructions"> To get started, login with your Spotify credentials.</p>
+              <div class="intro-form" id="login-form" style="display:block">
+                      <p class="intro-instructions">To get started, login with your Spotify credentials.</p>
                       <p>
-                      <a class="btn btn-primary btn-lg" id='login-button' role="button">Login with Spotify</a>
+                        <a class="btn btn-primary btn-lg" id='login-button' role="button">Login with Spotify</a>
                       </p>
               </div>
-
-      </div> 
-      <div class="col-md-2"></div>
-  </div>
+            
 </div>
   
 <div class="container-fluid work">
