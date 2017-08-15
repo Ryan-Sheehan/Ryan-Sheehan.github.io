@@ -100,9 +100,6 @@
   
 <!-- Bootstrap Core JS -->
 <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-<!-- D3 plugin -->  
-<script src="https://d3js.org/d3.v4.min.js"></script>
   
 <!-- Bubble Chart JS -->
 <script src="/vendor/bubble-chart/bubble_chart.js"></script>
@@ -280,6 +277,7 @@ function synthesize_data(data) {
         var userSongs = [];
         function aggregate_user_library(url, params) {
             $('#loading').show();
+            $('#footer').hide();
             var userSongsData = callSpotify(userSongsUrl, userSongsParams).done(function() {
                   var currentSubsetOfSongs = userSongsData.responseJSON.items;
                   currentSubsetOfSongs.forEach(song => userSongs.push(song));
@@ -289,6 +287,7 @@ function synthesize_data(data) {
                     if(userSongs === 0){
                     }
                     $('#loading').hide();
+                    $('#footer').show();
                     synthesize_data(userSongs);
                   }
                   else {
