@@ -226,6 +226,7 @@ function synthesize_data(data) {
           chart.columnForColors("name").columnForRadius("size");
           d3.select('#chart').data(processedData).call(chart);
           const bubblechart = document.querySelecter('#chart');
+          console.clear();
           console.dir(bubblechart);
        }
           
