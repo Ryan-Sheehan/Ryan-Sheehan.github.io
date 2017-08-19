@@ -142,7 +142,11 @@
 
 	$(document).ready(function() {
 
-		console.log(window.innerWidth);
+		
+		$(window).resize(function(){
+			console.log(window.innerWidth);
+			$('.bg-primary').css('min-height','auto');
+		});
 		if(window.innerWidth > 728) {
 			
 			$('.bg-primary').css('min-height','auto');
