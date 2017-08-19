@@ -141,8 +141,9 @@
 	<script>
 
 	$(document).ready(function() {
+		console.log($(window).innerWidth);
 		if($(window).innerWidth > 728) {
-			console.log($(window).width);
+			
 			$('.bg-primary').css('min-height','auto');
 		}
 	});
