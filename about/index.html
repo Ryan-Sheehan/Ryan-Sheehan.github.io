@@ -137,6 +137,15 @@
 
     <!-- Custom JavaScript for this theme -->
     <script src="/js/scrolling-nav.js"></script>
+	
+	<script>
+
+	$(document).ready(function() {
+		if($(window).width > 728) {
+			$('.bg-primary').css('min-height','auto');
+		}
+	});
+	</script>
 
 </body>
 
