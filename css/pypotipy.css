@@ -15,7 +15,7 @@ body {
 .hidden {
     display: none;
 }
-.intro-form, .results-display, .bubble_chart, svg {
+.intro-form, .results-display, .bubble-chart, svg {
     margin: auto;
     width: 50%;
     padding: 10px;
