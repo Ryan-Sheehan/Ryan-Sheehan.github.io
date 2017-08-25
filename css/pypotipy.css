@@ -15,11 +15,14 @@ body {
 .hidden {
     display: none;
 }
-.intro-form, .results-display, .bubble-chart, svg {
+.intro-form, .results-display, .bubble-chart {
     margin: auto;
     width: 50%;
     padding: 10px;
     align-items: center;
+}
+svg {
+   padding: 
 }
 table {
     border-collapse: collapse;
