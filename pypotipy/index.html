@@ -220,6 +220,7 @@ function synthesize_data(data) {
           var processedData = processData(counter(genresInLibrary)).children;
           console.log(processedData);
           var chart = bubbleChart().width(500).height(500).forceApart(-20);
+          chart.css('padding',`${window.width} - 250`);
           chart.columnForColors("name").columnForRadius("size");
           d3.select('#chart').data(processedData).call(chart);
           const bubblechart = document.querySelecter('#chart');
