@@ -83,7 +83,7 @@
   
           <div class="container-fluid load-resource-container">
                   <!-- Button to appear initially that gives users the option to load the bubble chart -->
-                  <div id="plotly-button" class="load-resource-button">
+                  <div id="plotly-button" class="load-resource-button pending">
 
                           <div class="plotlybars-wrapper">
                             <div class="plotlybars">
@@ -385,7 +385,6 @@ function initApp() {
   
   let activeClass = "pending";
   let el = document.getElementById("plotly-button");
-  el.classList.add(activeClass);
 
   function toggle(e) {
     el.classList.toggle(activeClass);
