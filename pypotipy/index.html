@@ -83,7 +83,7 @@
   
           <div class="container-fluid load-resource-container">
                   <!-- Button to appear initially that gives users the option to load the bubble chart -->
-                  <div id="plotly-button" class="load-resource-button pending">
+                  <div id="plotly-button" class="load-resource-button">
 
                           <div class="plotlybars-wrapper">
                             <div class="plotlybars">
@@ -328,7 +328,6 @@ function performAuthDance() {
     }
     if (credentials && credentials.expires > getTime()) {
         $('.results').show();
-        $('.load-resource-container').css('display','flex');
         aggregate_user_library(userSongsUrl, userSongsParams);
     }
     else {
@@ -380,9 +379,7 @@ function performAuthDance() {
 function initApp() {
   $(".intro-form").hide();
   $(".results").hide();
-  $(".load-resource-container").hide();
-  
-  
+    
   let activeClass = "pending";
   let el = document.getElementById("plotly-button");
 
