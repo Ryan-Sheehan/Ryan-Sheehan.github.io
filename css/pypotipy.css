@@ -84,7 +84,7 @@ p.cell {
 
 .load-resource-button.pending {
   border-radius: 50%;
-  height: 85px;
+  height: 100px;
   padding: 40px;
   transform: rotate(180deg);
   background-color: #1ED760;
