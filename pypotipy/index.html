@@ -87,17 +87,17 @@
 
                           <div id="plotlyBarsWrapper" class="plotlybars-wrapper">
                             <div id="plotlyBars" class="plotlybars">
-                              <div id="bar" class="plotlybars-bar b1"></div>
-                              <div id="bar" class="plotlybars-bar b2"></div>
-                              <div id="bar" class="plotlybars-bar b3"></div>
-                              <div id="bar" class="plotlybars-bar b4"></div>
-                              <div id="bar" class="plotlybars-bar b5"></div>
-                              <div id="bar" class="plotlybars-bar b6"></div>
-                              <div id="bar" class="plotlybars-bar b7"></div>
+                              <div id="bar1" class="plotlybars-bar b1"></div>
+                              <div id="bar2" class="plotlybars-bar b2"></div>
+                              <div id="bar3" class="plotlybars-bar b3"></div>
+                              <div id="bar4" class="plotlybars-bar b4"></div>
+                              <div id="bar5" class="plotlybars-bar b5"></div>
+                              <div id="bar6" class="plotlybars-bar b6"></div>
+                              <div id="bar7" class="plotlybars-bar b7"></div>
                             </div>
                           </div>
 
-                          <div class="text">
+                          <div id="btn-text" class="text">
                             load more
                           </div>
                   </div>
@@ -376,7 +376,13 @@ function initApp() {
   let el = document.getElementById("plotly-button");
   let plotlyBarWrapper = document.getElementById("plotlyBarsWrapper");
   let plotlyBar = document.getElementById("plotlyBars");
-  let bar = document.getElementById("bar");
+  let bar1 = document.getElementById("bar1");
+  let bar2 = document.getElementById("bar2");
+  let bar3 = document.getElementById("bar3");
+  let bar4 = document.getElementById("bar4");
+  let bar5 = document.getElementById("bar5");
+  let bar6 = document.getElementById("bar6");
+  let bar7 = document.getElementById("bar7");
   let text = document.getElementById("btn-text");
   function toggle(e) {
     el.classList.toggle(activeClass);
