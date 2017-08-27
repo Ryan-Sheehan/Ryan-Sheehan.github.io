@@ -466,3 +466,167 @@ ul.social-buttons li a:focus,
 ul.social-buttons li a:active {
     background-color: #ffcb04;
 }
+
+.load-resource-button {
+  border: solid 3px #1ED760;
+  display: inline-block;
+  padding: 20px 40px;
+  margin: 0 auto;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #1ED760;
+  transition: all 0.2s ease-in-out,
+    background-color 0.05s,
+    color 0.05s;
+  
+  font-size: 0.95rem;
+  
+  &:hover {
+    background-color: #1ED760;
+    color: white;
+  }
+
+  .text {
+    line-height: 34px;
+  }
+  
+  .plotlybars-wrapper {
+    display: none;
+    transform: rotate(-180deg);
+  }
+}
+
+.button.pending {
+  border-radius: 50%;
+  height: 85px;
+  padding: 40px;
+  transform: rotate(180deg);
+  background-color: #1ED760;
+  cursor: auto;
+  
+  .plotlybars-bar {
+    background-color: white;
+  }
+  
+  .text {
+    opacity: 0;
+    display: none;
+  }
+  
+  .plotlybars-wrapper {
+    display: block;
+  }
+}
+
+.plotlybars {
+  padding: 0 10px;
+  vertical-align: bottom;
+
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.plotlybars-wrapper {
+  position: relative;
+  width: 85px;
+  height: 34px;
+  padding-bottom: 34px/2;
+}
+
+.plotlybars-bar {
+  background-color: #1ED760;
+  height: 100%;
+  width: 12%;
+  position: absolute;
+  
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: linear;
+
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: normal;
+  -webkit-animation-timing-function: linear;
+}
+
+
+.b1 { left: 0%; top: 88%; animation-name: b1; -webkit-animation-name: b1; }
+.b2 { left: 14.3%; top: 76%; animation-name: b2; -webkit-animation-name: b2; }
+.b3 { left: 28.6%; top: 16%; animation-name: b3; -webkit-animation-name: b3; }
+.b4 { left: 42.9%; top: 40%; animation-name: b4; -webkit-animation-name: b4; }
+.b5 { left: 57.2%; top: 26%; animation-name: b5; -webkit-animation-name: b5; }
+.b6 { left: 71.5%; top: 67%; animation-name: b6; -webkit-animation-name: b6; }
+.b7 { left: 85.8%; top: 89%; animation-name: b7; -webkit-animation-name: b7; }
+
+@keyframes b1 { 0% { top: 88%; } 44% { top: 0%; } 94% { top: 100%; } 100% { top: 88%; } }
+@-webkit-keyframes b1 { 0% { top: 88%; } 44% { top: 0%; } 94% { top: 100%; } 100% { top: 88%; } }
+
+@keyframes b2 { 0% { top: 76%; } 38% { top: 0%; } 88% { top: 100%; } 100% { top: 76%; } }
+@-webkit-keyframes b2 { 0% { top: 76%; } 38% { top: 0%; } 88% { top: 100%; } 100% { top: 76%; } }
+
+@keyframes b3 { 0% { top: 16%; } 8% { top: 0%; } 58% { top: 100%; } 100% { top: 16%; } }
+@-webkit-keyframes b3 { 0% { top: 16%; } 8% { top: 0%; } 58% { top: 100%; } 100% { top: 16%; } }
+
+@keyframes b4 { 0% { top: 40%; } 20% { top: 0%; } 70% { top: 100%; } 100% { top: 40%; } }
+@-webkit-keyframes b4 { 0% { top: 40%; } 20% { top: 0%; } 70% { top: 100%; } 100% { top: 40%; } }
+
+@keyframes b5 { 0% { top: 26%; } 13% { top: 0%; } 63% { top: 100%; } 100% { top: 26%; } }
+@-webkit-keyframes b5 { 0% { top: 26%; } 13% { top: 0%; } 63% { top: 100%; } 100% { top: 26%; } }
+
+@keyframes b6 { 0% { top: 67%; } 33.5% { top: 0%; } 83% { top: 100%; } 100% { top: 67%; } }
+@-webkit-keyframes b6 { 0% { top: 67%; } 33.5% { top: 0%; } 83% { top: 100%; } 100% { top: 67%; } }
+
+@keyframes b7 { 0% { top: 89%; } 44.5% { top: 0%; } 94.5% { top: 100%; } 100% { top: 89%; } }
+@-webkit-keyframes b7 { 0% { top: 89%; } 44.5% { top: 0%; } 94.5% { top: 100%; } 100% { top: 89%; } }
+
+html, body, .container {
+  margin: 0;
+  height: 100%;
+  font-family: 'Open Sans', verdana, arial, sans-serif;
+}
+
+.container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;  
+  align-items: center;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 0.8rem;
+  opacity: 0.5;
+  transition: all 0.2s;
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+  
+  .h { 
+    color: #E4287C;
+  }
+  
+  &:hover {
+    opacity: 1;
+  }
+  
+  a {
+    color: #1ED760;
+    text-decoration: none;
+    font-weight: bold;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
