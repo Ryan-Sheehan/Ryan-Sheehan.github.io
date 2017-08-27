@@ -66,20 +66,17 @@ p.cell {
     color 0.05s;
   
   font-size: 0.95rem;
-  
-  &:hover {
+}
+.load-resource-button:hover {
     background-color: #1ED760;
     color: white;
   }
-
-  .text {
-    line-height: 34px;
-  }
-  
-  .plotlybars-wrapper {
-    display: none;
-    transform: rotate(-180deg);
-  }
+.load-resource-button.text {
+   line-height: 34px;
+}
+.load-resource-button.plotlybars-wrapper {
+  display: none;
+  transform: rotate(-180deg);
 }
 
 .load-resource-button.pending {
@@ -88,20 +85,17 @@ p.cell {
   padding: 40px;
   transform: rotate(180deg);
   background-color: #1ED760;
-  cursor: auto;
-  
-  .plotlybars-bar {
-    background-color: white;
-  }
-  
-  .text {
-    opacity: 0;
-    display: none;
-  }
-  
-  .plotlybars-wrapper {
-    display: block;
-  }
+  cursor: auto; 
+}
+.load-resource-button.pending.plotlybars-bar {
+  background-color: white;
+} 
+.load-resource-button.pending.text {
+  opacity: 0;
+  display: none;
+}
+.load-resource-button.pending.plotlybars-wrapper {
+  display: block;
 }
 
 .plotlybars {
