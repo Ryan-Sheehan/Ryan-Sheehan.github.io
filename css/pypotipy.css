@@ -87,14 +87,14 @@ p.cell {
   background-color: #1ED760;
   cursor: auto; 
 }
-.load-resource-button.pending.plotlybars-bar {
+.load-resource-button.plotlybars-bar.pending {
   background-color: white;
 } 
-.load-resource-button.pending.text {
+.load-resource-button.text.pending {
   opacity: 0;
   display: none;
 }
-.load-resource-button.pending.plotlybars-wrapper {
+.load-resource-button.plotlybars-wrapper.pending {
   display: block;
 }
 
