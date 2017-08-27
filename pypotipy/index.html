@@ -245,7 +245,6 @@ function synthesize_data(data) {
           var chart = bubbleChart().width(500).height(500).forceApart(-20);
           chart.columnForColors("name").columnForRadius("size");
           d3.select('#chart').data(processedData).call(chart);
-  
        }
           
           
@@ -265,7 +264,7 @@ function synthesize_data(data) {
                             aggregate_genres(ids.splice(1,ids.length-1));
                           },50)})
                 
-                    .fail(bubble_chart());
+                    .fail(bubble_chart);
             }
             aggregate_genres(artistIDs);
           
