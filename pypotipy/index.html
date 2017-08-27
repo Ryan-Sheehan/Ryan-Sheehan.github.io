@@ -319,7 +319,6 @@ function performAuthDance() {
     }
     if (credentials && credentials.expires > getTime()) {
         $('.results').show();
-        $('.load-resource-container').css('display','flex');
         aggregate_user_library(userSongsUrl, userSongsParams);
     }
     else {
@@ -371,7 +370,6 @@ function performAuthDance() {
 function initApp() {
   $(".intro-form").hide();
   $(".results").hide();
-  $(".load-resource-container").hide();
   
   
   let activeClass = "pending";
