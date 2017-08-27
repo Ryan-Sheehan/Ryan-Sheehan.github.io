@@ -372,34 +372,6 @@ function initApp() {
   $(".results").hide();
   
   
-  let activeClass = "pending";
-  let el = document.getElementById("plotly-button");
-  let plotlyBarWrapper = document.getElementById("plotlyBarsWrapper");
-  let plotlyBar = document.getElementById("plotlyBars");
-  let bar1 = document.getElementById("bar1");
-  let bar2 = document.getElementById("bar2");
-  let bar3 = document.getElementById("bar3");
-  let bar4 = document.getElementById("bar4");
-  let bar5 = document.getElementById("bar5");
-  let bar6 = document.getElementById("bar6");
-  let bar7 = document.getElementById("bar7");
-  let text = document.getElementById("btn-text");
-  function toggle(e) {
-    el.classList.toggle(activeClass);
-    plotlyBarWrapper.classList.toggle(activeClass);
-    plotlyBar.classList.toggle(activeClass);
-    bar1.classList.toggle(activeClass);
-    bar2.classList.toggle(activeClass);
-    bar3.classList.toggle(activeClass);
-    bar4.classList.toggle(activeClass);
-    bar5.classList.toggle(activeClass);
-    bar6.classList.toggle(activeClass);
-    bar7.classList.toggle(activeClass);
-    text.classList.toggle(activeClass);
-  }
-  el.addEventListener("click", toggle);
-  
-  
   $('#login-button').click(function() {
       loginWithSpotify();
   });
