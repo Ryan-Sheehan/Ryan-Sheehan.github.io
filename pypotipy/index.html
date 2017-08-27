@@ -245,9 +245,6 @@ function synthesize_data(data) {
           
        function bubble_chart(){
           var processedData = processData(counter(genresInLibrary)).children;
-          console.groupCollapsed('Bubble chart data');
-            console.log('Processed data: ' + processedData);
-          console.groupEnd('Bubble chart data');
           var chart = bubbleChart().width(500).height(500).forceApart(-20);
           chart.columnForColors("name").columnForRadius("size");
           d3.select('#chart').data(processedData).call(chart);
@@ -269,7 +266,7 @@ function synthesize_data(data) {
                           genres.forEach(genre => genresInLibrary.push(genre));
                           setTimeout(function(){
                             aggregate_genres(ids.splice(1,ids.length-1));
-                          },30)})
+                          },50)})
                 
                     .fail(bubble_chart());
             }
@@ -397,8 +394,8 @@ function initApp() {
     el.classList.toggle(activeClass);
   }
 
-el.addEventListener("click", toggle);
-document.addEventListener("keydown", toggle, false);
+  el.addEventListener("click", toggle);
+  document.addEventListener("keydown", toggle, true);
   
   $('#login-button').click(function() {
       loginWithSpotify();
