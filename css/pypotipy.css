@@ -22,7 +22,7 @@ body {
     align-items: center;
 }
 .intro-form, .results-display {
-   top: 54px;
+   margin-top: 80px;
 }
 .navbar {
    position: fixed;
