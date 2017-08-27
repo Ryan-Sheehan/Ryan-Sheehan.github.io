@@ -496,7 +496,7 @@ ul.social-buttons li a:active {
   }
 }
 
-.button.pending {
+.load-resource-button.pending {
   border-radius: 50%;
   height: 85px;
   padding: 40px;
