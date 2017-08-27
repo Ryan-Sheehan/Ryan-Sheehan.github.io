@@ -1,18 +1,18 @@
 $green:  #1ED760;
 $font: 'Open Sans', verdana, arial, sans-serif;
 $width: 85px;
-$height: 0.4*$width;
+$height: 34px;
 $padding-h: 40px;
 $padding-v: 20px;
 
 .button {
-  border: solid 3px $green;
+  border: solid 3px #1ED760;
   display: inline-block;
   padding: 20px 40px;
   margin: 0 auto;
   cursor: pointer;
   text-transform: uppercase;
-  color: $green;
+  color: #1ED760;
   transition: all 0.2s ease-in-out,
     background-color 0.05s,
     color 0.05s;
@@ -20,12 +20,12 @@ $padding-v: 20px;
   font-size: 0.95rem;
   
   &:hover {
-    background-color: $green;
+    background-color: #1ED760;
     color: white;
   }
 
   .text {
-    line-height: $height;
+    line-height: 34px;
   }
   
   .plotlybars-wrapper {
@@ -36,10 +36,10 @@ $padding-v: 20px;
 
 .button.pending {
   border-radius: 50%;
-  height: $width;
-  padding: $padding-h;
+  height: 85px;
+  padding: 40px;
   transform: rotate(180deg);
-  background-color: $green;
+  background-color: #1ED760;
   cursor: auto;
   
   .plotlybars-bar {
@@ -69,13 +69,13 @@ $padding-v: 20px;
 
 .plotlybars-wrapper {
   position: relative;
-  width: $width;
-  height: $height;
-  padding-bottom: $height/2;
+  width: 85px;
+  height: 34px;
+  padding-bottom: 34px/2;
 }
 
 .plotlybars-bar {
-  background-color: $blue;
+  background-color: #1ED760;
   height: 100%;
   width: 12%;
   position: absolute;
@@ -127,7 +127,7 @@ $padding-v: 20px;
 html, body, .container {
   margin: 0;
   height: 100%;
-  font-family: $font;
+  font-family: 'Open Sans', verdana, arial, sans-serif;
 }
 
 .container {
@@ -159,7 +159,7 @@ footer {
   }
   
   a {
-    color: $blue;
+    color: #1ED760;
     text-decoration: none;
     font-weight: bold;
     
