@@ -21,8 +21,12 @@ body {
     padding: 10px;
     align-items: center;
 }
-svg {
-   padding: 
+.intro-form, .results-display {
+   top: 54px;
+}
+.navbar {
+   position: fixed;
+   width:100%
 }
 table {
     border-collapse: collapse;
