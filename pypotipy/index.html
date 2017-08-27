@@ -328,6 +328,7 @@ function performAuthDance() {
     }
     if (credentials && credentials.expires > getTime()) {
         $('.results').show();
+        $('#plotly-button').show();
         aggregate_user_library(userSongsUrl, userSongsParams);
     }
     else {
@@ -379,7 +380,7 @@ function performAuthDance() {
 function initApp() {
   $(".intro-form").hide();
   $(".results").hide();
-  //$("#plotly-button").hide();
+  $("#plotly-button").hide();
   
   
   let activeClass = "pending";
