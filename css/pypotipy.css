@@ -11,7 +11,6 @@ html, body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    justify-content: center;
 }
 .hidden {
     display: none;
@@ -77,7 +76,7 @@ p.cell {
   }
   
   .plotlybars-wrapper {
-    display: none;
+    display: none; !important
     transform: rotate(-180deg);
   }
 }
@@ -96,11 +95,11 @@ p.cell {
   
   .text {
     opacity: 0;
-    display: none;
+    display: none; !important
   }
   
   .plotlybars-wrapper {
-    display: block;
+    display: block; !important
   }
 }
 
