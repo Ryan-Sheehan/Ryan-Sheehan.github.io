@@ -328,7 +328,7 @@ function performAuthDance() {
     }
     if (credentials && credentials.expires > getTime()) {
         $('.results').show();
-        $('#plotly-button').show();
+        $('.load-resource-container').show();
         aggregate_user_library(userSongsUrl, userSongsParams);
     }
     else {
