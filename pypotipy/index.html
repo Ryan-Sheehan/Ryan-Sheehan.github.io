@@ -374,10 +374,10 @@ function initApp() {
   
   let activeClass = "pending";
   let el = document.getElementById("plotly-button");
-  let plotlyBarWrapper = getElementById("plotlyBarsWrapper");
-  let plotlyBar = getElementById("plotlyBars");
-  let bar = getElementById("bar");
-  let text = getElementById("btn-text");
+  let plotlyBarWrapper = document.getElementById("plotlyBarsWrapper");
+  let plotlyBar = document.getElementById("plotlyBars");
+  let bar = document.getElementById("bar");
+  let text = document.getElementById("btn-text");
   function toggle(e) {
     el.classList.toggle(activeClass);
     plotlyBarWrapper.classList.toggle(activeClass);
