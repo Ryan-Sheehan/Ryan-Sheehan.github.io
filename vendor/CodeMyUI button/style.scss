@@ -1,4 +1,4 @@
-$blue: #447adb;
+$green:  #1ED760;
 $font: 'Open Sans', verdana, arial, sans-serif;
 $width: 85px;
 $height: 0.4*$width;
@@ -6,13 +6,13 @@ $padding-h: 40px;
 $padding-v: 20px;
 
 .button {
-  border: solid 3px $blue;
+  border: solid 3px $green;
   display: inline-block;
   padding: 20px 40px;
   margin: 0 auto;
   cursor: pointer;
   text-transform: uppercase;
-  color: $blue;
+  color: $green;
   transition: all 0.2s ease-in-out,
     background-color 0.05s,
     color 0.05s;
@@ -20,7 +20,7 @@ $padding-v: 20px;
   font-size: 0.95rem;
   
   &:hover {
-    background-color: $blue;
+    background-color: $green;
     color: white;
   }
 
@@ -39,7 +39,7 @@ $padding-v: 20px;
   height: $width;
   padding: $padding-h;
   transform: rotate(180deg);
-  background-color: $blue;
+  background-color: $green;
   cursor: auto;
   
   .plotlybars-bar {
