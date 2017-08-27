@@ -9,6 +9,9 @@
   <!-- Spotify themed css -->
   <link href="/vendor/bootstrap/css/sp-bootstrap.min.css" rel="stylesheet" media="screen">
   
+  <!-- Custom CSS for resource loading button -->
+  <link href="/vendor/CodeMyUI button/style.css" rel="stylesheet">
+  
   <!-- link to main stylesheet -->
   <link href="/css/pypotipy.css" type="text/css" rel="stylesheet">
   
@@ -80,7 +83,33 @@
                   </table>
            </div>
 
-           <div class="bubble-chart" id="chart"><svg></svg></div>
+           <div class="bubble-chart" id="chart">
+             
+              <!-- Button to appear initially that gives users the option to load the bubble chart -->
+               <div id="plotly-button" class="button">
+
+                    <div class="plotlybars-wrapper">
+                      <div class="plotlybars">
+                        <div class="plotlybars-bar b1"></div>
+                        <div class="plotlybars-bar b2"></div>
+                        <div class="plotlybars-bar b3"></div>
+                        <div class="plotlybars-bar b4"></div>
+                        <div class="plotlybars-bar b5"></div>
+                        <div class="plotlybars-bar b6"></div>
+                        <div class="plotlybars-bar b7"></div>
+                      </div>
+                    </div>
+
+                    <div class="text">
+                      load more
+                    </div>
+                  </div>
+                </div>
+             
+                
+                <svg></svg>
+  
+           </div>
 
 </div>
   
@@ -201,6 +230,7 @@ function synthesize_data(data) {
        }
        return {children: newDataSet};
       }
+
           
       function counter(data){
         const genre_count = data.reduce(function(obj, item) {
@@ -218,14 +248,13 @@ function synthesize_data(data) {
           
        function bubble_chart(){
           var processedData = processData(counter(genresInLibrary)).children;
-          console.log(processedData);
+          console.groupCollapsed('Bubble chart data');
+            console.log('Processed data: ' + processedData);
+          console.groupEnd('Bubble chart data');
           var chart = bubbleChart().width(500).height(500).forceApart(-20);
-          //chart.css('padding',`${window.width} - 250`);
           chart.columnForColors("name").columnForRadius("size");
           d3.select('#chart').data(processedData).call(chart);
-          const bubblechart = document.querySelecter('#chart');
-          console.clear();
-          console.dir(bubblechart);
+  
        }
           
           
@@ -243,9 +272,9 @@ function synthesize_data(data) {
                           genres.forEach(genre => genresInLibrary.push(genre));
                           setTimeout(function(){
                             aggregate_genres(ids.splice(1,ids.length-1));
-                          },50)})
+                          },30)})
                 
-                    .fail(bubble_chart);
+                    .fail(bubble_chart());
             }
             aggregate_genres(artistIDs);
           
