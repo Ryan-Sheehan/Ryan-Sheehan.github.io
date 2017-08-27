@@ -16,7 +16,7 @@ html, body {
 .hidden {
     display: none;
 }
-.intro-form, .results-display, .bubble-chart, .load-resource-button {
+.intro-form, .results-display, .bubble-chart, .load-resource-container {
     margin: auto;
     width: 50%;
     padding: 10px;
@@ -43,6 +43,14 @@ p {
 p.cell {
     margin: auto;
     padding: 10px 15px 10px 15px;
+}
+
+.load-resource-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;  
+  align-items: center;
+  font-family: 'Open Sans', verdana, arial, sans-serif;
 }
 
 .load-resource-button {
