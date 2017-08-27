@@ -85,15 +85,15 @@
                   <!-- Button to appear initially that gives users the option to load the bubble chart -->
                   <div id="plotly-button" class="load-resource-button">
 
-                          <div class="plotlybars-wrapper">
-                            <div class="plotlybars">
-                              <div class="plotlybars-bar b1"></div>
-                              <div class="plotlybars-bar b2"></div>
-                              <div class="plotlybars-bar b3"></div>
-                              <div class="plotlybars-bar b4"></div>
-                              <div class="plotlybars-bar b5"></div>
-                              <div class="plotlybars-bar b6"></div>
-                              <div class="plotlybars-bar b7"></div>
+                          <div id="plotlyBarsWrapper" class="plotlybars-wrapper">
+                            <div id="plotlyBars" class="plotlybars">
+                              <div id="bar" class="plotlybars-bar b1"></div>
+                              <div id="bar" class="plotlybars-bar b2"></div>
+                              <div id="bar" class="plotlybars-bar b3"></div>
+                              <div id="bar" class="plotlybars-bar b4"></div>
+                              <div id="bar" class="plotlybars-bar b5"></div>
+                              <div id="bar" class="plotlybars-bar b6"></div>
+                              <div id="bar" class="plotlybars-bar b7"></div>
                             </div>
                           </div>
 
@@ -374,8 +374,16 @@ function initApp() {
   
   let activeClass = "pending";
   let el = document.getElementById("plotly-button");
+  let plotlyBarWrapper = getElementById("plotlyBarWrapper");
+  let plotlyBar = getElementById("plotlyBar");
+  let bar = getElementById("bar");
+  let text = getElementById("btn-text");
   function toggle(e) {
     el.classList.toggle(activeClass);
+    plotlyBarWrapper.classList.toggle(activeClass);
+    plotlyBar.classList.toggle(activeClass);
+    bar.classList.toggle(activeClass);
+    text.classList.toggle(activeClass);
   }
   el.addEventListener("click", toggle);
   
