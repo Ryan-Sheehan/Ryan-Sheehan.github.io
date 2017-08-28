@@ -242,6 +242,9 @@ function synthesize_data(data) {
           d3.select('#chart').data(processedData).call(chart);
        }
           
+        /*processes the data by finding the genre each artist is from and then 
+             formatting it so that it may be usable by bubble_map.js/d3
+             */
           
           function aggregate_genres(ids){
               
@@ -259,13 +262,10 @@ function synthesize_data(data) {
                             aggregate_genres(ids.splice(1,ids.length-1));
                           },50)})
                 
-                    .fail(bubble_chart());
+                    .fail(bubble_chart);
             }
             aggregate_genres(artistIDs);
           
-          /*processes the data by finding the genre each artist is from and then 
-             formatting it so that it may be usable by bubble_map.js/d3
-             */
  
   
     
@@ -296,6 +296,7 @@ function synthesize_data(data) {
                     if(userSongs === 0){
                     }
                     $('#loading').hide();
+                    $(".plotly-button-container").show();
                     $('#footer').show();
                     synthesize_data(userSongs);
                   }
@@ -369,6 +370,7 @@ function performAuthDance() {
 function initApp() {
   $(".intro-form").hide();
   $(".results").hide();
+  $(".plotly-button-container").hide();
   
   let activeClass = "pending";
   let el = document.getElementById("plotly-button");
