@@ -16,7 +16,7 @@ html, body {
 .hidden {
     display: none;
 }
-.intro-form, .results-display, .bubble-chart, .load-resource-container {
+.intro-form, .results-display, .bubble-chart, .plotly-button-container {
     margin: auto;
     width: 50%;
     padding: 10px;
