@@ -20,6 +20,7 @@ html, body {
     width: 50%;
     padding: 10px;
     align-items: center;
+    justify-content: center;
 }
 .intro-form, .results-display {
    margin-top: 80px;
