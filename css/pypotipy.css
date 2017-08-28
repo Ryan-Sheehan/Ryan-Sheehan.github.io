@@ -11,7 +11,6 @@ html, body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    justify-content: center;
 }
 .hidden {
     display: none;
@@ -46,6 +45,8 @@ p.cell {
 }
 
 .button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1reml;
   border: solid 3px #447adb;
   display: inline-block;
   padding: 20px 40px;
