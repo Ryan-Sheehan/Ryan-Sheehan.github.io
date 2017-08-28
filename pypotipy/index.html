@@ -259,7 +259,7 @@ function synthesize_data(data) {
                             aggregate_genres(ids.splice(1,ids.length-1));
                           },50)})
                 
-                    .fail(bubble_chart);
+                    .fail(bubble_chart());
             }
             aggregate_genres(artistIDs);
           
