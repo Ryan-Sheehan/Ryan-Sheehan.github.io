@@ -33,25 +33,19 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li>
-                    <a href="#">Home</a>
+                    <a href="/">Home</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="/about">About</a>
                 </li>
                 <li>
-                    <a href="#">CV</a>
+                    <a href="/CV">CV</a>
                 </li>
                 <li>
-                    <a href="#">Blog</a>
+                    <a href="/about #services">Services</a>
                 </li>
                 <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
+                    <a href="/about #contact">Contact</a>
                 </li>
             </ul>
         </div>
@@ -127,8 +121,7 @@
 
                 </div>
             </div>
-                        
-
+                       
         </div>
         <!-- /#page-content-wrapper -->
 
@@ -149,6 +142,7 @@
         $("#main-content-wrapper").toggleClass("screen-toggle");
     });
 
+    /*
     const containers = Array.from(document.querySelectorAll('.container'));
 
     const containerRows = Array.from(document.querySelectorAll('.container-row'));
@@ -170,6 +164,7 @@
             element.setAttribute('data-state', element.getAttribute('data-state') === one ? two : one);
             
         };
+    */
 
         
 
@@ -185,7 +180,7 @@
         /*container action functions:
             -toggles flex so that container increases relative size onclick
             -if the container is already click, transports user to link
-            */
+        
 
         containers[0].onclick = function (e) {
             if(this.getAttribute('data-state') === 'open'){
@@ -217,7 +212,7 @@
             e.preventDefault();
         };
 
-        //containers.forEach(container => console.log(container.getAttribute('data-state')));
+        //containers.forEach(container => console.log(container.getAttribute('data-state'))); */
 
     </script>
 
