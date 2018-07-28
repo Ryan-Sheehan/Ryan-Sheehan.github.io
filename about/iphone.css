@@ -54,6 +54,7 @@ form.chat .messages{
   display:block;
   overflow-x: hidden;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   position:relative;
   height:90%;
   width:100%;
