@@ -269,7 +269,7 @@ form.chat input[type='submit']{
 
 #container {
   background-color: #FFF;
-  margin: 30px 5%;
+  margin: 30px 2%;
   border-radius: 20px;
   box-shadow: 0 3px 26px 0 rgba(0,0,0,0.20);
 }
@@ -284,7 +284,7 @@ form.chat input[type='submit']{
 
 .border{
 	position:absolute;
-	top:12.3%;right:7%;left:7%;bottom:12%;
+	top:2.3%;right:2%;left:2%;bottom:2%;
 	overflow:hidden;
 }
 
