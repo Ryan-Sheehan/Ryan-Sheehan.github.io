@@ -20,6 +20,7 @@
 
 			<!-- Scripts -->
 			<script src="https://use.fontawesome.com/3b1fbcb7b8.js"></script>
+			<script src="https://unpkg.com/pts@0.5.1/dist/pts.min.js"></script>
 		</head>
 		<body>
 			    
@@ -41,7 +42,10 @@
 						<a class="page-scroll" href="#about">About</a>
 					    </li>
 					    <li>
-						<a class="page-scroll" href="/gallery">Gallery</a>
+						<a class="page-scroll" href="/gallery">Projects</a>
+					    </li>
+					    <li>
+						<a class="page-scroll" href="#about">Pictures</a>
 					    </li>
 					    <li>
 						<a class="page-scroll" href="#contact">Contact</a>
@@ -56,14 +60,11 @@
 			    <!-- Header -->
 			    <header style="background-image: url('https://rawgit.com/Ryan-Sheehan/Ryan-Sheehan.github.io/master/images/3.jpg')">
 				<div class="header-content">
-				    <div class="header-content-inner">
-					<h1 id="homeHeading">Ryan Sheehan</h1>
-					<p>Web Development & Computer Science</p>
-				    </div>
+				    
 				</div>
 			    </header>
 			
-
+			    <div id="pt"></div>
 		
 			    <section class="bg-primary" id="blurb">
 				<div class="container" id="about">
@@ -95,7 +96,7 @@
 				    <div class="row">
 				      <!-- Left hand most side -->
 					<div class="col-md-4">
-					    <span class="copyright">Copyright &copy; Ryan Sheehan 2017</span>
+					    <span class="copyright">Copyright &copy; Ryan Sheehan 2018</span>
 					</div>
 					<!-- In the middle, shows icons side by side with proper links -->
 					<div class="col-md-4">
@@ -131,6 +132,55 @@
 		
 	<!-- Theme JavaScript -->
     	<script src="/js/creative.min.js"></script>
+    	<script type="text/javascript">
+    		Pts.quickStart( "#pt", "#123" );
+
+//// Demo code starts (anonymous function wrapper is optional) ---
+
+(function() {
+  
+  var pts = [];
+  var colors = ["#ff2d5d", "#42dc8e", "#2e43eb", "#ffe359"];
+
+  space.add( { 
+
+    // init with 500 random points 
+    start: (bound) => { pts = Create.distributeRandom( space.innerBound, 500 ); },
+
+    animate: (time, ftime) => {
+      
+      let r = Math.abs( space.pointer.x-space.center.x )/space.center.x * 150 + 70;
+      let range = Circle.fromCenter( space.pointer, r );
+      
+      // check if each point is within circle's range
+      for (let i=0, len=pts.length; i<len; i++) {
+
+        if ( Circle.withinBound( range, pts[i] ) ) {
+
+          // calculate circle size
+          let dist = (r - pts[i].$subtract(space.pointer).magnitude() ) / r;
+          let p = pts[i].$subtract( space.pointer ).scale( 1+dist ).add( space.pointer );
+          form.fillOnly( colors[i%4] ).point( p, dist*25, "circle" );
+          
+        } else {
+          form.fillOnly("#fff").point(pts[i], 0.5);
+        }
+
+      }
+    }
+
+  });
+  
+  //// ----
+  
+  
+  space.bindMouse().bindTouch().play();
+  
+})();
+
+
+
+    	</script>
 
 	</body>
 	</html>
