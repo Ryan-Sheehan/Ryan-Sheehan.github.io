@@ -115,7 +115,7 @@ aside {
 @media (min-width: 768px) {
   .navbar-default {
     background-color: transparent;
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0);
   }
   .navbar-default .container-fluid{
     padding-right: 50px;
@@ -126,7 +126,7 @@ aside {
   }
   .navbar-default .navbar-header .navbar-brand:hover,
   .navbar-default .navbar-header .navbar-brand:focus {
-    color: white;
+    color: #ffcb04;
   }
   .navbar-default .nav > li > a,
   .navbar-default .nav > li > a:focus {

@@ -99,7 +99,7 @@ h1, h2, h3, h4, h5,
             width: 0;
             left: 0;
             height: 2px;
-            background: #1FAD9F;
+            background: #ffcb04;
             -webkit-transition: .3s width ease-out;
             -o-transition: .3s width ease-out;
             transition: .3s width ease-out; }
