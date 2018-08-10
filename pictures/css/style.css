@@ -17,13 +17,6 @@ a {
     text-decoration: none;
     color: #1FAD9F; }
 
-img {
-  opacity: 1;
-  transition: opacity 0.3s;
-}
-img[data-src] {
-  opacity: 0;
-}
 
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
@@ -561,6 +554,80 @@ textarea {
   -webkit-animation: loader-dash 1.5s ease-in-out infinite;
   animation: loader-dash 1.5s ease-in-out infinite;
   stroke-linecap: round; }
+#test {
+  background-image: url("#loader12");
+}
+svg {
+  visibility: hidden;
+}
+.loading__wrapper {
+  width: 720px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+}
+.loading__wrapper > li {
+  width: 180px;
+  height: 180px;
+  position: relative;
+  transition: -webkit-transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+}
+.loading__wrapper > li:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+  z-index: 1;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+}
+.loading__wrapper > li:nth-child(1) {
+  background: #1ABC9C;
+}
+.loading__wrapper > li:nth-child(2) {
+  background: #34495E;
+}
+.loading__wrapper > li:nth-child(3) {
+  background: #F39C12;
+}
+.loading__wrapper > li:nth-child(4) {
+  background: #9B59B6;
+}
+.loading__wrapper > li:nth-child(5) {
+  background: #3498DB;
+}
+.loading__wrapper > li:nth-child(6) {
+  background: #E74C3C;
+}
+.loading__wrapper > li:nth-child(7) {
+  background: #2ECC71;
+}
+.loading__wrapper > li:nth-child(8) {
+  background: #2C3E50;
+}
+.loading__wrapper > li:nth-child(9) {
+  background: #F1C40F;
+}
+.loading__wrapper > li:nth-child(10) {
+  background: #8E44AD;
+}
+.loading__wrapper > li:nth-child(11) {
+  background: #2980B9;
+}
+.loading__wrapper > li:nth-child(12) {
+  background: #E74C3C;
+}
+.loading__wrapper > li > svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+}
 
 @-webkit-keyframes loader-rotate {
   100% {
