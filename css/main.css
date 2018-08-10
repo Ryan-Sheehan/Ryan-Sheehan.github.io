@@ -117,6 +117,10 @@ aside {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.3);
   }
+  .navbar-default .container-fluid{
+    padding-right: 50px;
+    padding-left: 50px;
+  }
   .navbar-default .navbar-header .navbar-brand {
     color: rgba(0, 0, 0, 0.7);
   }
