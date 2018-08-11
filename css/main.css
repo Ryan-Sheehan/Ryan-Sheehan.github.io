@@ -17,7 +17,7 @@ hr {
   max-width: 50px;
 }
 hr.light {
-  border-color: #ffcb04;
+  border-color: #fc3260;
 }
 a {
   -webkit-transition: all 0.35s;
@@ -28,6 +28,12 @@ a {
 a:hover,
 a:focus {
   color: #222;
+}
+.green {
+  color: #4bdb90;
+}
+.blue {
+  color: #314be7;
 }
 h1,
 h2,
