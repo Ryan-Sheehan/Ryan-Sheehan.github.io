@@ -744,7 +744,12 @@
         $(document).ready(function() {
             $(".photoshop").hide();
 
+            var tab = "Pictures"
             $("#content-toggle").click(function() {
+        
+                tab = tab == "Pictures" ?  "Photoshop Misc." : "Pictures";
+
+                $(this).text(tab);
                 $(".photoshop").toggle();
                 $(".pictures").toggle();
             });
