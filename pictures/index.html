@@ -744,14 +744,22 @@
         $(document).ready(function() {
             $(".photoshop").hide();
 
+            $("#content-toggle").css("cursor", "pointer");
+
             var tab = "Pictures"
             $("#content-toggle").click(function() {
         
                 tab = tab == "Pictures" ?  "Photoshop Misc." : "Pictures";
 
-                $(this).text(tab);
+                $(this).removeClass("fadeInLeft")
+                        .addClass("fadeOutRight")
+                        .text(tab).delay(500)
+                        .removeClass("fadeOutRight")
+                        .addClass("fadeInLeft");
+
                 $(".photoshop").toggle();
                 $(".pictures").toggle();
+                 
             });
         });
     });
