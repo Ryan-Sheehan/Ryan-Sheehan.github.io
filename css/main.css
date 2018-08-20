@@ -160,6 +160,15 @@ header .mobile-content {
   .navbar-default.affix .nav > li > a:focus:hover {
     color: #ffcb04;
   }
+  header {
+    background-image: none;
+  }
+  header .desktop-content {
+    display: block;
+  }
+  header .mobile-content {
+    display: none;
+  }
 }
 header {
   position: relative;
@@ -169,7 +178,6 @@ header {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  background-image: none;
   background-position: center;
   text-align: center;
   color: white;
@@ -179,12 +187,6 @@ header .header-content {
   text-align: center;
   padding: 100px 15px 100px;
   width: 100%;
-}
-header .desktop-content {
-  display: block;
-}
-header .mobile-content {
-  display: none;
 }
 header .header-content .header-content-inner h1 {
   font-weight: 700;
