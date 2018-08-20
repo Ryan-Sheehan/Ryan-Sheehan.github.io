@@ -39,6 +39,7 @@
         <nav class="probootstrap-nav">
           <ul>
             <li class="probootstrap-animate active" data-animate-effect="fadeInLeft"><a href="/">Back</a></li>
+            <li id="content-toggle" class="probootstrap-animate" data-animate-effect="fadeInLeft">Misc. Photoshop</li>
           </ul>
         </nav>
         <footer class="probootstrap-aside-footer probootstrap-animate" data-animate-effect="fadeInLeft">
@@ -58,7 +59,7 @@
         <a href="#" class="probootstrap-toggle js-probootstrap-toggle"><span class="oi oi-menu"></span></a>
         <div class="probootstrap-main-site-logo"></div>
       </div>
-      <div class="card-columns">
+      <div class="card-columns pictures">
         <div class="card">
           
             <img class="card-img-top lazy" data-src="pics-ryan-took/0002.jpg"   data-animate-effect="fadeIn">
@@ -69,11 +70,7 @@
           <img class="card-img-top lazy" data-src="pics-ryan-took/0107.jpg"   data-animate-effect="fadeIn">
           
         </div>
-                <div class="card">
-          
-            <img id="test" class="card-img-top lazy"    data-animate-effect="fadeIn">
-          
-        </div>
+
         <div class="card">
           
             <img class="card-img-top lazy" data-src="pics-ryan-took/0109.jpg"   data-animate-effect="fadeIn">
@@ -691,13 +688,22 @@
             <img class="card-img-top lazy" data-src="pics-ryan-took/0142.jpg"  data-animate-effect="fadeIn">
           
         </div>
-                <div class="card">
+        <div class="card">
           
             <img class="card-img-top lazy" data-src="pics-ryan-took/0143.jpg"  data-animate-effect="fadeIn">
           
         </div>
         
-      </div>  
+      </div> 
+
+    <div class="card-columns photoshop"> 
+        <div class="card">
+          
+            <img class="card-img-top lazy" data-src="misc-photoshop/0001.jpg"  data-animate-effect="fadeIn">
+          
+        </div>
+
+    </div>
 
 
       <div class="container-fluid d-md-none">
@@ -734,6 +740,15 @@
     <script type="text/javascript">
     $(function() {
         $('.lazy').Lazy();
+
+        $(document).ready(function() {
+            $(".photoshop").hide();
+
+            $("#content-toggle").click(function() {
+                $(".photoshop").toggle();
+                $(".pictures").toggle();
+            });
+        });
     });
     </script>
     
