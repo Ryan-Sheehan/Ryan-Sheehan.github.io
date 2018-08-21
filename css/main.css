@@ -160,15 +160,7 @@ header .mobile-content {
   .navbar-default.affix .nav > li > a:focus:hover {
     color: #ffcb04;
   }
-  header {
-    background-image: none;
-  }
-  header .desktop-content {
-    display: block;
-  }
-  header .mobile-content {
-    display: none;
-  }
+
 }
 header {
   position: relative;

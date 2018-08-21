@@ -1,17 +1,3 @@
-/*
-
-Name    : Responsive HTML5 Chat
-
-Responsive HTML5 Chat helps you to create useful chatbox on your website easly. 
-You can change skin and sizes. You can read the installation and support documentation 
-before you begin. If you do not find the answer, do not hesitate to send a message to me.
-
-Owner   : Vatanay Ozbeyli
-Web     : www.vatanay.com
-Support : hi@vatanay.com
-
-*/
-
 function responsiveChat(element) {
     $(element).html('<form class="chat"><span></span><div class="messages"></div><input type="text" placeholder="Your message"><input type="submit" value="Send"></form>');
 
