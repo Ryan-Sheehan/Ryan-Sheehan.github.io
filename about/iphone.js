@@ -66,10 +66,10 @@ responsiveChat('.responsive-html5-chat');
 /* Let's push some dummy data */
 responsiveChatPush('.chat', 'Brendan O&apos;Hare', 'you', '08.03.2017 14:30:7', 'You can tell a lot about a person from which emojis they use the <a href="https://www.youtube.com/watch?v=YjHbCB-zicQ">most</a>. ');
 responsiveChatPush('.chat', 'Ryan', 'me', '07.25.1998', 'These are Ryan&apos;s top three (3) at the moment:');
-responsiveChatPush('.chat', 'Darryl &apos;Milk&apos; Murphy', 'me', '08.03.2016 14:31:22', '🤔🤗😤');
+responsiveChatPush('.chat', 'Sonia Sotomayer', 'me', '08.03.2016 14:31:22', '🤔🤗😤');
 
 
-responsiveChatPush('.chat', 'Cherry Dude', 'you', '08.03.2017 14:30:7', 'Some facts about Ryan:');
+responsiveChatPush('.chat', 'Amir Blumenfeld', 'you', '08.03.2017 14:30:7', 'Some facts about Ryan:');
 responsiveChatPush('.chat', 'Adam Real-Last-Name-Unknown', 'me', '08.03.2016 14:31:22', 'Ryan&apos;s favorite part of the flag is the bars');
 responsiveChatPush('.chat', 'Paul Proteus', 'me', '08.03.2016 14:31:22', 'One time Ryan got four (4) detentions because the IT guy at his middle school caught him typing curse words into Google translate. Ryan is still harboring resentment about it to this day and its effects can probably be traced to how he became the person he is today');
 responsiveChatPush('.chat', 'Xavier Timecube', 'me', '08.03.2096 25:11:11', 'Ryan doesn&apos;t believe in Astrology because Ryan is a Leo and Leo&apos;s never believe in Astrology');
