@@ -1,12 +1,13 @@
 html {
   font-size: 10px;
-  background: url(http://i.imgur.com/b9r5sEL.jpg) bottom center;
+  background-color: black;
   background-size: cover;
 }
 body,html {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  
 }
 
 .keys {
@@ -51,9 +52,8 @@ kbd {
 
 .header-box {
     background-color: black;
-    background: rgba(0, 0, 0,0.4);
-    border: solid black;
-    border-radius: 3px;
+    
+
     text-align: center;
 }
 
