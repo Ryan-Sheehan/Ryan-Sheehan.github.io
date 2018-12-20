@@ -8,6 +8,11 @@
 body {
   color: #34495e;
   padding-bottom: 100px;
+  font-family: 'Helvetica Neue';
+}
+h1 {
+  color: #000;
+  font-family: 'Archivo Black';
 }
 
 figure {
@@ -27,7 +32,7 @@ a {
 
 a,
 a:visited {
-  color: #3498db;
+  color: #ffcb04;
 }
 
 a:hover {
@@ -252,14 +257,14 @@ p {
 }
 
 .btn--primary {
-  color: #3498db;
-  border-color: #3498db;
+  color: #ffcb04;
+  border-color: #ffcb04;
   background-color: rgba(52, 152, 219, 0);
 }
 
 @media (-moz-touch-enabled: 0), (pointer: fine) {
   .btn--primary:hover {
-    background-color: #3498db;
+    background-color: #ffcb04;
   }
 }
 .btn--primary:focus {
@@ -267,7 +272,7 @@ p {
 }
 
 .btn--primary.active, .btn--primary:active {
-  background-color: #3498db;
+  background-color: #ffcb04;
 }
 
 .btn--primary:focus.active {
@@ -275,7 +280,7 @@ p {
 }
 
 .btn--primary:disabled {
-  color: #3498db;
+  color: #ffcb04;
   background-color: rgba(52, 152, 219, 0);
 }
 
