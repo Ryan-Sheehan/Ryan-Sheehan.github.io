@@ -212,9 +212,9 @@ p {
   display: inline-block;
   padding: .75em .8em;
   text-align: center;
-  border-radius: 3px;
-  border: 1px solid #34495e;
-  color: #34495e;
+  border-radius: 1px;
+  border: 1px solid #ffcb04;
+  color: #ffcb04;
   font-size: 1rem;
   background-color: rgba(52, 73, 94, 0);
   transition: .2s ease-out;
