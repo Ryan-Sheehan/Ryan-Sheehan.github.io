@@ -39,7 +39,6 @@
         <nav class="probootstrap-nav">
           <ul>
             <li class="probootstrap-animate active" data-animate-effect="fadeInLeft"><a href="/">Back</a></li>
-            <li id="content-toggle" class="probootstrap-animate" data-animate-effect="fadeInLeft">Misc. Photoshop</li>
           </ul>
         </nav>
         <footer class="probootstrap-aside-footer probootstrap-animate" data-animate-effect="fadeInLeft">
@@ -248,24 +247,6 @@
     <script type="text/javascript">
     $(function() {
         $('.lazy').Lazy();
-
-        $(document).ready(function() {
-            $(".photoshop").hide();
-
-            $("#content-toggle").css("cursor", "pointer");
-
-            var tab = "Photoshop Misc."
-            $("#content-toggle").click(function() {
-        
-                tab = tab == "Pictures" ? "Photoshop Misc." : "Pictures";
-
-                $(this).text(tab)
-
-                $(".photoshop").toggle();
-                $(".pictures").toggle();
-                 
-            });
-        });
     });
     </script>
     
