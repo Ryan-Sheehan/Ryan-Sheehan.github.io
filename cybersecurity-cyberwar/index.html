@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Cybersecurity & Cyberwar</title>
+  <link href="main.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="jumbotron">
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-4">
+      <h1>
+        3D File Formats Explanation
+      </h1>
+      <p>
+        by Ryan Sheehan
+      </p>
+      <p class="text-muted">
+        2-1-2019
+        &middot;
+        <a href="ryanwsheehan.com">ryanwsheehan.com</a>
+      </p>
+    </div>
+    </div>
+  </div>
+
+  <div class="container text-center">
+    <div class="row">
+
+      <div class="col-lg-4 col-lg-offset-3 col-md-4 col-md-offset-1 col-sm-4">
+        <div id="player"></div>
+      </div>
+
+    </div>
+    </div>
+
+
+
+    
+    <div class="container">
+    <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12">
+      <h2>
+      CONTACT
+      </h5>
+
+    <p class="text-muted">
+      Email: sheehan.w.ryan@gmail.com
+      </p>
+      <p class="text-muted">
+      Cell: 610 800 0318
+    </p>
+      <p>
+      
+      <a style="padding-right: 10px" href="ryanwsheehan.com"><i class="fa fa-link"></i></a>
+      <a href="https://www.linkedin.com/in/ryanwsheehan/"><i class="fa fa-linkedin"></i></a>
+      </p>
+      <p class="text-muted">
+        
+        &middot;
+        
+        
+      </p>
+      </div>
+    </div>
+
+</body>
+
+<script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: 'M7lc1UVf-VE',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 6000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+    </script>
+</html>
