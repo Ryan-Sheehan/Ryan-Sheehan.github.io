@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Avatar WEB API sample</title>
+
+    <link href="main.css" rel="stylesheet" type="text/css"/>
+    
+  </head>
+
+  <body>
+    <div class="main-container">
+      <div>
+        <p>On this page you could find and example of how to work with Avatar WEB API:
+          <ul>
+            <li>authorization</li>
+            <li>selfie upload and avatar computation task creation</li>
+            <li>task status polling</li>
+            <li>results obtaining</li>
+          </ul>
+          For full list of available methods and its description please visit
+          <a href="../../" target="_blank">Avatar WEB API</a> documentation page.
+        </p>
+        <p>First of all you need to
+           <a href="https://accounts.avatarsdk.com/developer/signup/"
+           target="_blank">sign up</a> for itSeez3D developer Account
+           and register an application. <b>Note:</b> do not forget to
+           specify this sample page URL as redirect one and
+           set <i>Authorization Grant</i> to <code>Implicit</code> to
+           pass OAuth authorization process.</p>
+        <p>Then you need to specify you application <code>Client
+           ID</code> in the <code>Athorization</code> form and authorize
+           your application with itSeez3D user (most possible it will
+           be you, for now).</p>
+        <p>Now you are ready to create your 3D avatar: pick a selfie
+           and avatar name and create computation task. Usually it
+           takes up to minute to complete the task.</p>
+        <p>Our algorithms are not perfect yet, so computation task may
+           end up in <code>Failed</code> status. Do not get upset
+           &mdash; try to choose another selfie with better lighting,
+           more sharp and clearly visible face. In the end you will be
+           able to retrieve results (mesh and texture) by the
+           corresponding links in <code>avatars</code> section.</p>
+        <p>You will be able to see all underlying requests made while
+           your avatar is being created in <code>Requests list</code>
+           section. All requests and its responses are styled
+           as <a href="https://curl.haxx.se/" target="_blank">curl</a>
+           utility output as most developers are already familiar with
+           it.</p>
+      </div>
+
+      <form action="https://api.avatarsdk.com/o/authorize/" id="auth_form" class="container">
+        <label>Authorization</label>
+
+        <div class="field-container">
+          <label for="client_id" class="required">Client ID</label>
+          <input type="text" id="client_id" required>
+        </div>
+
+        <div class="field-container">
+          <label>Token</label>
+          <span id="token_str"></span>
+        </div>
+
+        <input type="submit" value="OAuth!">
+        <input type="button" value="log out" id="unauthorize">
+      </form>
+
+      <form action="/players/" method="POST" id="player_form" class="container disabled">
+        <label>PlayerUID</label>
+        <div class="overlay"></div>
+
+        <div class="field-container">
+          <label>PlayerUID</label>
+          <input type="text" id="player_uid">
+        </div>
+
+        <input type="submit" value="Register new">
+        <input type="button" value="Reset player" id="reset_player">
+      </form>
+
+      <div class="container disabled" id="new_avatar_block">
+        <label>New avatar</label>
+        <div class="overlay"></div>
+
+        <form enctype="multipart/form-data" action="/avatars/" method="POST" id="selfie_upload_form">
+          <div class="field-container">
+            <label for="selfie_filepicker" class="required">Selfie</label>
+            <input type="file" id="selfie_filepicker" name="photo" required accept="image/jpeg">
+          </div>
+
+          <div class="field-container">
+            <label for="selfie_name" class="required">Name</label>
+            <input type="text" name="name" id="selfie_name" required>
+          </div>
+
+          <div class="field-container">
+            <label for="selfie_description">Description</label>
+            <textarea name="description" id="selfie_description"></textarea>
+          </div>
+
+          <div class="field-container">
+            <label for="preserve_original_texture">Preserve original texture</label>
+            <span>
+              <input type="checkbox" name="preserve_original_texture" id="preserve_original_texture" value="True">
+            </span>
+          </div>
+
+          <input type="submit" value="Upload">
+        </form>
+      </div>
+
+      <div id="avatars" class="container">
+        <label>Avatars list</label>
+      </div>
+
+      <div id="requests" class="container">
+        <label>Requests list</label>
+      </div>
+    </div>
+
+
+    <div id="templates">
+      <div class="request container">
+        <pre class="curl"></pre>
+        <div class="progress"></div>
+
+        <div class="response">
+          <pre class="headers"></pre>
+          <div class="body"></div>
+        </div>
+      </div>
+
+      <div class="avatar container">
+        <div class="field-container code">
+          <label>Avatar code</label>
+          <span></span>
+        </div>
+
+        <div class="field-container created_on">
+          <label>Created on</label>
+          <span></span>
+        </div>
+
+        <div class="field-container ctime">
+          <label>Modified on</label>
+          <span></span>
+        </div>
+
+        <div class="field-container status">
+          <label>Status</label>
+          <span></span>
+        </div>
+
+        <div class="field-container mesh">
+          <label>Mesh</label>
+          <span><a href="">mesh request</a></span>
+        </div>
+
+        <div class="field-container texture">
+          <label>Texture</label>
+          <span><a href="">texture request</a></span>
+        </div>
+
+        <form method="PATCH" action="">
+          <div class="field-container name">
+            <label class="required">Name</label>
+            <input type="text" name="name" value="" required>
+          </div>
+
+          <div class="field-container description">
+            <label>Description</label>
+            <textarea name="description"></textarea>
+          </div>
+
+          <input type="submit" value="update">
+        </form>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="main.js" defer></script>
+    <script type="text/javascript" src="main2.js" defer></script>
+  </body>
+</html>
