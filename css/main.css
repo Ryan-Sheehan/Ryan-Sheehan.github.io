@@ -14,6 +14,29 @@ hr {
 hr.light {
   border-color: #ffcb04;
 }
+.warning {
+  width: 45rem;
+  padding: 0 20px;
+  height: 20rem;
+  color: #ffffff;
+  text-align: center;
+  font-size: 8rem;
+  border: 0px solid #000000;
+  top: 100px;
+  z-index: 2;
+  background-color: #ff2d5d;
+  font-family: covik-sans, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  position: fixed;
+  box-shadow: 4px 4px #42dc8e;
+}
+.warning-inner {
+  font-size: 1.5rem;
+  font-family: covik-sans, sans-serif;
+font-weight: 400;
+font-style: normal;
+}
 a {
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
